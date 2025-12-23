@@ -14,14 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // ACTIVE NAVIGATION MANAGEMENT
     // ==========================================
     function setActiveNavItem(clickedItem, isMobile = false) {
-        // Sabhi items se active class hatao
+        // Remove active class from all items
         desktopNavItems.forEach(item => item.classList.remove('active'));
         mobileNavItems.forEach(item => item.classList.remove('active'));
         
-        // Clicked item ko active karo
+        // Add active to clicked item
         clickedItem.classList.add('active');
         
-        // Agar desktop item click hua hai to mobile mein bhi same active karo
+        // Sync desktop and mobile
         if (!isMobile) {
             const text = clickedItem.textContent.trim();
             mobileNavItems.forEach(mobileItem => {
@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     mobileItem.classList.add('active');
                 }
             });
-        }
-        // Agar mobile item click hua hai to desktop mein bhi same active karo
-        else {
+        } else {
             const text = clickedItem.textContent.trim();
             desktopNavItems.forEach(desktopItem => {
                 if (desktopItem.textContent.trim() === text) {
@@ -59,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             setActiveNavItem(this, true);
             
-            // Mobile menu close karo
+            // Close mobile menu
             mobileNav.classList.remove('show');
             hamburgerIcon.classList.remove('fa-times');
             hamburgerIcon.classList.add('fa-bars');
@@ -89,16 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             alert('Sign In functionality would go here!');
-            
-            // Agar sign in button ko bhi active banana hai to
-            // setActiveNavItem(this);
         });
     });
     
     // ==========================================
     // INITIAL SETUP - Default Active Item
     // ==========================================
-    // Home ko default active karo
+    // Set Home as default active
     const defaultActive = document.querySelector('.nav-item:first-child');
     if (defaultActive) {
         setActiveNavItem(defaultActive, false);
@@ -147,31 +142,31 @@ cards.forEach(card => {
 });
 
 // ==========================================
-// NEWSLETTER FORM HANDLING
+// NEWSLETTER FORM HANDLING - FIXED CLASS NAMES
 // ==========================================
-const notifyBtn = document.querySelector('.notify-btn');
-const emailInput = document.querySelector('.email-input');
+const newsletterBtn = document.querySelector('.newsletter-submit');
+const newsletterEmail = document.querySelector('.newsletter-email');
 
-if (notifyBtn) {
-    notifyBtn.addEventListener('click', (e) => {
+if (newsletterBtn && newsletterEmail) {
+    newsletterBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const email = emailInput.value.trim();
+        const email = newsletterEmail.value.trim();
         
         if (email === '') {
             alert('Please enter your email address');
-            emailInput.focus();
+            newsletterEmail.focus();
             return;
         }
         
         if (!validateEmail(email)) {
             alert('Please enter a valid email address');
-            emailInput.focus();
+            newsletterEmail.focus();
             return;
         }
         
         // Success message
         alert('Thank you for subscribing to GeoFroggy newsletter! 🎉');
-        emailInput.value = '';
+        newsletterEmail.value = '';
     });
 }
 
@@ -227,7 +222,7 @@ cards.forEach((card, index) => {
 // ==========================================
 // BUTTON CLICK ANIMATION
 // ==========================================
-const allButtons = document.querySelectorAll('.card-btn, .signin-btn, .notify-btn');
+const allButtons = document.querySelectorAll('.card-btn, .signin-btn, .newsletter-submit');
 allButtons.forEach(button => {
     button.addEventListener('click', function(e) {
         // Create ripple effect

@@ -37,9 +37,13 @@ img {
 }
 
 .logo {
-    font-size: 40px;
-    font-weight: bold;
     display: inline-block;
+}
+
+.logo img {
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
 }
 
 /* ========================================
@@ -88,8 +92,7 @@ img {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.nav-item.active,
-.nav-item.explore-special {
+.nav-item.active{
     background-color: #8DC63F;
     color: #ffffff;
     border-radius: 0 0 40px 40px;
@@ -329,6 +332,11 @@ img {
     align-items: center;
 }
 
+.footer-logo-img {
+    max-width: 180px;
+    height: auto;
+}
+
 .logo-text {
     display: flex;
     flex-direction: column;
@@ -548,8 +556,8 @@ img {
    RESPONSIVE - TABLET (768px - 1023px)
 ======================================== */
 @media (min-width: 768px) {
-    .logo {
-        font-size: 44px;
+    .logo img {
+        max-width: 240px;
     }
 
     .hero-section {
@@ -638,8 +646,8 @@ img {
    RESPONSIVE - DESKTOP (1024px+)
 ======================================== */
 @media (min-width: 1024px) {
-    .logo {
-        font-size: 48px;
+    .logo img {
+        max-width: 260px;
     }
 
     /* Desktop Navigation */
@@ -695,6 +703,10 @@ img {
         max-width: 400px;
     }
 
+    .footer-logo-img {
+        max-width: 220px;
+    }
+
     .logo-gee,
     .logo-froggy {
         font-size: 32px;
@@ -739,8 +751,8 @@ img {
         max-width: 1280px;
     }
 
-    .logo {
-        font-size: 52px;
+    .logo img {
+        max-width: 280px;
     }
 
     .nav-item {
@@ -777,8 +789,8 @@ img {
         padding: 12px 0;
     }
 
-    .logo {
-        font-size: 32px;
+    .logo img {
+        max-width: 180px;
     }
 
     .header {
