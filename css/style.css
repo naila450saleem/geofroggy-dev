@@ -728,11 +728,13 @@ margin-top: 10px;
 }
 
 /* Tablet / iPad */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* Tablet / iPad portrait & landscape */
+@media (max-width: 1366px) {
     .experience-card {
-        margin-top: -150px; /* sirf tablet par apply hoga */
+        margin-top: -200px; /* upar move karne ke liye negative margin */
     }
 }
+
 
 /* ========================================
    RESPONSIVE - DESKTOP (1024px+)
