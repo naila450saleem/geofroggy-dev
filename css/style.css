@@ -624,7 +624,7 @@ img {
     }
 
     .card-img-box {
-       height: 150px;       /* box ka height badha diya */
+       height: 180px;       /* box ka height badha diya */
     overflow: hidden; 
     }
 
@@ -731,7 +731,7 @@ margin-top: 10px;
 /* Tablet / iPad portrait & landscape */
 @media (max-width: 1366px) {
     .experience-card {
-        margin-top: -180px; /* upar move karne ke liye negative margin */
+        margin-top: -230px; /* upar move karne ke liye negative margin */
         margin-bottom: 30px;
     }
 }
