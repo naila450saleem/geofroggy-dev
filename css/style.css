@@ -624,7 +624,7 @@ img {
     }
 
     .card-img-box {
-       height: 200px;       /* box ka height badha diya */
+       height: 150px;       /* box ka height badha diya */
     overflow: hidden; 
     }
 
