@@ -731,7 +731,7 @@ margin-top: 10px;
 /* Tablet / iPad portrait & landscape */
 @media (max-width: 1366px) {
     .experience-card {
-        margin-top: -200px; /* upar move karne ke liye negative margin */
+        margin-top: -170px; /* upar move karne ke liye negative margin */
     }
 }
 
