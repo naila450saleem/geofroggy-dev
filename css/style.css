@@ -620,6 +620,7 @@ img {
     .footer-logo-section {
         flex: 1;
         max-width: 45%;
+        padding-left: 15px;
     }
 
     .footer-newsletter-section {
@@ -866,6 +867,7 @@ img {
 
     .footer-tagline {
         font-size: 13px;
+        padding-left: 18px;
     }
 
     .footer-link-col h4 {
@@ -894,6 +896,7 @@ img {
 
     .footer-text-social {
         width: 100%;
+        padding-left: 15px;
     }
 
      .footer-link-col {
