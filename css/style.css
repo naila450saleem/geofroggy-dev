@@ -655,6 +655,16 @@ img {
         gap: 30px;
     }
 
+.footer-link-col:nth-child(1),
+.footer-link-col:nth-child(3) {
+    transform: translateX(-70px); /* thora right shift */
+}
+
+    .footer-link-col {
+    white-space: normal;
+    padding-left: 80px;   /* left se space, element right move */
+}
+
     .footer-bottom-bar {
         flex-direction: row;
         justify-content: space-between;
