@@ -565,6 +565,30 @@ img {
    RESPONSIVE - TABLET (768px - 1023px)
 ======================================== */
 @media (min-width: 768px) {
+     /* SHOW desktop nav links */
+    .desktop-nav {
+        display: flex;
+    }
+
+    /* HIDE hamburger & mobile nav */
+    .hamburger {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: none !important;
+    }
+
+    .nav-container {
+        justify-content: center;
+    }
+
+    .signin-btn {
+        display: block;
+        position: absolute;
+        right: 20px;
+    }
+    
     .logo img {
         max-width: 240px;
     }
@@ -574,8 +598,8 @@ img {
     }
 
     .cards-wrapper {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
     }
 
     .card-content {
@@ -841,6 +865,36 @@ img {
     .footer-bottom-bar {
         font-size: 12px;
         padding: 15px;
+    }
+    
+    .main-footer,
+    .footer-top-row,
+    .footer-middle-row,
+    .footer-bottom-bar {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+  .footer-links-container {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        gap: 20px;
+        overflow-x: hidden;
+    }
+
+    .footer-text-social {
+        width: 100%;
+    }
+
+     .footer-link-col {
+        white-space: normal;   /* wrap allow */
+        transform: none;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .footer-link-col ul {
+        padding-left: 0;
     }
 }
 
