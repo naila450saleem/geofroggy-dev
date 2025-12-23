@@ -31,7 +31,7 @@ img {
 ======================================== */
 .logo-bar {
     background: #ffffff;
-    padding: 15px 0;
+    padding: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     text-align: center;
 }
@@ -62,7 +62,7 @@ img {
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0 20px;
     position: relative;
 }
@@ -70,8 +70,8 @@ img {
 /* --- Desktop Navigation --- */
 .desktop-nav {
     display: none;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: flex-start;
     gap: 0;
     flex: 1;
 }
@@ -217,10 +217,14 @@ img {
 }
 
 .card-top {
+    margin-top: 20px;
     background: #0c5a8a;
     color: white;
     text-align: center;
     padding: 13px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
 }
 
 .card-top h3 {
@@ -234,7 +238,7 @@ img {
 }
 
 .card-heading {
-    color: #0c5a8a;
+    color: #333;
     font-size: 22px;
     font-weight: bold;
     text-align: center;
@@ -264,20 +268,25 @@ img {
 }
 
 .card-btn {
-    width: 100%;
-    background: #7ec845;
-    color: white;
-    border: none;
+    width: 80%;              /* left-right se chota */
+        background: linear-gradient(to bottom, #86BD39, #4A780B);
+    color: #fff;
+    border: 2px solid #7ec845;
     padding: 12px 20px;
-    border-radius: 22px;
+    border-radius: 10px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
+    margin: 0 auto;          /* center me aa jayega */
+    display: block;
+    margin-top: 10px;
 }
 
+
 .card-btn:hover {
-    background: #6db635;
+    background: #7ec845; /* Original green on hover */
+    color: white;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(126, 200, 69, 0.35);
 }
@@ -333,7 +342,7 @@ img {
 }
 
 .footer-logo-img {
-    max-width: 180px;
+    max-width: 150px;
     height: auto;
 }
 
@@ -343,19 +352,7 @@ img {
     line-height: 1;
 }
 
-.logo-gee {
-    font-size: 28px;
-    font-weight: 900;
-    color: white;
-    letter-spacing: 1px;
-}
 
-.logo-froggy {
-    font-size: 28px;
-    font-weight: 900;
-    color: #7ec845;
-    letter-spacing: 1px;
-}
 
 .footer-description {
     color: rgba(255,255,255,0.9);
@@ -372,14 +369,14 @@ img {
 
 .newsletter-wrapper {
     background: rgba(255,255,255,0.05);
-    padding: 25px;
+    padding: 15px;
     border-radius: 15px;
     border: 2px solid rgba(255,255,255,0.1);
     width: 100%;
 }
 
 .newsletter-wrapper h4 {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     margin-bottom: 15px;
     color: white;
@@ -393,7 +390,7 @@ img {
 
 .newsletter-email {
     width: 100%;
-    padding: 12px 15px;
+    padding: 12px 10px;
     border: none;
     border-radius: 8px;
     font-size: 14px;
@@ -432,17 +429,24 @@ img {
 }
 
 .footer-tagline {
-    font-size: 14px;
+       font-size: 14px;
     line-height: 1.8;
     color: rgba(255,255,255,0.9);
-    margin-bottom: 20px;
+    margin-bottom: 12px; /* spacing neeche */
     font-style: italic;
+    transform: translateY(-30px);
+
 }
+
+
 
 .footer-social-links {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    align-items: left;
+     transform: translateY(-30px);
+
 }
 
 .social-icon {
@@ -453,7 +457,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #1C5B85;
     font-size: 18px;
     transition: all 0.3s;
     text-decoration: none;
@@ -470,11 +474,15 @@ img {
     display: grid;
     grid-template-columns: 1fr;
     gap: 30px;
+    transform: translateY(-40px);
+    
 }
 
 .footer-link-col {
     display: flex;
     flex-direction: column;
+    white-space: nowrap;
+    transform: translateX(-160px);
 }
 
 .footer-link-col h4 {
@@ -482,6 +490,7 @@ img {
     font-weight: 600;
     margin-bottom: 15px;
     color: white;
+    white-space: nowrap;
 }
 
 .footer-link-col ul {
@@ -832,5 +841,268 @@ img {
     .footer-bottom-bar {
         font-size: 12px;
         padding: 15px;
+    }
+}
+
+/* ===== ANIMATION BASE ===== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-zoom {
+    opacity: 0;
+    transform: scale(1.1);
+    transition: all 1.2s ease;
+}
+
+.fade-zoom.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+}
+
+.slide-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Logo animation */
+.logo-bar {
+    animation: slideDown 1s ease forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Logo floating animation */
+.logo-bar img {
+    animation: floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* Sign In Button entrance */
+.signin-btn {
+    animation: slideFromRight 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s both;
+}
+
+@keyframes slideFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Active nav item pulse */
+.nav-item.active {
+    animation: pulseTag 2s infinite;
+}
+
+@keyframes pulseTag {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* Hero image zoom */
+/* .hero-img {
+    animation: heroZoom 10s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+} */
+
+/* ===== CARDS ANIMATIONS ===== */
+/* Card scroll animation */
+.experience-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.experience-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delays for cards */
+.experience-card:nth-child(1).show {
+    transition-delay: 0.1s;
+}
+
+.experience-card:nth-child(2).show {
+    transition-delay: 0.3s;
+}
+
+.experience-card:nth-child(3).show {
+    transition-delay: 0.5s;
+}
+
+/* Card hover effects */
+.experience-card:hover {
+    transform: translateY(-15px) scale(1.03) !important;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    border-color: #8DC63F;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* Card image floating */
+.experience-card.show .card-img-box img {
+    animation: floatImg 4s ease-in-out infinite;
+}
+
+@keyframes floatImg {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.02); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+/* Card button hover */
+.card-btn:hover {
+    background: linear-gradient(to bottom, #175883, #0d3b66);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(23, 88, 131, 0.3);
+}
+
+/* Card image hover effect */
+.experience-card:hover .card-img-box img {
+    transform: scale(1.08);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ===== FOOTER ANIMATIONS ===== */
+/* Footer background zoom */
+.footer-bg-overlay {
+    animation: fadeZoom 15s ease-in-out infinite alternate;
+}
+
+@keyframes fadeZoom {
+    from { opacity: 0.9; transform: scale(1); }
+    to { opacity: 1; transform: scale(1.02); }
+}
+
+/* Social icons floating */
+.social-icon {
+    animation: floatLogo 4s ease-in-out infinite;
+}
+
+/* Hamburger menu rotation */
+.hamburger:hover {
+    animation: rotateHamburger 0.3s ease forwards;
+}
+
+@keyframes rotateHamburger {
+    to { transform: rotate(90deg); }
+}
+
+/* Button pulse on hover */
+.card-btn:hover,
+.newsletter-submit:hover {
+    animation: buttonPulse 0.5s ease;
+}
+
+@keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Mobile menu item slide */
+.mobile-item:hover {
+    animation: slideInRight 0.3s ease forwards;
+}
+
+@keyframes slideInRight {
+    to { transform: translateX(10px); }
+}
+
+/* Footer links column hover */
+.footer-link-col:hover h4 {
+    animation: linkHover 0.3s ease forwards;
+}
+
+@keyframes linkHover {
+    to { transform: translateX(5px); }
+}
+
+/* Footer copyright bar */
+.footer-bottom-bar {
+    animation: fadeInUp 1s ease 0.8s both;
+}
+
+/* ===== EXTRA ANIMATIONS (Optional) ===== */
+/* Bounce animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1);}
+}
+
+/* Shake animation */
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);}
+    20%, 40%, 60%, 80% {transform: translateX(5px);}
+}
+
+/* Fade in from left */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade in from right */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }

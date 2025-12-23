@@ -317,3 +317,139 @@ window.addEventListener('load', () => {
 console.log('%c🐸 Welcome to GeoFroggy! 🌍', 'color: #7ec845; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);');
 console.log('%cExplore global stories, connect with cultures worldwide!', 'color: #0c5a8a; font-size: 14px; font-weight: 600;');
 console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #7ec845;');
+
+// Cards ke liye scroll animation
+function initCardAnimations() {
+    const cards = document.querySelectorAll('.experience-card');
+    
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add show class to trigger animation
+                entry.target.classList.add('show');
+                // Stop observing after animation
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2, // Card ka 20% visible hone par trigger
+        rootMargin: '0px 0px -50px 0px' // Bottom se 50px pehle trigger
+    });
+    
+    // Observe each card
+    cards.forEach(card => {
+        observer.observe(card);
+    });
+    
+    // Page load pe jo cards already visible hain unko bhi show karo
+    window.addEventListener('load', () => {
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                card.classList.add('show');
+                observer.unobserve(card);
+            }
+        });
+    });
+}
+
+// DOM ready pe initialize karo
+document.addEventListener('DOMContentLoaded', function() {
+    // Card animations initialize
+    initCardAnimations();
+    
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', function() {
+            mobileNav.classList.toggle('show');
+            
+            if (mobileNav.classList.contains('show')) {
+                hamburgerIcon.classList.remove('fa-bars');
+                hamburgerIcon.classList.add('fa-times');
+            } else {
+                hamburgerIcon.classList.remove('fa-times');
+                hamburgerIcon.classList.add('fa-bars');
+            }
+        });
+    }
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (mobileNav && mobileNav.classList.contains('show') && 
+            !event.target.closest('.nav-container') && 
+            !event.target.closest('.mobile-nav')) {
+            mobileNav.classList.remove('show');
+            if (hamburgerIcon) {
+                hamburgerIcon.classList.remove('fa-times');
+                hamburgerIcon.classList.add('fa-bars');
+            }
+        }
+    });
+    
+    // Add hover animations for cards
+    const cards = document.querySelectorAll('.experience-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            if (this.classList.contains('show')) {
+                this.style.transform = 'translateY(-15px) scale(1.03)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (this.classList.contains('show')) {
+                this.style.transform = 'translateY(0) scale(1)';
+            }
+        });
+    });
+    
+    // Button hover effects
+    const buttons = document.querySelectorAll('.card-btn, .newsletter-submit, .signin-btn');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) translateY(-2px)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) translateY(0)';
+        });
+    });
+    
+    // Social icon hover effects
+    const socialIcons = document.querySelectorAll('.social-icon');
+    socialIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) rotate(10deg) scale(1.2)';
+        });
+        
+        icon.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) rotate(0) scale(1)';
+        });
+    });
+    
+    // Add animation to footer links
+    const footerLinks = document.querySelectorAll('.footer-link-col ul li a');
+    footerLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateX(5px)';
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateX(0)';
+        });
+    });
+});
+
+// Re-trigger animations when scrolling up
+window.addEventListener('scroll', function() {
+    document.querySelectorAll('.fade-up, .fade-zoom, .slide-left').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.9) {
+            el.classList.add('show');
+        }
+    });
+});
