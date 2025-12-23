@@ -611,7 +611,7 @@ img {
 
     .experience-card {
     overflow: visible; /* overflow hidden ko visible karo */
-    margin-top: -50px;
+    margin-top: 180px;
 }
 
     .cards-wrapper {
@@ -731,7 +731,7 @@ margin-top: 10px;
 /* Tablet / iPad portrait & landscape */
 @media (max-width: 1366px) {
     .experience-card {
-        margin-top: -230px; /* upar move karne ke liye negative margin */
+        margin-top: 30px; /* upar move karne ke liye negative margin */
         margin-bottom: 30px;
     }
 }
