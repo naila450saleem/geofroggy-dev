@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoFroggy - Explore the World</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- LOGO BAR - WHITE BACKGROUND TOP CENTER -->
+    <div class="logo-bar">
+        <div class="container">
+            <div class="logo">
+    <img src="images/logo-bg.png" alt="GeoFroggy Logo">
+</div>
+
+        </div>
+    </div>
+
+    <!-- NAVIGATION BAR - BLUE BACKGROUND -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav" id="desktopNav">
+                    <a href="#" class="nav-item">Home</a>
+                    <a href="#" class="nav-item">About</a>
+                    <a href="#" class="nav-item">News</a>
+                    <a href="#" class="nav-item explore-special">Explore</a>
+                    <a href="#" class="nav-item">Media</a>
+                    <a href="#" class="nav-item">Donate</a>
+                    <a href="#" class="nav-item">Get Involved</a>
+                    <a href="#" class="nav-item">Contact</a>
+                </nav>
+
+                <!-- Sign In Button -->
+                <button class="signin-btn">Sign In</button>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars" id="hamburgerIcon"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div class="mobile-nav" id="mobileNav">
+                <a href="#" class="mobile-item">Home</a>
+                <a href="#" class="mobile-item">About</a>
+                <a href="#" class="mobile-item">News</a>
+                <a href="#" class="mobile-item">Explore</a>
+                <a href="#" class="mobile-item">Media</a>
+                <a href="#" class="mobile-item">Donate</a>
+                <a href="#" class="mobile-item">Get Involved</a>
+                <a href="#" class="mobile-item">Contact</a>
+                <button class="signin-btn mobile-signin-btn">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-wrapper">
+            <img src="images/Her0 Image.png" alt="Dragon Festival" class="hero-img">
+        </div>
+    </section>
+
+    <!-- CARDS SECTION -->
+    <section class="cards-section">
+        <div class="container">
+            <div class="cards-wrapper">
+                <!-- CARD 1: Kids 8-13 -->
+                <div class="experience-card">
+                    <div class="card-top">
+                        <h3>Home</h3>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-heading">Kids 8-13</h4>
+                        <p class="card-text">Games, maps and story quest</p>
+                        <div class="card-img-box">
+                            <img src="images/3 Image.png" alt="Kids Experience">
+                        </div>
+                        <button class="card-btn">Explore Kids Experience</button>
+                    </div>
+                </div>
+
+                <!-- CARD 2: Teens 13-17 -->
+                <div class="experience-card">
+                    <div class="card-top">
+                        <h3>Home</h3>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-heading">Teens 13-17</h4>
+                        <p class="card-text">Compare countries, beats and challenges</p>
+                        <div class="card-img-box">
+                            <img src="images/2 Image.png" alt="Teens Experience">
+                        </div>
+                        <button class="card-btn">Explore Teen Experience</button>
+                    </div>
+                </div>
+
+                <!-- CARD 3: Passport 18+ -->
+                <div class="experience-card">
+                    <div class="card-top">
+                        <h3>Home</h3>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-heading">Passport 18+</h4>
+                        <p class="card-text">Insightful stories content and dashboards</p>
+                        <div class="card-img-box">
+                            <img src="images/1 Image.png" alt="Adult Experience">
+                        </div>
+                        <button class="card-btn">Explore Adult Experience</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER WITH NEWSLETTER TOP RIGHT -->
+   <footer class="main-footer">
+        <!-- Background Image Overlay -->
+        <div class="footer-bg-overlay"></div>
+        
+        <div class="footer-container">
+            <!-- TOP ROW: Logo + Newsletter -->
+            <div class="footer-top-row">
+                <!-- LEFT: Logo -->
+                <div class="footer-logo-section">
+    <div class="footer-brand-logo">
+        <img src="images/Layer_1.png" alt="GeoFroggy Logo" class="footer-logo-img">
+    </div>
+</div>
+
+                
+                <!-- RIGHT: Newsletter -->
+                <div class="footer-newsletter-section">
+                    <div class="newsletter-wrapper">
+                        <h4>Newsletter</h4>
+                        <div class="newsletter-input-group">
+                            <input type="email" placeholder="Enter Email here" class="newsletter-email">
+                            <button class="newsletter-submit">Notify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MIDDLE ROW: Paragraph + Links -->
+            <div class="footer-middle-row">
+                <!-- LEFT: Paragraph and Social Links -->
+                <div class="footer-text-social">
+                    <p class="footer-tagline">
+                        Explore global stories, join meaningful <br>conversations, and be part of a worldwide <br>community where every place has a voice.
+                    </p>
+                    <p class="footer-tagline">
+                        Let geography become your guide to <br>understanding people, traditions, and <br>perspectives.
+                    </p>
+                    
+                    <div class="footer-social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- RIGHT: All Links -->
+                 <!-- RIGHT: All Links in 4 columns side-by-side -->
+                <div class="footer-links-container">
+                    <!-- Column 1: Explore Geofroggy -->
+                    <div class="footer-link-col">
+                        <h4>Explore Geofroggy</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Explore</a></li>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Copedia</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 2: Community & Support -->
+                    <div class="footer-link-col">
+                        <h4>Community & Support</h4>
+                        <ul>
+                            <li><a href="#">Submit a Story</a></li>
+                            <li><a href="#">Become an Ambassador</a></li>
+                            <li><a href="#">Get Involved</a></li>
+                            <li><a href="#">Donate</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Collaborate -->
+                    <div class="footer-link-col">
+                        <h4>Collaborate</h4>
+                        <ul>
+                            <li><a href="#">Advertise with Us</a></li>
+                            <li><a href="#">Partner With Us</a></li>
+                            <li><a href="#">Media Hub</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: Legal -->
+                    <div class="footer-link-col">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Community Guidelines</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </footer>
+
+    <!-- BOTTOM COPYRIGHT BAR - No Top Line -->
+           <div class="footer-bottom-bar">
+        <span class="left-text">© 2025 Geofroggy</span>
+        <span class="center-text">community where every place has a voice.</span>
+        <span class="right-text">All Rights Reserved</span>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
