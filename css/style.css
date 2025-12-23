@@ -610,6 +610,14 @@ img {
         height: 200px;
     }
 
+    .card-btn {
+        width: 100%;          /* tablet par thoda chota kar sakte ho */
+       padding: 14px 24px;  /* thoda bada button */
+    font-size: 15px;     /* font size same ya thoda adjust */
+        margin: 10px auto;   /* center align */
+        display: block;
+    }
+
     /* Footer tablet layout */
     .footer-top-row {
         flex-direction: row;
@@ -620,8 +628,13 @@ img {
     .footer-logo-section {
         flex: 1;
         max-width: 45%;
-        padding-left: 15px;
+        padding-left: 30px;
     }
+
+    .footer-social-links {
+   padding-left: 30px;
+margin-top: 10px;
+}
 
     .footer-newsletter-section {
         flex: 1;
@@ -631,6 +644,11 @@ img {
     .newsletter-wrapper {
         border-radius: 50px;
         padding: 20px 30px;
+    }
+
+    .footer-tagline {
+        font-size: 16px;
+        padding-left: 30px;
     }
 
     .newsletter-input-group {
