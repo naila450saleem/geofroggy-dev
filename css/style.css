@@ -771,9 +771,42 @@ img {
         font-size: 20px;
     }
 
-    .footer-links-container {
+      .footer-links-container {
+        display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 40px;
+        column-gap: 0; /* default grid gap remove */
+        row-gap: 0;
+        width: 100%;
+    }
+
+     /* Column 1 ke baad margin remove */
+    .footer-link-col:nth-child(1) {
+        transform: translateX(15px);
+        
+    }
+
+    /* Column 2 ke baad space add karo (agar chahiye) */
+    .footer-link-col:nth-child(2) {
+        margin-right: 40px; /* adjust as needed */
+        transform: translateX(10px);
+    }
+
+    /* Column 3 & 4 ke liye margin remove */
+    .footer-link-col:nth-child(3){
+        margin-right: 5px;
+        white-space: nowrap;
+        transform: translateX(-12px);
+    }
+
+.footer-links-container .footer-link-col:nth-child(4) {
+    transform: translateX(-20px);
+    white-space: nowrap;
+}
+
+    .footer-link-col {
+        padding-left: 0;
+        transform: none;
+        white-space: normal;
     }
 
     .footer-link-col h4 {
@@ -785,6 +818,7 @@ img {
         padding: 15px 40px;
         font-size: 14px;
     }
+    
 }
 
 /* ========================================
