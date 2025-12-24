@@ -745,7 +745,7 @@ margin-top: 10px;
         top: 15px;
     }
 
-     .card-btn {
+     .cards-wrapper > .experience-card:first-child .card-btn {
         transform: translateY(15px);
     }
 }
