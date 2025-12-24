@@ -177,7 +177,7 @@ img {
     width: 100%;
     height: auto;         /* Maintain aspect ratio */
     display: block;
-    margin-top: 8%;
+    margin-top: 12%;
 }
 
 
@@ -302,6 +302,7 @@ img {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(126, 200, 69, 0.35);
 }
+
 
 /* ========================================
    FOOTER DESIGN
@@ -643,6 +644,7 @@ img {
         display: block;
     }
 
+
     /* Footer tablet layout */
     .footer-top-row {
         flex-direction: row;
@@ -736,6 +738,19 @@ margin-top: 10px;
         margin-bottom: 30px;
     }
 }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .cards-wrapper > .experience-card:first-child .card-img-box {
+        position: relative;
+        top: 15px;
+    }
+
+     .card-btn {
+        transform: translateY(15px);
+    }
+}
+
+
 
 
 /* ========================================
@@ -940,7 +955,7 @@ margin-top: 10px;
     }
 
      .hero-section {
-        height: 220px;      /* Mobile ke liye height */
+        height: 250px;      /* Mobile ke liye height */
     }
 
     .hero-section img {
