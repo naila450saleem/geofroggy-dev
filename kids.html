@@ -197,48 +197,39 @@
 
 /* Images ke liye absolute positioning */
 .globe-img {
-    position: absolute;
-    width: auto;   /* original size maintain karne ke liye */
+     position: absolute;
+     width: auto;
+    height: auto;
+    display: block;
     height: auto;  /* original size maintain karne ke liye */
-    max-width: 100%; 
-    max-height: 100%;
     object-fit: cover;
+    overflow: visible;
 }
 
 /* Pehli image */
 .img1 {
     top: 60%;
-    left: 102%;
+    left: 100%;
+    height: 400px;
+    width: 400px;        /* ellipse ka size */
     transform: translate(-50%, -50%);
-   width: auto;   /* original size maintain karne ke liye */
-    height: auto;  /* original size maintain karne ke liye */
-    max-width: 120%; 
-    max-height: 120%;
+    z-index: 1;
 }
 
 /* Dusri image */
 .img2 {
     top: 60%;
-    left: 110%;
+    left: 105%;
+    height: 550px;
+    width: 550px;        /* globe ka size */
     transform: translate(-50%, -50%);
-    width: auto;
-    height: auto;
-    max-width: 120%;
-    max-height: 120%;
-    overflow-x: hidden;
-    
-    /* Circular shape */
-    border-radius: 50%;
-    
-    /* Rotation animation */
-    animation: rotate 20s linear infinite;
-    
-    /* Smooth rotation */
-    transform-origin: center center;
+    z-index: 2;
+    animation: spin 6s linear infinite;
 }
 
+
 /* Rotation keyframes */
-@keyframes rotate {
+@keyframes spin {
     from {
         transform: translate(-50%, -50%) rotate(0deg);
     }
@@ -247,10 +238,11 @@
     }
 }
 
+
 .frog-left {
     position: absolute;
     top: 60%;
-    left: 40%;
+    left: 30%;
     transform: translateY(-50%) translateX(-130px);
     z-index: 20;
     transition: all 0.3s ease;
@@ -677,25 +669,24 @@
             }
         }
 
-/* =================================================
-   iPAD MINI + iPAD AIR → DESKTOP STYLE LAYOUT
-   (768px – 900px)
-================================================= */
 @media (min-width: 768px) and (max-width: 900px) {
 
     /* ---------- PAGE 1 LAYOUT ---------- */
     .page1-content {
-        flex-direction: row;              /* 🔥 DESKTOP STYLE */
+        flex-direction: row;              /* Desktop style */
         align-items: center;
         justify-content: space-between;
-        padding: 60px 50px 120px;
+        padding: 60px 30px 120px;         /* left-right padding reduce */
+        width: 100%;                        /* flexible width */
+        max-width: 1200px;                 /* desktop max limit */
+        margin: 0 auto;                    /* center align */
         text-align: left;
     }
 
     .left-content {
         flex: 1;
         max-width: 520px;
-        margin-left: 40px;
+        margin-left: 20px;                 /* reduce for tablet */
         text-align: left;
     }
 
@@ -725,173 +716,60 @@
     }
 
     .globe-container {
-        width: 420px;
-        height: 420px;
+        width: 350px;       /* reduce for iPad */
+        height: 350px;
     }
 
-    .img1,
-    .img2 {
-        left: 100%;
+    .img1 {
+        left: 75%;          /* center properly */
         top: 55%;
         transform: translate(-50%, -50%);
-        max-width: 120%;
-        max-height: 120%;
+        width: auto;
+        height: auto;
+        max-width: 350px;
+        max-height: 350px;
+    }
+
+    .img2 {
+        left: 75%;          /* center properly */
+        top: 55%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     /* ---------- FROG POSITION ---------- */
     .frog-left {
         position: absolute;
-        left: 45%;
+        left: 25%;
         top: 65%;
-        width: 220px;
-        height: 220px;
+        width: 250px;
+        height: 250px;
         transform: translate(-50%, -50%);
     }
 
     /* ---------- FEATURE CARDS (3 IN A ROW) ---------- */
     .feature-cards {
-        flex-direction: row;              /* 🔥 ONE LINE */
+        flex-direction: row;
         justify-content: space-between;
         align-items: stretch;
         gap: 10px;
-        padding: 0 50px 40px;
+        padding: 0 20px 40px;    /* reduce padding */
         margin-top: -60px;
     }
 
     .feature-card {
-        max-width: 33%;
+        max-width: 32%;           /* slightly reduce */
         flex: 1;
     }
 }
 
 
 
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-                flex-wrap: wrap;
-            }
-            
-            .logo-img {
-                width: 80px;
-                height: 80px;
-                margin-left: 20px;
-                left: 10px;
-            }
-            
-            .nav-btn {
-                padding: 8px 18px;
-                font-size: 12px;
-            }
-            
-            .page1-content {
-                padding: 30px 15px 60px;
-            }
-            
-            .main-title {
-                font-size: 32px;
-            }
-            
-            .subtitle {
-                font-size: 14px;
-                margin-bottom: 20px;
-            }
-            
-            .feature-item {
-                font-size: 14px;
-                justify-content: center;
-            }
-            
-            .btn-primary, .btn-secondary {
-                padding: 12px 24px;
-                font-size: 13px;
-            }
-            
-            .globe-container {
-                width: 240px;
-                height: 240px;
-            }
-            
-            .frog-left {
-                width: 140px;
-                height: 140px;
-                left: 25%;
-                transform: translateY(-50%) translateX(-70px);
-            }
-            
-            .img1 {
-                left: 85%;
-                top: 50%;
-            }
-            
-            .img2 {
-                left: 80%;
-                top: 50%;
-            }
-            
-            @keyframes floatUpDown {
-                0% {
-                    transform: translateY(-50%) translateX(-70px) translateY(0);
-                }
-                50% {
-                    transform: translateY(-50%) translateX(-70px) translateY(-20px);
-                }
-                100% {
-                    transform: translateY(-50%) translateX(-70px) translateY(0);
-                }
-            }
-            
-            .feature-card {
-                border-radius: 40px;
-                padding: 20px 20px;
-            }
-            
-            .card-icon {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .page2-content {
-                padding: 30px 15px 80px;
-            }
-            
-            .map-container {
-                padding: 20px;
-                border-radius: 30px;
-            }
-            
-            .world-map {
-                height: 300px;
-                border-radius: 20px;
-            }
-            
-            .bottom-nav {
-                padding: 15px 15px;
-                gap: 10px;
-            }
-            
-            .nav-item {
-                padding: 10px 12px;
-            }
-            
-            .nav-icon {
-                width: 38px;
-                height: 38px;
-                font-size: 20px;
-            }
-            
-            .nav-label {
-                font-size: 11px;
-            }
-            
-            footer {
-                padding: 12px 15px;
-                font-size: 11px;
-                flex-direction: column;
-                gap: 8px;
-                text-align: center;
-            }
-        }
+
+     
 
         @media (max-width: 576px) {
             .logo-img {
@@ -1164,7 +1042,7 @@
         <!-- Pehli image -->
         <img src="images/Ellipse 1.png" alt="Image 1" class="globe-img img1">
         <!-- Dusri image -->
-        <img src="images/1-removebg-preview.png" alt="Image 2" class="globe-img img2">
+        <img src="images/globe/globe1.png" alt="Image 2" class="globe-img img2">
         <!-- Frog at starting position (top center) -->
      <div class="frog-left">
         <img src="images/frog.png" alt="Frog">
