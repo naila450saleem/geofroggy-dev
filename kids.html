@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoFroggy - World Explorer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Page 1 Styles */
+        .page {
+            min-height: 100vh;
+            display: none;
+            flex-direction: column;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+       /* White logo container – stays in blue area */
+.logo-img {
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 0 0 50% 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-left: 70px;
+
+    position: absolute;
+    top: 0;
+    left: 30px;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    overflow: visible;   /* 👈 VERY IMPORTANT */
+}
+
+
+/* Logo image – moves upward */
+.logo-img img {
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+
+    position: relative;
+   
+}
+
+        .nav-btn {
+            background: #7CB342;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(124, 179, 66, 0.3);
+        }
+
+        /* Page 1 Content */
+        .page1-content {
+            background: linear-gradient(135deg, 
+    #EEFEE5 0%,    /* Top-left mint green */
+    #E0F7F7 30%,   /* Light cyan */
+    #B2EBF2 70%,   /* Light blue */
+    #8FD3D1 100%   /* Bottom teal/parrot green */
+  );
+            flex: 1;
+            padding: 60px 40px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            padding-bottom: 100px;
+        }
+
+        .left-content {
+            flex: 1;
+            max-width: 600px;
+            margin-left: 70px;
+            padding-top: 5%;
+        }
+
+        .main-title {
+            font-size: 58px;
+            font-weight: 800;
+            color: #1a1a1a;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .explorer {
+            color: #8BC34A;
+        }
+
+        .subtitle {
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 35px;
+        }
+
+        .features {
+            margin-bottom: 35px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            font-size: 16px;
+            color: #333;
+        }
+
+       .feature-icon img {
+    width: 28px;   /* apni desired size */
+    height: 28px;
+    margin-top: 10px;
+}
+
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #00BCD4;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+        }
+
+        .btn-secondary {
+            background: #E5FEA7;
+            color: #333;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+.right-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.globe-container {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    
+}
+
+
+
+/* Images ke liye absolute positioning */
+.globe-img {
+    position: absolute;
+    width: auto;   /* original size maintain karne ke liye */
+    height: auto;  /* original size maintain karne ke liye */
+    max-width: 100%; 
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/* Pehli image */
+.img1 {
+    top: 60%;
+    left: 102%;
+    transform: translate(-50%, -50%);
+   width: auto;   /* original size maintain karne ke liye */
+    height: auto;  /* original size maintain karne ke liye */
+    max-width: 120%; 
+    max-height: 120%;
+}
+
+/* Dusri image */
+.img2 {
+    top: 60%;
+    left: 110%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    max-width: 120%;
+    max-height: 120%;
+    overflow-x: hidden;
+    
+    /* Circular shape */
+    border-radius: 50%;
+    
+    /* Rotation animation */
+    animation: rotate 20s linear infinite;
+    
+    /* Smooth rotation */
+    transform-origin: center center;
+}
+
+/* Rotation keyframes */
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.frog-left {
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    transform: translateY(-50%) translateX(-130px);
+    z-index: 20;
+    transition: all 0.3s ease;
+    width: 300px;
+    height: 300px;
+    
+    /* Floating animation - goes UP first */
+    animation: floatUpDown 2s ease-in-out infinite;
+}
+
+/* Animation: First goes UP, then comes DOWN */
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(-50%) translateX(-130px) translateY(0);
+    }
+    50% {
+        transform: translateY(-50%) translateX(-130px) translateY(-30px); /* Higher up */
+    }
+    100% {
+        transform: translateY(-50%) translateX(-130px) translateY(0);
+    }
+}
+
+/* Also style the frog image inside */
+.frog-left img {
+    width: 100%;   /* Make image fill container */
+    height: 100%;
+    object-fit: contain; /* Keep aspect ratio */
+}
+
+.frog-left:hover {
+    cursor: pointer;
+}
+
+        /* Feature Cards */
+        .feature-cards {
+            display: flex;
+            gap: 20px;
+            padding: 0 40px 40px;
+            justify-content: flex-start;
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .feature-card {
+            background: #E8F5E9;
+            border: 3px solid #A5D6A7;
+            padding: 25px 30px;
+            border-radius: 70px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            flex: 1;
+            max-width: 380px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .card-content h3 {
+            font-size: 18px;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .card-content p {
+            font-size: 15px;
+            color: #222;
+        }
+
+        /* Page 2 Styles */
+        .page2-content {
+            background: linear-gradient(to bottom, #E0F7F7 0%, #B2EBF2 100%);
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 100px;
+        }
+
+        .map-container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            border-radius: 40px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .world-map {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #4FC3F7 0%, #0288D1 100%);
+            border-radius: 30px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .map-continent {
+            position: absolute;
+            background: #F0E68C;
+        }
+
+        .north-america {
+            width: 18%;
+            height: 35%;
+            top: 15%;
+            left: 12%;
+            border-radius: 40% 30% 20% 50%;
+        }
+
+        .south-america {
+            width: 12%;
+            height: 30%;
+            top: 48%;
+            left: 18%;
+            border-radius: 30% 40% 50% 30%;
+        }
+
+        .europe {
+            width: 15%;
+            height: 20%;
+            top: 12%;
+            left: 42%;
+            border-radius: 50% 40% 30% 40%;
+        }
+
+        .africa {
+            width: 15%;
+            height: 35%;
+            top: 35%;
+            left: 43%;
+            border-radius: 40% 40% 50% 50%;
+        }
+
+        .asia {
+            width: 28%;
+            height: 38%;
+            top: 18%;
+            right: 12%;
+            border-radius: 40% 50% 40% 30%;
+        }
+
+        .australia {
+            width: 12%;
+            height: 18%;
+            bottom: 22%;
+            right: 15%;
+            border-radius: 40% 50% 40% 50%;
+        }
+
+        .landmark {
+            position: absolute;
+            font-size: 24px;
+        }
+
+        .wave-icon {
+            position: absolute;
+            color: white;
+            font-size: 28px;
+            opacity: 0.6;
+        }
+
+        .star-marker {
+            position: absolute;
+            color: #FF6B35;
+            font-size: 20px;
+            top: 40%;
+            left: 48%;
+        }
+
+        .tap-prompt {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .hand-icon {
+            font-size: 20px;
+        }
+
+        .page2-frog {
+            position: absolute;
+            bottom: -30px;
+            right: -50px;
+            width: 140px;
+            height: 160px;
+        }
+
+        .frog2-body {
+            width: 100%;
+            height: 100%;
+            background: #8BC34A;
+            border-radius: 50% 50% 45% 45%;
+            position: relative;
+        }
+
+        .speech-bubble {
+            position: absolute;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 15px;
+            top: -60px;
+            right: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 30px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid white;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            background: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 15px 30px;
+            border-radius: 15px;
+            transition: background 0.3s;
+        }
+
+        .nav-item:hover {
+            background: #E0F7F7;
+        }
+
+        .nav-item.active {
+            background: #E0F7F7;
+        }
+
+        .nav-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .nav-icon.explore-icon {
+            background: #B2EBF2;
+            color: #00838F;
+        }
+
+        .nav-icon.play-icon {
+            background: #FFE0B2;
+            color: #E65100;
+        }
+
+        .nav-icon.stories-icon {
+            background: #C5CAE9;
+            color: #283593;
+        }
+
+        .nav-icon.passport-icon {
+            background: #FFECB3;
+            color: #F57F17;
+        }
+
+        .nav-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background: #00BCD4;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .footer-left {
+            display: flex;
+            gap: 5px;
+        }
+
+       /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-title {
+                font-size: 48px;
+            }
+            
+            .left-content {
+                margin-left: 40px;
+            }
+            
+            .globe-container {
+                width: 380px;
+                height: 380px;
+            }
+            
+            .frog-left {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .img1, .img2 {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .page1-content {
+                flex-direction: column;
+                padding: 40px 20px 80px;
+            }
+            
+            .left-content {
+                margin-left: 0;
+                max-width: 100%;
+                text-align: center;
+                padding-top: 0;
+            }
+            
+            .main-title {
+                font-size: 42px;
+            }
+            
+            .features {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+            
+            .right-content {
+                margin-top: 30px;
+                width: 100%;
+            }
+            
+            .globe-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .frog-left {
+                width: 180px;
+                height: 180px;
+                left: 30%;
+                transform: translateY(-50%) translateX(-90px);
+            }
+            
+            .img1 {
+                left: 50%;
+                max-width: 100%;
+            }
+            
+            .img2 {
+                left: 50%;
+                max-width: 100%;
+            }
+            
+            .feature-cards {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 20px 40px;
+            }
+            
+            .feature-card {
+                max-width: 500px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+            }
+            
+            .logo-img {
+                width: 80px;
+                height: 80px;
+                margin-left: 20px;
+                left: 10px;
+            }
+            
+            .nav-btn {
+                padding: 8px 18px;
+                font-size: 12px;
+            }
+            
+            .page1-content {
+                padding: 30px 15px 60px;
+            }
+            
+            .main-title {
+                font-size: 32px;
+            }
+            
+            .subtitle {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            
+            .feature-item {
+                font-size: 14px;
+                justify-content: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 12px 24px;
+                font-size: 13px;
+            }
+            
+            .globe-container {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .frog-left {
+                width: 140px;
+                height: 140px;
+                left: 25%;
+                transform: translateY(-50%) translateX(-70px);
+            }
+            
+            .img1 {
+                left: 50%;
+                top: 50%;
+            }
+            
+            .img2 {
+                left: 50%;
+                top: 50%;
+            }
+            
+            @keyframes floatUpDown {
+                0% {
+                    transform: translateY(-50%) translateX(-70px) translateY(0);
+                }
+                50% {
+                    transform: translateY(-50%) translateX(-70px) translateY(-20px);
+                }
+                100% {
+                    transform: translateY(-50%) translateX(-70px) translateY(0);
+                }
+            }
+            
+            .feature-card {
+                border-radius: 40px;
+                padding: 20px 20px;
+            }
+            
+            .card-icon {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .page2-content {
+                padding: 30px 15px 80px;
+            }
+            
+            .map-container {
+                padding: 20px;
+                border-radius: 30px;
+            }
+            
+            .world-map {
+                height: 300px;
+                border-radius: 20px;
+            }
+            
+            .bottom-nav {
+                padding: 15px 15px;
+                gap: 10px;
+            }
+            
+            .nav-item {
+                padding: 10px 12px;
+            }
+            
+            .nav-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 20px;
+            }
+            
+            .nav-label {
+                font-size: 11px;
+            }
+            
+            footer {
+                padding: 12px 15px;
+                font-size: 11px;
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-img {
+                width: 70px;
+                height: 70px;
+                margin-left: 10px;
+                left: 5px;
+            }
+            
+            .nav-btn {
+                padding: 7px 15px;
+                font-size: 11px;
+            }
+            
+            .page1-content {
+                padding: 25px 12px 50px;
+            }
+            
+            .main-title {
+                font-size: 26px;
+                line-height: 1.3;
+            }
+            
+            .subtitle {
+                font-size: 13px;
+                margin-bottom: 20px;
+            }
+            
+            .feature-icon img {
+                width: 22px;
+                height: 22px;
+            }
+            
+            .feature-item {
+                font-size: 13px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 12px;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 13px;
+            }
+            
+            .globe-container {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .frog-left {
+                width: 120px;
+                height: 120px;
+                left: 20%;
+                transform: translateY(-50%) translateX(-50px);
+            }
+            
+            .img1 {
+                left: 50%;
+                top: 50%;
+                max-width: 90%;
+                max-height: 90%;
+            }
+            
+            .img2 {
+                left: 50%;
+                top: 50%;
+                max-width: 90%;
+                max-height: 90%;
+            }
+            
+            @keyframes floatUpDown {
+                0% {
+                    transform: translateY(-50%) translateX(-50px) translateY(0);
+                }
+                50% {
+                    transform: translateY(-50%) translateX(-50px) translateY(-15px);
+                }
+                100% {
+                    transform: translateY(-50%) translateX(-50px) translateY(0);
+                }
+            }
+            
+            .feature-cards {
+                padding: 0 12px 30px;
+                margin-top: -20px;
+                gap: 15px;
+            }
+            
+            .feature-card {
+                border-radius: 35px;
+                padding: 18px 18px;
+            }
+            
+            .card-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .card-content h3 {
+                font-size: 15px;
+            }
+            
+            .card-content p {
+                font-size: 12px;
+            }
+            
+            .page2-content {
+                padding: 25px 12px 60px;
+            }
+            
+            .map-container {
+                padding: 15px;
+                border-radius: 25px;
+            }
+            
+            .world-map {
+                height: 250px;
+            }
+            
+            .tap-prompt {
+                font-size: 11px;
+                padding: 8px 15px;
+                bottom: -45px;
+            }
+            
+            .page2-frog {
+                width: 90px;
+                height: 100px;
+                right: -25px;
+                bottom: -15px;
+            }
+            
+            .speech-bubble {
+                font-size: 10px;
+                padding: 8px 12px;
+                top: -45px;
+            }
+            
+            .bottom-nav {
+                gap: 6px;
+                padding: 10px 8px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .nav-item {
+                padding: 8px 10px;
+                min-width: 65px;
+                flex-shrink: 0;
+            }
+            
+            .nav-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+            
+            .nav-label {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .main-title {
+                font-size: 22px;
+            }
+            
+            .subtitle {
+                font-size: 12px;
+            }
+            
+            .globe-container {
+                width: 170px;
+                height: 170px;
+            }
+            
+            .frog-left {
+                width: 100px;
+                height: 100px;
+                left: 15%;
+                transform: translateY(-50%) translateX(-40px);
+            }
+            
+            @keyframes floatUpDown {
+                0% {
+                    transform: translateY(-50%) translateX(-40px) translateY(0);
+                }
+                50% {
+                    transform: translateY(-50%) translateX(-40px) translateY(-12px);
+                }
+                100% {
+                    transform: translateY(-50%) translateX(-40px) translateY(0);
+                }
+            }
+            
+            .world-map {
+                height: 220px;
+            }
+            
+            .nav-item {
+                min-width: 60px;
+                padding: 6px 8px;
+            }
+            
+            .nav-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1 -->
+    <div class="page active" id="page1">
+        <header>
+            <div class="logo">
+                <div class="logo-img">
+    <img src="images/logo.png" alt="Geo Froggy Logo">
+</div>
+            </div>
+            <button class="nav-btn" onclick="switchPage(2)">Back to Grown Up View</button>
+        </header>
+
+        <div class="page1-content">
+            <div class="left-content">
+                <h1 class="main-title">
+                    Welcome To World<br>
+                    <span class="explorer">Explorer</span>
+                </h1>
+                <p class="subtitle">
+                    Discover countries, stories, and games powered by real-world data
+                </p>
+                <div class="features">
+                    <div class="feature-item">
+    <div class="feature-icon">
+        <img src="images/icon.png" alt="World Icon">
+    </div>
+    <span>Tap and spin the world map</span>
+</div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+        <img src="images/icon.png" alt="World Icon">
+    </div>
+                        <span>Play geography mini-games</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+        <img src="images/icon.png" alt="World Icon">
+    </div>
+                        <span>Collect stamps in your travel passport</span>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <button class="btn-primary" onclick="switchPage(2)">Start Exploring</button>
+                    <button class="btn-secondary">Watch How It Works</button>
+                </div>
+            </div>
+           
+
+  <div class="right-content">
+    <div class="globe-container">
+        <!-- Pehli image -->
+        <img src="images/Ellipse 1.png" alt="Image 1" class="globe-img img1">
+        <!-- Dusri image -->
+        <img src="images/1-removebg-preview.png" alt="Image 2" class="globe-img img2">
+        <!-- Frog at starting position (top center) -->
+     <div class="frog-left">
+        <img src="images/frog.png" alt="Frog">
+    </div>
+    </div>
+</div>
+
+
+      
+        </div>
+
+        <div class="feature-cards">
+            <div class="feature-card">
+               <img src="images/mini-f.png" alt="Frog icon" class="card-icon">
+                <div class="card-content">
+                    <h3>Explore Map</h3>
+                    <p>Tap countries to see fun facts</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="images/game.png" alt="Frog icon" class="card-icon">
+                <div class="card-content">
+                    <h3>Play Games</h3>
+                    <p>Try quick quiz challenges</p>
+                </div>
+            </div>
+            <div class="feature-card">
+               <img src="images/mini-t.png" alt="Frog icon" class="card-icon">
+                <div class="card-content">
+                    <h3>Story Journeys</h3>
+                    <p>Follow 1-minute world stories</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-left">
+                <span>© 2025 GeoFroggy.</span>
+            </div>
+            <div>Celebrating Cultures. Connecting People. One Story at a Time.</div>
+            <div>All Rights Reserved</div>
+        </footer>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page" id="page2">
+        <header>
+            <div class="logo">
+                <div class="logo-img">
+    <img src="images/logo.png" alt="Geo Froggy Logo">
+</div>
+            </div>
+            <button class="nav-btn" onclick="switchPage(1)">Back to Grown Up View</button>
+        </header>
+
+        <div class="page2-content">
+            <div class="map-container">
+                <div class="world-map">
+                    <!-- Continents -->
+                    <div class="map-continent north-america">🌲</div>
+                    <div class="map-continent south-america">🦘</div>
+                    <div class="map-continent europe">🏰</div>
+                    <div class="map-continent africa"></div>
+                    <div class="map-continent asia">🏠</div>
+                    <div class="map-continent australia">🌲</div>
+                    
+                    <!-- Wave decorations -->
+                    <div class="wave-icon" style="top: 10%; left: 8%;">🌊</div>
+                    <div class="wave-icon" style="top: 25%; left: 5%;">🌊</div>
+                    <div class="wave-icon" style="top: 45%; left: 3%;">🌊</div>
+                    <div class="wave-icon" style="top: 65%; left: 7%;">🌊</div>
+                    <div class="wave-icon" style="top: 15%; right: 5%;">🌊</div>
+                    <div class="wave-icon" style="top: 35%; right: 3%;">🌊</div>
+                    <div class="wave-icon" style="bottom: 15%; left: 35%;">🌊</div>
+                    <div class="wave-icon" style="bottom: 10%; right: 10%;">🌊</div>
+                    
+                    <!-- Star marker -->
+                    <div class="star-marker">⭐</div>
+                    
+                    <!-- Tap prompt -->
+                    <div class="tap-prompt">
+                        <span class="hand-icon">👆</span>
+                        <span>Tap a Country to begin!</span>
+                    </div>
+                </div>
+                
+                <!-- Frog mascot -->
+                <div class="page2-frog">
+                    <div class="speech-bubble">Lets Explore the World!</div>
+                    <div class="frog2-body">
+                        <div class="frog-eye left">
+                            <div class="frog-pupil"></div>
+                        </div>
+                        <div class="frog-eye right">
+                            <div class="frog-pupil"></div>
+                        </div>
+                        <div class="frog-mouth"></div>
+                    </div>
+                    <div class="frog-globe"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <div class="nav-item active">
+                <div class="nav-icon explore-icon">🌍</div>
+                <div class="nav-label">Explore</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon play-icon">🎮</div>
+                <div class="nav-label">Play</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon stories-icon">📖</div>
+                <div class="nav-label">Stories</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon passport-icon">📋</div>
+                <div class="nav-label">My Passport</div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-left">
+                <span>© 2025 GeoFroggy.</span>
+            </div>
+            <div>Celebrating Cultures. Connecting People. One Story at a Time.</div>
+            <div>All Rights Reserved</div>
+        </footer>
+    </div>
+
+    <script>
+        function switchPage(pageNum) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('page' + pageNum).classList.add('active');
+        }
+
+        // Add click handlers for continents
+        document.querySelectorAll('.map-continent').forEach(continent => {
+            continent.style.cursor = 'pointer';
+            continent.addEventListener('click', function() {
+                this.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // Interactive frog eyes follow cursor
+        document.addEventListener('mousemove', (e) => {
+            const pupils = document.querySelectorAll('.frog-pupil');
+            pupils.forEach(pupil => {
+                const eye = pupil.parentElement;
+                const eyeRect = eye.getBoundingClientRect();
+                const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+                const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+                
+                const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+                const distance = Math.min(6, Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 50);
+                
+                const pupilX = Math.cos(angle) * distance;
+                const pupilY = Math.sin(angle) * distance;
+                
+                pupil.style.transform = `translate(calc(-50% + ${pupilX}px), calc(-50% + ${pupilY}px))`;
+            });
+        });
+    </script>
+</body>
+</html>
