@@ -4,6 +4,7 @@
      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>GeoFroggy - World Explorer</title>
     <style>
         * {
@@ -675,6 +676,95 @@
                 width: 100%;
             }
         }
+
+/* =================================================
+   iPAD MINI + iPAD AIR → DESKTOP STYLE LAYOUT
+   (768px – 900px)
+================================================= */
+@media (min-width: 768px) and (max-width: 900px) {
+
+    /* ---------- PAGE 1 LAYOUT ---------- */
+    .page1-content {
+        flex-direction: row;              /* 🔥 DESKTOP STYLE */
+        align-items: center;
+        justify-content: space-between;
+        padding: 60px 50px 120px;
+        text-align: left;
+    }
+
+    .left-content {
+        flex: 1;
+        max-width: 520px;
+        margin-left: 40px;
+        text-align: left;
+    }
+
+    .main-title {
+        font-size: 44px;
+        line-height: 1.25;
+    }
+
+    .subtitle {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    .features {
+        align-items: flex-start;
+    }
+
+    .cta-buttons {
+        justify-content: flex-start;
+    }
+
+    /* ---------- RIGHT VISUAL AREA ---------- */
+    .right-content {
+        flex: 1;
+        justify-content: center;
+        position: relative;
+    }
+
+    .globe-container {
+        width: 420px;
+        height: 420px;
+    }
+
+    .img1,
+    .img2 {
+        left: 100%;
+        top: 55%;
+        transform: translate(-50%, -50%);
+        max-width: 120%;
+        max-height: 120%;
+    }
+
+    /* ---------- FROG POSITION ---------- */
+    .frog-left {
+        position: absolute;
+        left: 45%;
+        top: 65%;
+        width: 220px;
+        height: 220px;
+        transform: translate(-50%, -50%);
+    }
+
+    /* ---------- FEATURE CARDS (3 IN A ROW) ---------- */
+    .feature-cards {
+        flex-direction: row;              /* 🔥 ONE LINE */
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 20px;
+        padding: 0 50px 40px;
+        margin-top: -60px;
+    }
+
+    .feature-card {
+        max-width: 33%;
+        flex: 1;
+    }
+}
+
+
 
         @media (max-width: 768px) {
             header {
