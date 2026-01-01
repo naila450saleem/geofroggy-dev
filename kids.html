@@ -13,6 +13,10 @@
             box-sizing: border-box;
         }
 
+        body, html {
+    overflow-x: hidden; /* prevent horizontal scroll */
+}
+
         body {
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
@@ -330,236 +334,223 @@
         }
 
         /* Page 2 Styles */
-        .page2-content {
-            background: linear-gradient(to bottom, #E0F7F7 0%, #B2EBF2 100%);
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding-bottom: 100px;
-        }
+      .page2-content {
+    background: linear-gradient(to bottom, #E0F7F7 0%, #F1FFE3 100%);
+    flex: 1;
+    padding: 40px;
+    padding-bottom: 0; /* already 0 hai */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* content ko bottom me le aaya */
+    margin-bottom: -10px; /* container thoda upar shift */
+}
 
-        .map-container {
-            width: 100%;
-            max-width: 900px;
-            background: white;
-            border-radius: 40px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            position: relative;
-            margin-bottom: 30px;
-        }
 
-        .world-map {
-            width: 100%;
-            height: 450px;
-            background: linear-gradient(135deg, #4FC3F7 0%, #0288D1 100%);
-            border-radius: 30px;
-            position: relative;
-            overflow: visible;
-        }
+ .map-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
-        .map-continent {
-            position: absolute;
-            background: #F0E68C;
-        }
 
-        .north-america {
-            width: 18%;
-            height: 35%;
-            top: 15%;
-            left: 12%;
-            border-radius: 40% 30% 20% 50%;
-        }
+.world-map-img {
+    width: 100%;
+    height: 700px;
+    display: block;
+}
 
-        .south-america {
-            width: 12%;
-            height: 30%;
-            top: 48%;
-            left: 18%;
-            border-radius: 30% 40% 50% 30%;
-        }
+/* Icons on Map */
+.map-icon {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    animation: float 3s ease-in-out infinite;
+}
 
-        .europe {
-            width: 15%;
-            height: 20%;
-            top: 12%;
-            left: 42%;
-            border-radius: 50% 40% 30% 40%;
-        }
+/* Float Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
 
-        .africa {
-            width: 15%;
-            height: 35%;
-            top: 35%;
-            left: 43%;
-            border-radius: 40% 40% 50% 50%;
-        }
+/* Different animation delays for each icon */
+.building { 
+    top: 10%; 
+    left: 35%;
+    animation-delay: 0s;
+}
 
-        .asia {
-            width: 28%;
-            height: 38%;
-            top: 18%;
-            right: 12%;
-            border-radius: 40% 50% 40% 30%;
-        }
+.tree { 
+    top: 30%; 
+    left: 20%;
+    animation-delay: 0.5s;
+}
 
-        .australia {
-            width: 12%;
-            height: 18%;
-            bottom: 22%;
-            right: 15%;
-            border-radius: 40% 50% 40% 50%;
-        }
+.home { 
+    top: 25%; 
+    left: 65%;
+    animation-delay: 1s;
+}
 
-        .landmark {
-            position: absolute;
-            font-size: 24px;
-        }
+.cangroo { 
+    top: 56%; 
+    left: 30%;
+    animation-delay: 1.5s;
+}
 
-        .wave-icon {
-            position: absolute;
-            color: white;
-            font-size: 28px;
-            opacity: 0.6;
-        }
+.tree2 { 
+    top: 56%; 
+    left: 78%;
+    animation-delay: 2s;
+}
 
-        .star-marker {
-            position: absolute;
-            color: #FF6B35;
-            font-size: 20px;
-            top: 40%;
-            left: 48%;
-        }
 
-        .tap-prompt {
-            position: absolute;
-            bottom: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #333;
-        }
 
-        .hand-icon {
-            font-size: 20px;
-        }
 
-        .page2-frog {
-            position: absolute;
-            bottom: -30px;
-            right: -50px;
-            width: 140px;
-            height: 160px;
-        }
 
-        .frog2-body {
-            width: 100%;
-            height: 100%;
-            background: #8BC34A;
-            border-radius: 50% 50% 45% 45%;
-            position: relative;
-        }
 
-        .speech-bubble {
-            position: absolute;
-            background: white;
-            padding: 12px 20px;
-            border-radius: 15px;
-            top: -60px;
-            right: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            font-size: 13px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
+/* Tap Prompt */
+.tap-prompt {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #BDE8FA;
+    color: #00416D;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid #e0e0e0;
+}
 
-        .speech-bubble::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 30px;
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid white;
-        }
+.hand-icon {
+    font-size: 22px;
+    animation: tap 0.8s ease-in-out infinite;
+}
+
+@keyframes tap {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Frog Mascot */
+.page2-frog {
+    position: absolute;
+    bottom: 12%;
+    right: 15%;
+}
+
+.speech-icon {
+    width: 140px;    /* image size */
+    height: 140px;   /* image size */
+}
+
+.speech-icon-small {
+    width: 110px;
+    height: 250px;
+    display: block;
+    position: absolute;  /* agar specific position chahiye */
+    bottom: -8%;         /* screen ke bottom se gap */
+    right: 10%;           /* screen ke right se gap */
+}
+
 
         /* Bottom Navigation */
-        .bottom-nav {
-            background: white;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-        }
+        /* Navigation Wrapper */
+.nav-wrapper {
+    background: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: inline-block;
+    margin: 20px auto;
+    transform: translateY(-60px); /* Adjust value as needed */
+}
 
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            padding: 15px 30px;
-            border-radius: 15px;
-            transition: background 0.3s;
-        }
+/* Bottom Navigation */
+.bottom-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
 
-        .nav-item:hover {
-            background: #E0F7F7;
-        }
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
 
-        .nav-item.active {
-            background: #E0F7F7;
-        }
+.nav-item:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
 
-        .nav-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
+.nav-item.active {
+    background: #C8E6C9;
+}
 
-        .nav-icon.explore-icon {
-            background: #B2EBF2;
-            color: #00838F;
-        }
+.nav-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    transition: transform 0.3s ease;
+}
 
-        .nav-icon.play-icon {
-            background: #FFE0B2;
-            color: #E65100;
-        }
+.nav-item:hover .nav-icon {
+    transform: scale(1.1);
+}
 
-        .nav-icon.stories-icon {
-            background: #C5CAE9;
-            color: #283593;
-        }
+.nav-icon.explore-icon {
+    background: #81C784;
+}
 
-        .nav-icon.passport-icon {
-            background: #FFECB3;
-            color: #F57F17;
-        }
+.nav-icon.play-icon {
+    background: #90CAF9;
+}
 
-        .nav-label {
-            font-size: 13px;
-            font-weight: 600;
-            color: #333;
-        }
+.nav-icon.stories-icon {
+    background: #E0E0E0;
+}
+
+.nav-icon.passport-icon {
+    background: #FFD54F;
+}
+
+.nav-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #424242;
+    text-align: center;
+}
+
+.nav-item.active .nav-label {
+    color: #2E7D32;
+}
 
         /* Footer */
         footer {
@@ -570,6 +561,7 @@
             justify-content: space-between;
             align-items: center;
             font-size: 13px;
+            
         }
 
         .footer-left {
@@ -750,20 +742,53 @@
         transform: translate(-50%, -50%);
     }
 
-    /* ---------- FEATURE CARDS (3 IN A ROW) ---------- */
-    .feature-cards {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: stretch;
-        gap: 10px;
-        padding: 0 20px 40px;    /* reduce padding */
-        margin-top: -60px;
+    .cta-buttons {
+   flex-wrap: nowrap;
+        justify-content: flex-start; /* center if you want */
+        gap: 20px;
+}
+
+ .btn-primary,
+    .btn-secondary {
+        flex: 1;             /* equal width */
+        width: auto;
+        font-size: 15px;
+        white-space: nowrap;
     }
 
+
+
+
+    /* ---------- FEATURE CARDS (3 IN A ROW) ---------- */
+   .feature-cards {
+    display: grid;               /* flex → grid better for fixed layout */
+    grid-template-columns: repeat(2, 1fr);  /* top row: 2 columns */
+    grid-auto-rows: auto;        /* row height automatic */
+    justify-content: center;     /* center the grid */
+    gap: 20px;
+    padding: 0 20px 40px;
+    max-width: 800px;            /* optional: limit container width */
+    margin: 0 auto;
+}
+
+/* 3rd card goes to next row and centered */
+.feature-card:nth-child(3) {
+    grid-column: 1 / -1;         /* span full row */
+    justify-self: center;         /* center horizontally */
+    max-width: 300px;             /* optional */
+}
+
+
     .feature-card {
-        max-width: 32%;           /* slightly reduce */
+        width: auto;           /* slightly reduce */
         flex: 1;
+font-size: 12px;
     }
+
+    .feature-icon img {
+                width: 20px;
+                height: 20px;
+            }
 }
 
 
@@ -771,7 +796,7 @@
 
      
 
-        @media (max-width: 576px) {
+       @media (max-width: 576px) {
             .logo-img {
                 width: 70px;
                 height: 70px;
@@ -786,26 +811,47 @@
             
             .page1-content {
                 padding: 25px 12px 50px;
+                width: 100%;
+                max-width: 100%;
             }
             
             .main-title {
                 font-size: 26px;
                 line-height: 1.3;
+                text-align: left;
+                padding-left: 30px;
+                padding-top: 20px;
             }
             
             .subtitle {
                 font-size: 13px;
                 margin-bottom: 20px;
+                text-align: left;
+                padding-left: 30px;
             }
             
-            .feature-icon img {
-                width: 22px;
-                height: 22px;
-            }
-            
-            .feature-item {
-                font-size: 13px;
-            }
+    .features {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;   /* poora block left */
+        padding-left: 30px;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;       /* icon & text same line */
+        justify-content: flex-start;
+        gap: 10px;                 /* icon aur text ka gap */
+        width: 100%;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .feature-icon img {
+        width: 20px;               /* mobile icon size */
+        height: 20px;
+    }
+
             
             .cta-buttons {
                 flex-direction: column;
@@ -820,9 +866,12 @@
             }
             
             .globe-container {
-                width: 200px;
-                height: 200px;
-            }
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50px;
+    position: relative;     /* important for absolute children */
+    overflow: visible;      /* parent me thoda bahar allow karne ke liye */
+}
             
             .frog-left {
                 width: 120px;
@@ -830,20 +879,30 @@
                 left: 20%;
                 transform: translateY(-50%) translateX(-50px);
             }
+
+            .frog-left img {
+    width: 130%;
+    height: 130%;
+    object-fit: contain;
+}
             
             .img1 {
-                left: 50%;
-                top: 50%;
-                max-width: 90%;
-                max-height: 90%;
+                left: 105%;
+                top: 70%;
+                max-width: 100%;
+                max-height: 100%;
             }
             
-            .img2 {
-                left: 50%;
-                top: 50%;
-                max-width: 90%;
-                max-height: 90%;
-            }
+           .img2 {
+    position: absolute; /* ensure it's positioned relative to container */
+    left: 110%;         /* start at container's right edge */
+    top: 70%;
+    max-width: 110%;
+    max-height: 110%;
+    
+    /* extra shift without scroll */
+    transform: translateX(20px); /* right me thoda bahar */
+}
             
             @keyframes floatUpDown {
                 0% {
@@ -859,7 +918,7 @@
             
             .feature-cards {
                 padding: 0 12px 30px;
-                margin-top: -20px;
+                margin-top: 50px;
                 gap: 15px;
             }
             
@@ -882,59 +941,119 @@
                 font-size: 12px;
             }
             
+            /* PAGE 2 MOBILE RESPONSIVE */
             .page2-content {
-                padding: 25px 12px 60px;
+                padding: 20px 12px 40px;
+                justify-content: flex-start;
+                padding-top: 40px;
             }
             
             .map-container {
-                padding: 15px;
-                border-radius: 25px;
+                width: 100%;
+                max-width: 100%;
+                position: relative;
+                margin-bottom: 20px;
             }
             
-            .world-map {
-                height: 250px;
+            .world-map-img {
+                height: 280px;
+                object-fit: cover;
+                border-radius: 20px;
             }
             
+            /* Map Icons - Mobile Size */
+            .map-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .building { 
+                top: 12%; 
+                left: 30%;
+            }
+            
+            .tree { 
+                top: 28%; 
+                left: 15%;
+            }
+            
+            .home { 
+                top: 22%; 
+                left: 68%;
+            }
+            
+            .cangroo { 
+                top: 58%; 
+                left: 25%;
+            }
+            
+            .tree2 { 
+                top: 60%; 
+                left: 80%;
+            }
+            
+            /* Tap Prompt - Mobile */
             .tap-prompt {
-                font-size: 11px;
-                padding: 8px 15px;
-                bottom: -45px;
+                font-size: 12px;
+                padding: 10px 18px;
+                bottom: 8%;
+                white-space: nowrap;
             }
             
-            .page2-frog {
-                width: 90px;
-                height: 100px;
-                right: -25px;
-                bottom: -15px;
-            }
-            
-            .speech-bubble {
-                font-size: 10px;
-                padding: 8px 12px;
-                top: -45px;
-            }
-            
-            .bottom-nav {
-                gap: 6px;
-                padding: 10px 8px;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .nav-item {
-                padding: 8px 10px;
-                min-width: 65px;
-                flex-shrink: 0;
-            }
-            
-            .nav-icon {
-                width: 35px;
-                height: 35px;
+            .hand-icon {
                 font-size: 18px;
             }
             
+            /* Frog & Speech Bubble - Mobile */
+            .page2-frog {
+                position: absolute;
+                bottom: 15%;
+                right: 8%;
+            }
+            
+            .speech-icon {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .extra-image {
+                position: absolute;
+                bottom: 5%;
+                right: 5%;
+            }
+            
+            .speech-icon-small {
+                width: 70px;
+                height: 150px;
+            }
+            
+            /* Navigation Wrapper - Mobile */
+            .nav-wrapper {
+                padding: 12px 15px;
+                transform: translateY(-30px);
+                width: 95%;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            
+            .bottom-nav {
+                gap: 8px;
+            }
+            
+            .nav-item {
+                padding: 8px 12px;
+                min-width: 70px;
+            }
+            
+            .nav-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 20px;
+                border-radius: 12px;
+            }
+            
             .nav-label {
-                font-size: 10px;
+                font-size: 11px;
             }
         }
 
@@ -1099,71 +1218,61 @@
         </header>
 
         <div class="page2-content">
-            <div class="map-container">
-                <div class="world-map">
-                    <!-- Continents -->
-                    <div class="map-continent north-america">🌲</div>
-                    <div class="map-continent south-america">🦘</div>
-                    <div class="map-continent europe">🏰</div>
-                    <div class="map-continent africa"></div>
-                    <div class="map-continent asia">🏠</div>
-                    <div class="map-continent australia">🌲</div>
-                    
-                    <!-- Wave decorations -->
-                    <div class="wave-icon" style="top: 10%; left: 8%;">🌊</div>
-                    <div class="wave-icon" style="top: 25%; left: 5%;">🌊</div>
-                    <div class="wave-icon" style="top: 45%; left: 3%;">🌊</div>
-                    <div class="wave-icon" style="top: 65%; left: 7%;">🌊</div>
-                    <div class="wave-icon" style="top: 15%; right: 5%;">🌊</div>
-                    <div class="wave-icon" style="top: 35%; right: 3%;">🌊</div>
-                    <div class="wave-icon" style="bottom: 15%; left: 35%;">🌊</div>
-                    <div class="wave-icon" style="bottom: 10%; right: 10%;">🌊</div>
-                    
-                    <!-- Star marker -->
-                    <div class="star-marker">⭐</div>
-                    
-                    <!-- Tap prompt -->
-                    <div class="tap-prompt">
-                        <span class="hand-icon">👆</span>
-                        <span>Tap a Country to begin!</span>
-                    </div>
-                </div>
-                
-                <!-- Frog mascot -->
-                <div class="page2-frog">
-                    <div class="speech-bubble">Lets Explore the World!</div>
-                    <div class="frog2-body">
-                        <div class="frog-eye left">
-                            <div class="frog-pupil"></div>
-                        </div>
-                        <div class="frog-eye right">
-                            <div class="frog-pupil"></div>
-                        </div>
-                        <div class="frog-mouth"></div>
-                    </div>
-                    <div class="frog-globe"></div>
-                </div>
-            </div>
+    <div class="map-container">
+        <!-- World Map -->
+        <img src="images/globe/Rectangle 3969.png" alt="World Map" class="world-map-img">
+
+        <!-- Continents / Icons -->
+        <img src="images/Building.png" class="map-icon building" alt="North America">
+        <img src="images/Cangroo.png" class="map-icon cangroo" alt="South America">
+        <img src="images/Tree (1).png" class="map-icon tree" alt="Europe">
+        <img src="images/Home.png" class="map-icon home" alt="Africa">
+        <img src="images/Tree (2).png" class="map-icon tree2" alt="New Tree">
+
+        <!-- Tap Prompt -->
+        <div class="tap-prompt">
+            <span class="hand-icon">👆</span>
+            <span>Tap a Country to begin!</span>
         </div>
 
-        <div class="bottom-nav">
-            <div class="nav-item active">
-                <div class="nav-icon explore-icon">🌍</div>
-                <div class="nav-label">Explore</div>
-            </div>
-            <div class="nav-item">
-                <div class="nav-icon play-icon">🎮</div>
-                <div class="nav-label">Play</div>
-            </div>
-            <div class="nav-item">
-                <div class="nav-icon stories-icon">📖</div>
-                <div class="nav-label">Stories</div>
-            </div>
-            <div class="nav-item">
-                <div class="nav-icon passport-icon">📋</div>
-                <div class="nav-label">My Passport</div>
-            </div>
+        <!-- Frog Mascot -->
+        <div class="page2-frog">
+    <!-- Text remove kar diya, uski jagah image add kar di -->
+    <div class="speech-bubble">
+        <img src="images/Group 3466854.png" alt="Icon" class="speech-icon">
+    </div>
+</div>
+
+<!-- Nayi image, page2-frog ke bahir -->
+<div class="extra-image">
+    <img src="images/image 2.png" alt="Extra Icon" class="speech-icon-small">
+</div>
+    </div>
+</div>
+
+
+
+
+        <div class="nav-wrapper">
+    <div class="bottom-nav">
+        <div class="nav-item active">
+            <div class="nav-icon explore-icon">🌍</div>
+            <div class="nav-label">Explore</div>
         </div>
+        <div class="nav-item">
+            <div class="nav-icon play-icon">▶️</div>
+            <div class="nav-label">Play</div>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon stories-icon">📖</div>
+            <div class="nav-label">Stories</div>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon passport-icon">📋</div>
+            <div class="nav-label">My Passport</div>
+        </div>
+    </div>
+</div>
 
         <footer>
             <div class="footer-left">
