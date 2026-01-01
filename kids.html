@@ -887,7 +887,7 @@ font-size: 12px;
 }
             
             .img1 {
-                left: 105%;
+                left: 110%;
                 top: 70%;
                 max-width: 100%;
                 max-height: 100%;
@@ -895,7 +895,7 @@ font-size: 12px;
             
            .img2 {
     position: absolute; /* ensure it's positioned relative to container */
-    left: 110%;         /* start at container's right edge */
+    left: 113%;         /* start at container's right edge */
     top: 70%;
     max-width: 110%;
     max-height: 110%;
@@ -948,18 +948,19 @@ font-size: 12px;
                 padding-top: 40px;
             }
             
-            .map-container {
-                width: 100%;
-                max-width: 100%;
-                position: relative;
-                margin-bottom: 20px;
-            }
-            
-            .world-map-img {
-                height: 280px;
-                object-fit: cover;
-                border-radius: 20px;
-            }
+            .world-map-container {
+    border-radius: 100px;  /* top-bottom aur sides rounded */
+    overflow: hidden;       /* image ke corners cut karne ke liye */
+    width: fit-content;     /* ya jo width chahiye */
+}
+
+.world-map-img {
+    height: 400px;
+    object-fit: cover;
+    width: 100%; /* make sure image fills container */
+    display: block;
+}
+
             
             /* Map Icons - Mobile Size */
             .map-icon {
