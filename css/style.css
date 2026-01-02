@@ -10,7 +10,7 @@
 body {
     line-height: 1.6;
     color: #333;
-    background: #fff;
+    background: #F5F5F5;
     overflow-x: hidden;
 }
 
@@ -216,7 +216,7 @@ img {
 
 /* FRAME BOX */
 .box{
-    width:320px;
+    width:350px;
     height:520px;
     position:relative;
     background: url("../images/border.png") no-repeat center;
@@ -255,7 +255,7 @@ img {
 
 .card-inner p{
     color:#666;
-    font-size:15px;
+    font-size:13px;
     margin-bottom:20px;
 }
 

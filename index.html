@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeoFroggy - Explore the World</title>
+
+    <!-- CRITICAL: Preconnect for faster font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+<!-- CRITICAL: Preload important images -->
+<link rel="preload" as="image" href="images/logo-bg.png">
+<link rel="preload" as="image" href="images/hero.jpg">
+<link rel="preload" as="image" href="images/border.png">
+
+
+
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -21,7 +32,7 @@
     <div class="logo-bar">
         <div class="container">
             <div class="logo">
-                <img src="images/logo-bg.png" loading="lazy" alt="GeoFroggy Logo">
+               <img src="images/logo-bg.png" loading="eager" fetchpriority="high" alt="GeoFroggy Logo" width="200" height="auto">
             </div>
         </div>
     </div>
@@ -69,7 +80,7 @@
     <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="hero-wrapper">
-            <img src="images/hero.jpg" loading="lazy" alt="Dragon Festival" class="hero-img">
+           <img src="images/hero.jpg" loading="eager" fetchpriority="high" alt="Dragon Festival" class="hero-img" width="1920" height="600">
         </div>
     </section>
 
@@ -84,7 +95,7 @@
             <h2>Kids 8-13</h2>
             <p>Games, maps and story quest</p>
             <div class="card-img">
-                <img src="images/kids2.jpg">
+                <img src="images/kids2.jpg" alt="Kids Experience" loading="lazy" decoding="async" width="400" height="300">
             </div>
             <button class="card-btn">Explore Kids Experience</button>
         </div>
@@ -97,7 +108,7 @@
             <h2>Teens 13-17</h2>
             <p>Compare countries, beats and challenges</p>
             <div class="card-img">
-                <img src="images/teen2.jpg">
+                <img src="images/teen2.jpg" alt="Teen Experience" loading="lazy" decoding="async" width="400" height="300">
             </div>
             <button class="card-btn">Explore Teen Experience</button>
         </div>
@@ -110,7 +121,7 @@
             <h2>Passport 18+</h2>
             <p>Insightful stories content and dashboards</p>
             <div class="card-img">
-                <img src="images/pass1.jpg">
+                <img src="images/pass1.jpg" alt="Adult Experience" loading="lazy" decoding="async" width="400" height="300">
             </div>
             <button class="card-btn">Explore Adult Experience</button>
         </div>
@@ -130,7 +141,7 @@
                 <!-- LEFT: Logo -->
                 <div class="footer-logo-section">
                     <div class="footer-brand-logo">
-                        <img src="images/Layer_1.png" loading="lazy" alt="GeoFroggy Logo" class="footer-logo-img">
+                        <img src="images/Layer_1.png" loading="lazy" alt="GeoFroggy Logo" class="footer-logo-img" width="150" height="auto">
                     </div>
                     <!-- <p class="footer-description">
                         Explore global stories, join meaningful conversations, and be part of a worldwide community where every place has a voice.
@@ -224,6 +235,43 @@
         <span class="center-text">community where every place has a voice.</span>
         <span class="right-text">All Rights Reserved</span>
     </div>
+
+    <!-- Image loading optimization script -->
+<script>
+    // Fast image loading handler
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle all lazy loaded images
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        
+        lazyImages.forEach(img => {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+                
+                // Error handling
+                img.addEventListener('error', function() {
+                    console.error('Failed to load image:', this.src);
+                    this.classList.add('loaded');
+                });
+            }
+        });
+        
+        // Handle hero image
+        const heroImg = document.querySelector('.hero-img');
+        if (heroImg) {
+            if (heroImg.complete) {
+                heroImg.classList.add('loaded');
+            } else {
+                heroImg.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+            }
+        }
+    });
+</script>
 
     <script src="js/script.js"></script>
 </body>
