@@ -216,8 +216,8 @@ img {
 
 /* FRAME BOX */
 .box{
-    width:400px;
-    height:570px;
+    width:320px;
+    height:520px;
     position:relative;
     background: url("../images/border.png") no-repeat center;
     background-size:100% 100%;
