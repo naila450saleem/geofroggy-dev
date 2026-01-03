@@ -504,76 +504,101 @@
 }
 
 /* Bottom Navigation */
-.bottom-nav {
+/* Bottom Navigation Container */
+/* Wrapper */
+.nav-wrapper{
     display: flex;
     justify-content: center;
-    gap: 15px;
+    padding: 20px;
 }
 
-.nav-item {
+/* Big white container */
+.bottom-nav{
+    display: flex;
+    gap: 14px;
+    background: #ffffff;
+    padding: 16px 18px;
+    border-radius: 26px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Each white card (same size for all) */
+.nav-item{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 6px;
+
+    width: 90px;
+    padding: 14px 10px;
+
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
     cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 16px;
-    transition: all 0.3s ease;
-    min-width: 80px;
+    transition: all 0.25s ease;
 }
 
-.nav-item:hover {
-    background: #f0f0f0;
+.nav-item:hover{
     transform: translateY(-2px);
 }
 
-.nav-item.active {
-    background: #C8E6C9;
+/* Active card */
+.nav-item.active{
+    background: #DFF5D8;
+    box-shadow: 0 10px 22px rgba(120, 200, 120, 0.6);
 }
 
-.nav-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 16px;
+/* Icon box */
+.nav-icon{
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
-    transition: transform 0.3s ease;
 }
 
-.nav-item:hover .nav-icon {
-    transform: scale(1.1);
+/* Icon image */
+.nav-icon img{
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
 }
 
-.nav-icon.explore-icon {
-    background: #81C784;
+/* Icon colors */
+.explore-icon{
+    background: #9EE28F;
 }
 
-.nav-icon.play-icon {
-    background: #90CAF9;
+.play-icon{
+    background: #B8D9FF;
 }
 
-.nav-icon.stories-icon {
-    background: #E0E0E0;
+.stories-icon{
+    background: #EEEEEE;
 }
 
-.nav-icon.passport-icon {
-    background: #FFD54F;
+.passport-icon{
+    background: #FFD86A;
 }
 
-.nav-label {
-     font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
+/* Label (always visible like image) */
+.nav-label{
+    font-family: 'Fredoka', sans-serif;
     font-size: 12px;
     font-weight: 600;
-    color: #424242;
+    color: #444;
     text-align: center;
 }
 
-.nav-item.active .nav-label {
+/* Active label color */
+.nav-item.active .nav-label{
     color: #2E7D32;
 }
+
 
         /* Footer */
         footer {
@@ -1295,22 +1320,34 @@ font-size: 12px;
 
         <div class="nav-wrapper">
     <div class="bottom-nav">
-        <div class="nav-item active">
-            <div class="nav-icon explore-icon">🌍</div>
-            <div class="nav-label">Explore</div>
-        </div>
-        <div class="nav-item">
-            <div class="nav-icon play-icon">▶️</div>
-            <div class="nav-label">Play</div>
-        </div>
-        <div class="nav-item">
-            <div class="nav-icon stories-icon">📖</div>
-            <div class="nav-label">Stories</div>
-        </div>
-        <div class="nav-item">
-            <div class="nav-icon passport-icon">📋</div>
-            <div class="nav-label">My Passport</div>
-        </div>
+       <div class="nav-item active">
+    <div class="nav-icon explore-icon">
+        <img src="images/Layer 2 1.png" alt="Explore Icon">
+    </div>
+    <div class="nav-label">Explore</div>
+</div>
+
+<div class="nav-item">
+    <div class="nav-icon play-icon">
+        <img src="images/Layer 2 2.png" alt="Play Icon">
+    </div>
+    <div class="nav-label">Play</div>
+</div>
+
+<div class="nav-item">
+    <div class="nav-icon stories-icon">
+        <img src="images/Layer 2 3.png" alt="Stories Icon">
+    </div>
+    <div class="nav-label">Stories</div>
+</div>
+
+<div class="nav-item">
+    <div class="nav-icon passport-icon">
+        <img src="images/Layer 2 4.png" alt="Passport Icon">
+    </div>
+    <div class="nav-label">My Passport</div>
+</div>
+
     </div>
 </div>
 
