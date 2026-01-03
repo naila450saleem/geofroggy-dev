@@ -516,7 +516,7 @@
 .bottom-nav{
     display: flex;
     gap: 14px;
-    background: #ffffff;
+    background: none;
     padding: 16px 18px;
     border-radius: 26px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
@@ -532,7 +532,7 @@
     width: 90px;
     padding: 14px 10px;
 
-    background: #ffffff;
+    background: none;
     border-radius: 18px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 
@@ -546,13 +546,28 @@
 
 /* Active card */
 .nav-item.active{
-    background: #DFF5D8;
-    box-shadow: 0 10px 22px rgba(120, 200, 120, 0.6);
+     background: url("images/Rectangle\ 3974.png") center/cover no-repeat;
+    box-shadow: 0 10px 22px rgba(120,200,120,0.55);
+    height: 100px;
 }
 
+.nav-item.play {
+     background: url("images/Rectangle\ 3975.png") center/cover no-repeat;
+    box-shadow: 0 10px 22px rgba(120,200,120,0.55);
+}
+
+.nav-item.stories {
+     background: url("images/Rectangle\ 3976.png") center/cover no-repeat;
+    box-shadow: 0 10px 22px rgba(120,200,120,0.55);
+}
+
+.nav-item.passport {
+     background: url("images/Rectangle\ 3977.png") center/cover no-repeat;
+    box-shadow: 0 10px 22px rgba(120,200,120,0.55);
+}
 /* Icon box */
 .nav-icon{
-    width: 46px;
+    width: 50px;
     height: 46px;
     border-radius: 14px;
 
@@ -563,26 +578,26 @@
 
 /* Icon image */
 .nav-icon img{
-    width: 22px;
-    height: 22px;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
 }
 
 /* Icon colors */
 .explore-icon{
-    background: #9EE28F;
+    background: transparent;
 }
 
 .play-icon{
-    background: #B8D9FF;
+    background: transparent;
 }
 
 .stories-icon{
-    background: #EEEEEE;
+    background: transparent;
 }
 
 .passport-icon{
-    background: #FFD86A;
+    background: transparent;
 }
 
 /* Label (always visible like image) */
@@ -1327,21 +1342,21 @@ font-size: 12px;
     <div class="nav-label">Explore</div>
 </div>
 
-<div class="nav-item">
+<div class="nav-item play">
     <div class="nav-icon play-icon">
         <img src="images/Layer 2 2.png" alt="Play Icon">
     </div>
     <div class="nav-label">Play</div>
 </div>
 
-<div class="nav-item">
+<div class="nav-item stories">
     <div class="nav-icon stories-icon">
         <img src="images/Layer 2 3.png" alt="Stories Icon">
     </div>
     <div class="nav-label">Stories</div>
 </div>
 
-<div class="nav-item">
+<div class="nav-item passport">
     <div class="nav-icon passport-icon">
         <img src="images/Layer 2 4.png" alt="Passport Icon">
     </div>
