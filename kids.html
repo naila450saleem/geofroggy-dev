@@ -491,128 +491,182 @@
 }
 
 
-        /* Bottom Navigation */
-        /* Navigation Wrapper */
-.nav-wrapper {
-    background: white;
-    padding: 15px 30px;
-    border-radius: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    display: inline-block;
-    margin: 20px auto;
-    transform: translateY(-60px); /* Adjust value as needed */
+     /* Navigation Wrapper - clean style */
+/* Navigation Wrapper */
+ .container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            padding: 24px;
+            width: 100%;
+            max-width: 600px;
+            margin-left: 30%;
+            margin-top: -35px;
+            margin-bottom: 30px;
+            z-index: 1;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .nav-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 18px;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Remove white background from icon wrapper in active button */
+/* Complete reset for active button's icon wrapper */
+.nav-btn.active .icon-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
-/* Bottom Navigation */
-/* Bottom Navigation Container */
-/* Wrapper */
-.nav-wrapper{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+/* Also check if the image itself has white background */
+.nav-btn.active .icon-wrapper img {
+    background: transparent !important;
 }
 
-/* Big white container */
-.bottom-nav{
-    display: flex;
-    gap: 14px;
-    background: none;
-    padding: 16px 18px;
-    border-radius: 26px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+/* Remove any possible white from the button itself */
+.nav-btn.active {
+    background: url("images/Rectangle 3970.png") center/cover no-repeat !important;
+    background-color: transparent !important;
+}
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-btn.active {
+            background: url("images/Rectangle\ 3974.png") center/cover no-repeat;
+        }
+
+        .nav-btn.inactive {
+            background: white;
+        }
+
+        .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            background: transparent !important;
+        }
+
+       
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            fill: none;
+            stroke: #0d9488;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .nav-btn span {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .active span {
+            color: #065f46;
+        }
+
+        .inactive span {
+            color: #6b7280;
+        }
+
+        
+/* ===================== */
+/* MOBILE RESPONSIVE CSS */
+/* ===================== */
+
+/* Small tablets / large phones (up to 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin-right: 10px;
+        padding: 20px;
+        margin-top: -25px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+    }
+
+    .nav-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
+        gap: 12px;
+    }
+
+    .nav-btn {
+        padding: 16px 14px;
+    }
+
+    .icon-wrapper {
+        width: 32px;
+        height: 32px;
+    }
+
+    .icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .nav-btn span {
+        font-size: 11px;
+    }
 }
 
-/* Each white card (same size for all) */
-.nav-item{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
+/* Small phones (up to 480px) */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 12px;
+        margin-top: -15px;
+        margin-bottom: 15px;
+        border-radius: 16px;
+    }
 
-    width: 90px;
-    padding: 14px 10px;
+    .nav-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
+        gap: 8px;
+    }
 
-    background: none;
-    border-radius: 18px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    .nav-btn {
+        padding: 12px 10px;
+    }
 
-    cursor: pointer;
-    transition: all 0.25s ease;
+    .icon-wrapper {
+        width: 36px;
+        height: 36px;
+    }
+
+    .icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .nav-btn span {
+        font-size: 10px;
+    }
 }
-
-.nav-item:hover{
-    transform: translateY(-2px);
-}
-
-/* Active card */
-.nav-item.active{
-     background: url("images/Rectangle\ 3974.png") center/cover no-repeat;
-    box-shadow: 0 10px 22px rgba(120,200,120,0.55);
-    height: 100px;
-}
-
-.nav-item.play {
-     background: url("images/Rectangle\ 3975.png") center/cover no-repeat;
-    box-shadow: 0 10px 22px rgba(120,200,120,0.55);
-}
-
-.nav-item.stories {
-     background: url("images/Rectangle\ 3976.png") center/cover no-repeat;
-    box-shadow: 0 10px 22px rgba(120,200,120,0.55);
-}
-
-.nav-item.passport {
-     background: url("images/Rectangle\ 3977.png") center/cover no-repeat;
-    box-shadow: 0 10px 22px rgba(120,200,120,0.55);
-}
-/* Icon box */
-.nav-icon{
-    width: 50px;
-    height: 46px;
-    border-radius: 14px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Icon image */
-.nav-icon img{
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-/* Icon colors */
-.explore-icon{
-    background: transparent;
-}
-
-.play-icon{
-    background: transparent;
-}
-
-.stories-icon{
-    background: transparent;
-}
-
-.passport-icon{
-    background: transparent;
-}
-
-/* Label (always visible like image) */
-.nav-label{
-    font-family: 'Fredoka', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: #444;
-    text-align: center;
-}
-
-/* Active label color */
-.nav-item.active .nav-label{
-    color: #2E7D32;
-}
+        
 
 
         /* Footer */
@@ -1332,8 +1386,44 @@ font-size: 12px;
 
 
 
+<div class="container">
+        <div class="nav-grid">
+            <!-- Explore Button - Green Background -->
+            <button class="nav-btn active">
+                <div class="icon-wrapper">
+    <img src="images/Layer 2 1.png" alt="Icon" class="icon">
+</div>
 
-        <div class="nav-wrapper">
+                <span>Explore</span>
+            </button>
+
+            <!-- Play Button - White Background -->
+            <button class="nav-btn inactive">
+                <div class="icon-wrapper">
+    <img src="images/Layer 2 2.png" alt="Icon" class="icon">
+</div>
+                <span>Play</span>
+            </button>
+
+            <!-- Stories Button - White Background -->
+            <button class="nav-btn inactive">
+                <div class="icon-wrapper">
+    <img src="images/Layer 2 3.png" alt="Icon" class="icon">
+</div>
+                <span>Stories</span>
+            </button>
+
+            <!-- My Passport Button - White Background -->
+            <button class="nav-btn inactive">
+                <div class="icon-wrapper">
+    <img src="images/Layer 2 4.png" alt="Icon" class="icon">
+</div>
+                <span>My Passport</span>
+            </button>
+        </div>
+    </div>
+
+        <!-- <div class="nav-wrapper">
     <div class="bottom-nav">
        <div class="nav-item active">
     <div class="nav-icon explore-icon">
@@ -1364,7 +1454,7 @@ font-size: 12px;
 </div>
 
     </div>
-</div>
+</div> -->
 
         <footer>
             <div class="footer-left">
