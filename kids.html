@@ -605,8 +605,9 @@
         margin-right: 10px;
         padding: 20px;
         margin-top: -25px;
-        margin-bottom: 20px;
+        margin-bottom: 60px !important;
         margin-left: 10px;
+        transform: translateX(-10px);
     }
 
     .nav-grid {
@@ -644,22 +645,22 @@
     }
 
     .nav-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
-        gap: 8px;
+        grid-template-columns: repeat(4, 1fr); /* 4 buttons in one row */
+        gap: 8px;                             /* smaller gap for mobile */
     }
 
     .nav-btn {
-        padding: 12px 10px;
+        padding: 10px 8px;                     /* smaller buttons to fit */
     }
 
     .icon-wrapper {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
     }
 
     .icon {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
     }
 
     .nav-btn span {
@@ -1227,14 +1228,14 @@ font-size: 12px;
             }
 
              footer {
-        flex-direction: column;     /* items upar-neeche */
-        text-align: center;
+        flex-direction: column !important;     /* items upar-neeche */
+        text-align: center !important;
         gap: 15px;
         padding: 15px 20px;         /* mobile padding */
     }
 
     .footer-left {
-        justify-content: center;
+        justify-content: center !important;
         gap: 8px;
     }
 
