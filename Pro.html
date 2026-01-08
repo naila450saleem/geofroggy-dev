@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Geofroggy - Global Data Explorer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF;
+        }
+
+        html, body {
+    overflow-x: hidden;
+}
+
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* ========================================
+   LOGO BAR - WHITE BACKGROUND TOP CENTER
+======================================== */
+.logo-bar {
+    background: #ffffff;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.logo {
+    display: inline-block;
+}
+
+.logo img {
+    max-width: 220px;
+    height: auto;
+    margin: 0 auto;
+    margin-left: 30px;
+}
+
+        /* Switcher */
+        .mode-switcher {
+    background: #e9ecef;
+    padding: 5px;
+    border-radius: 25px;
+    display: flex;
+}
+
+.mode-btn {
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: transparent;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.mode-btn.active {
+    background: #004d40; /* Dark Teal color from image */
+    color: white;
+}
+
+         /* --- Sign Up Button --- */
+        /* This CSS makes the "Sign Up" button green */
+        .signup-btn {
+            background: linear-gradient(to bottom, #81B735, #49770A);; /* This line makes the button green */
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 0 25px 0 25px; /* Rounds top-right and bottom-left corners */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            /* Entrance Animation */
+    animation: slideFromRight 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s both;
+        }
+
+        .signup-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Background Video */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Dark overlay (readability ke liye) */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 25, 41, 0.6);
+    z-index: 1;
+}
+
+/* Content on top */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 10px;
+}
+
+
+       .live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* image aur text ke beech ka space */
+    padding: 8px 16px;
+    margin-bottom: 0;
+    margin-top: -70px;
+}
+
+/* Image ke liye CSS */
+.badge-img {
+    width: 500px;  /* image ka size adjust karein */
+    height: 500px; /* maintain square shape */
+    object-fit: contain; /* image distort na ho */
+}
+
+        .hero h1 {
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+            line-height: 1.2;
+           margin-top: -12%;
+        }
+
+        .hero p {
+    color: rgba(255,255,255,0.8);
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            line-height: 1.2;
+}
+
+
+        .explore-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Data Cards Section */
+        .cards-section {
+            padding: 60px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(520px, 1fr));
+    gap: 25px;
+}
+
+
+        .card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: relative;
+            height: 350px;   /* fixed height */
+    overflow: hidden; /* content won’t overflow */
+     border: 2px solid transparent;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+        .card.cyan { border: 3px solid #13BFCD; }
+        .card.purple { border: 3px solid #8D54E1; }
+        .card.green { border: 3px solid #DFF343; }
+        .card.orange { border: 3px solid #E9831C; }
+
+
+        .real-time-badge {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #B7F1F8;
+
+    border: 1px solid #3ACBDB;
+    border-radius: 14px;
+    line-height: 1;
+    box-shadow: inset 0 0 4px rgba(0, 160, 190, 0.25);
+}
+
+.card.cyan .real-time-badge {
+    background: #e0f7fa;           /* badge color for cyan card */
+    color: #000;                /* text color */
+    border: 1px solid #00acc1;     /* optional border */
+    box-shadow: inset 0 0 4px rgba(0, 140, 160, 0.25);
+}
+
+.card.purple .real-time-badge {
+    background: #E3D4FC;
+    color: #000;
+    border: 1px solid #8A52E1;
+    box-shadow: inset 0 0 4px rgba(106, 27, 154, 0.25);
+}
+
+.card.green .real-time-badge {
+    background: #EEFDCF;
+    color: #000;
+    border: 1px solid #80EB58;
+    box-shadow: inset 0 0 4px rgba(46, 125, 50, 0.25);
+}
+
+.card.orange .real-time-badge {
+    background: #FCE2CA;
+    color: #000;
+    border: 1px solid #EC7E1D;
+    box-shadow: inset 0 0 4px rgba(230, 81, 0, 0.25);
+}
+
+
+
+       
+
+        .card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+/* PNG image styling */
+.card-icon img {
+    width: 60px;        /* icon size */
+    height: 60px;
+    object-fit: contain;
+}
+
+        .card h3 {
+            font-size: 30px;
+            color: #333;
+            margin: 50px 0 10px 0;
+            font-weight: 600;
+
+        }
+
+        .card-value {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #000;
+        }
+
+        /* .card.cyan .card-value { color: #00838f; }
+        .card.purple .card-value { color: #7b1fa2; }
+        .card.green .card-value { color: #388e3c; }
+        .card.orange .card-value { color: #f57c00; } */
+
+        .chart-container {
+    width: 300px;
+    height: 150px;
+    margin: 15px 0;
+    position: relative;
+}
+
+.chart-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: translateY(0);
+    animation: riseUp 2s ease forwards;
+    margin-left: 90%; /* if you still want horizontal shift */
+    margin-top: -25%;
+}
+
+/* Animate from bottom to top */
+@keyframes riseUp {
+    0% {
+        clip-path: inset(100% 0 0 0);  /* hide bottom */
+    }
+    100% {
+        clip-path: inset(0 0 0 0);      /* show full image */
+    }
+}
+
+
+        .card-btn {
+    position: absolute;
+    bottom: 50px;   /* distance from bottom of card */
+    left: 20px;     /* distance from left edge of card */
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+        .card.cyan .card-btn { background-color: #0FC5C9; }
+        .card.purple .card-btn { background-color: #6E69CD; }
+        .card.green .card-btn { background-color: #4AE317; }
+        .card.orange .card-btn { background-color: #EC7E1D; }
+
+         /* Footer */
+        .main-footer {
+            background: #1C5B85;
+            position: relative;
+            overflow: hidden;
+            padding: 50px 20px 0;
+            margin-top: auto;
+        }
+
+        .footer-bg-overlay {
+            position: absolute;
+            top: 30%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../images/footer-bg.png');
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        .footer-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo-section {
+            flex: 1;
+            min-width: 250px;
+            margin-left: -60px;
+        }
+
+        .footer-brand-logo {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo-img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .footer-newsletter-section {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+        }
+
+       
+              .newsletter-wrapper {
+            background: transparent;
+            padding: 35px 40px;
+            border-radius: 80px;
+            position: relative;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .newsletter-wrapper h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .newsletter-input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-email {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            background: white;
+        }
+
+        .newsletter-submit {
+            background: #7ec845;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .newsletter-submit:hover {
+            background: #6db635;
+            transform: scale(1.05);
+        }
+
+        .footer-middle-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .footer-text-social {
+            flex: 1;
+            min-width: 250px;
+            margin-left: -60px;
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+            font-style: italic;
+            
+        }
+
+       .footer-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #7ec845;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1C5B85;
+            font-size: 18px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: #6db635;
+            transform: translateY(-5px);
+        }
+
+        .footer-links-container {
+            flex: 2;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .footer-link-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-link-col h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-link-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-link-col ul li a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .footer-link-col ul li a:hover {
+            color: #7ec845;
+            padding-left: 8px;
+        }
+
+        .footer-bottom-bar {
+            width: 100%;
+            background-color: #00416D;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            box-sizing: border-box;
+            font-size: 13px;
+            margin-left: -20px;
+            margin-right: -20px;
+            width: calc(100% + 40px);
+        }
+
+        .footer-bottom-bar .left-text,
+        .footer-bottom-bar .center-text,
+        .footer-bottom-bar .right-text {
+            flex: 1;
+        }
+
+        .footer-bottom-bar .center-text {
+            text-align: center;
+        }
+
+        .footer-bottom-bar .right-text {
+            text-align: right;
+        }
+
+        /* Responsive code */
+
+       /* ========== Responsive Code ========== */
+
+/* Small Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+    nav {
+        padding: 10px 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo img {
+        max-width: 150px;
+        margin-left: 0;
+    }
+
+   .mode-switcher {
+        padding: 4px;
+        gap: 5px;
+        margin-top: 12px; 
+    }
+
+    .mode-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .signup-btn {
+    display: inline-block;   /* ⭐ ye line zaroori hai */
+    padding: 14px 18px;
+    font-size: 16px;
+    border-radius: 15px;
+    margin: 12px 0;          /* top & bottom space */
+}
+
+    .hero h1 {
+        font-size: 24px;
+         transform: translateY(-50px);
+    }
+
+    .hero p {
+        font-size: 16px;
+        transform: translateY(-30px);
+    }
+
+    .explore-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .cards-section {
+        padding: 30px 20px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        height: auto;
+        padding: 20px;
+    }
+
+     .badge-img {
+        width: 300px;
+        height: 300px;
+        margin-top: 40px;
+    }
+
+    .chart-container {
+        width: 100%;
+        height: 120px;
+    }
+
+    .chart-image {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .footer-top-row,
+    .footer-middle-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-links-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .footer-bottom-bar {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 10px;
+    }
+
+     .footer-logo-img {
+        max-width: 130px;
+       margin-left: 90px;
+    }
+
+     .footer-tagline {
+        font-size: 12px;
+        line-height: 1.6;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+      .social-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        transform: translateX(150px); 
+    }
+}
+
+/* Medium Devices / Tablets (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    nav {
+        padding: 12px 25px;
+    }
+
+    .logo img {
+        max-width: 180px;
+        margin-left: 0;
+    }
+
+    .mode-btn {
+        padding: 7px 14px;
+        font-size: 13px;
+    }
+
+    .signup-btn {
+        padding: 10px 18px;
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+        margin-top: -10%;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .explore-btn {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+
+    .cards-section {
+        padding: 40px 30px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .badge-img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .chart-container {
+        width: 90%;
+        height: 140px;
+    }
+
+    .chart-image {
+        margin-left: 0;
+        margin-top: -10%;
+    }
+
+    .footer-links-container {
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+    }
+
+     .footer-logo-img {
+        max-width: 130px;
+    }
+}
+
+/* Large Tablets / Small Laptops (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    nav {
+        padding: 15px 40px;
+    }
+
+    .logo img {
+        max-width: 200px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+        margin-top: -12%;
+    }
+
+    .hero p {
+        font-size: 19px;
+    }
+
+    .explore-btn {
+        font-size: 17px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart-container {
+        width: 80%;
+        height: 150px;
+    }
+
+    .chart-image {
+        margin-left: 0;
+        margin-top: -15%;
+    }
+    .badge-img {
+        width: 350px;
+        height: 350px;
+    }
+
+     .footer-logo-img {
+        max-width: 130px;
+    }
+}
+
+/* Desktops (1025px and above) */
+@media (min-width: 1025px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, minmax(520px, 1fr));
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+    .explore-btn {
+        font-size: 18px;
+    }
+
+    .chart-container {
+        width: 300px;
+        height: 150px;
+    }
+
+    .chart-image {
+        margin-left: 90%;
+        margin-top: -25%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-bar">
+        <div class="container">
+            <div class="logo">
+               <img src="images/Layer_1 (2).png" loading="eager" fetchpriority="high" alt="GeoFroggy Logo" width="200" height="auto">
+            </div>
+        </div>
+    </div>
+        <div class="mode-switcher">
+                <button class="mode-btn">Kids</button>
+                <button class="mode-btn ">Teen</button>
+                <button class="mode-btn active">Pro</button>
+            </div>
+
+            <div class="nav-buttons">
+            <a href="signup.html" class="signup-btn">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+    <!-- Background Video -->
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+        <source src="images/pro/0_Global_Market_Financial_Data_1280x720.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Content -->
+    <div class="hero-content">
+        <div class="live-badge">
+    <img src="images/pro/Frame 7.png" alt="Live Data Explorer" class="badge-img">
+</div>
+
+        <h1>Global Data Clearly Explained By<br>Geofroggy</h1>
+        <p>Analyze population, economy, and environment across countries.Built for the<br>
+researchers and leaders of tomorrow.</p>
+        <button class="explore-btn">Start Exploring</button>
+    </div>
+
+</section>
+
+
+    <!-- Data Cards Section -->
+    <section class="cards-section">
+        <div class="cards-grid">
+            <!-- GDP Growth Explorer -->
+            <div class="card cyan">
+                <span class="real-time-badge">Real Time</span>
+                <div class="card-icon">
+    <img src="images/pro/image 10.png" alt="GDP Icon">
+</div>
+                <h3>GDP Growth Explorer</h3>
+                <div class="card-value">104.5B</div>
+                <!-- Canvas ki jagah img tag use karo -->
+<div class="chart-container">
+    <img src="images/pro/LineGroup0.png" alt="GDP Chart" class="chart-image">
+</div>
+                <button class="card-btn">Open Explorer</button>
+            </div>
+
+            <!-- Migration Flux -->
+            <div class="card purple">
+                <span class="real-time-badge">Real Time</span>
+                <div class="card-icon">
+    <img src="images/pro/image 7.png" alt="GDP Icon">
+</div>
+                <h3>Migration Flux</h3>
+                <div class="card-value">37,50</div>
+                <!-- Canvas ki jagah img tag use karo -->
+<div class="chart-container">
+    <img src="images/pro/LineGroup0 (1).png" alt="GDP Chart" class="chart-image">
+</div>
+                <button class="card-btn">Open Explorer</button>
+            </div>
+
+            <!-- Climate Tracking -->
+            <div class="card green">
+                <span class="real-time-badge">Real Time</span>
+                <div class="card-icon">
+    <img src="images/pro/image 12.png" alt="GDP Icon">
+</div>
+                <h3>Climate Tracking</h3>
+                <div class="card-value">27.7%</div>
+                <!-- Canvas ki jagah img tag use karo -->
+<div class="chart-container">
+    <img src="images/pro/LineGroup0 (2).png" alt="GDP Chart" class="chart-image">
+</div>
+                <button class="card-btn">Open Explorer</button>
+            </div>
+
+            <!-- Dataset Query -->
+            <div class="card orange">
+                <span class="real-time-badge">Real Time</span>
+                <div class="card-icon">
+    <img src="images/pro/image 11.png" alt="GDP Icon">
+</div>
+                <h3>Dataset Query</h3>
+                <div class="card-value">37,50</div>
+                <!-- Canvas ki jagah img tag use karo -->
+<div class="chart-container">
+    <img src="images/pro/LineGroup0 (3).png" alt="GDP Chart" class="chart-image">
+</div>
+                <button class="card-btn">Open Explorer</button>
+            </div>
+        </div>
+    </section>
+
+     <!-- FOOTER WITH NEWSLETTER TOP RIGHT -->
+    <footer class="main-footer">
+        <!-- Background Image Overlay -->
+        <div class="footer-bg-overlay"></div>
+        
+        <div class="footer-container">
+            <!-- TOP ROW: Logo + Newsletter -->
+            <div class="footer-top-row">
+                <!-- LEFT: Logo -->
+                <div class="footer-logo-section">
+                    <div class="footer-brand-logo">
+                        <img src="images/Layer_1.png" loading="lazy" alt="GeoFroggy Logo" class="footer-logo-img" width="150" height="auto">
+                    </div>
+                    <!-- <p class="footer-description">
+                        Explore global stories, join meaningful conversations, and be part of a worldwide community where every place has a voice.
+                    </p> -->
+                </div>
+                
+                <!-- RIGHT: Newsletter -->
+                <div class="footer-newsletter-section">
+                    <div class="newsletter-wrapper">
+                        <h4>Newsletter</h4>
+                        <div class="newsletter-input-group">
+                            <input type="email" placeholder="Enter Email here" class="newsletter-email">
+                            <button class="newsletter-submit">Notify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MIDDLE ROW: Paragraph + Links -->
+            <div class="footer-middle-row">
+                <!-- LEFT: Paragraph and Social Links -->
+                <div class="footer-text-social">
+                    <p class="footer-tagline">
+                        Explore global stories, join meaningful<br> conversations, and be part of a worldwide<br> community where every place has a voice.
+                    </p>
+                    <p class="footer-tagline">
+                        Let geography become your guide to <br>understanding people, traditions, and <br>perspectives.
+                    </p>
+                    
+                    <div class="footer-social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- RIGHT: All Links in 4 columns side-by-side -->
+                <div class="footer-links-container">
+                    <!-- Column 1: Explore Geofroggy -->
+                    <div class="footer-link-col">
+                        <h4>Explore Geofroggy</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Explore</a></li>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Copedia</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 2: Community & Support -->
+                    <div class="footer-link-col">
+                        <h4>Community & Support</h4>
+                        <ul>
+                            <li><a href="#">Submit a Story</a></li>
+                            <li><a href="#">Become an Ambassador</a></li>
+                            <li><a href="#">Get Involved</a></li>
+                            <li><a href="#">Donate</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Collaborate -->
+                    <div class="footer-link-col">
+                        <h4>Collaborate</h4>
+                        <ul>
+                            <li><a href="#">Advertise with Us</a></li>
+                            <li><a href="#">Partner With Us</a></li>
+                            <li><a href="#">Media Hub</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: Legal -->
+                    <div class="footer-link-col">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Community Guidelines</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTTOM COPYRIGHT BAR -->
+    <div class="footer-bottom-bar">
+        <span class="left-text">© 2025 Geofroggy</span>
+        <span class="center-text">community where every place has a voice.</span>
+        <span class="right-text">All Rights Reserved</span>
+    </div>
+
+    <script>
+
+// Mode Switcher
+    // Saare buttons ko select karna
+    const modeButtons = document.querySelectorAll('.mode-btn');
+
+    modeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 1. Pehle sabse 'active' class hatao
+            modeButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // 2. Jis button par click hua, uspar 'active' class lagao
+            button.classList.add('active');
+
+            // 3. Mode ke hisaab se page redirect
+            const selectedMode = button.innerText.trim(); // Extra spaces remove
+
+            if(selectedMode === "Kids") {
+                window.location.href = "Kids.html"; 
+            } else if(selectedMode === "Teen") {
+                window.location.href = "Teen.html"; 
+            } else if(selectedMode === "Pro") {
+                window.location.href = "Pro.html"; 
+            } else {
+                console.log("Unknown mode: " + selectedMode);
+            }
+        });
+    });
+
+        // Chart data
+        const charts = [
+            { id: 'chart1', color: '#00bcd4', data: [] },
+            { id: 'chart2', color: '#9c27b0', data: [] },
+            { id: 'chart3', color: '#66bb6a', data: [] },
+            { id: 'chart4', color: '#ff9800', data: [] }
+        ];
+
+        // Initialize data
+        charts.forEach(chart => {
+            for (let i = 0; i < 15; i++) {
+                chart.data.push(Math.random() * 30 + 40);
+            }
+        });
+
+        // Draw chart function
+        function drawChart(canvasId, data, color) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width = canvas.offsetWidth;
+            const height = canvas.height = canvas.offsetHeight;
+
+            ctx.clearRect(0, 0, width, height);
+
+            const max = Math.max(...data);
+            const min = Math.min(...data);
+            const range = max - min || 1;
+            const stepX = width / (data.length - 1);
+
+            // Draw area fill
+            ctx.beginPath();
+            ctx.moveTo(0, height);
+            data.forEach((val, i) => {
+                const x = i * stepX;
+                const y = height - ((val - min) / range) * height;
+                ctx.lineTo(x, y);
+            });
+            ctx.lineTo(width, height);
+            ctx.closePath();
+            ctx.fillStyle = color + '33';
+            ctx.fill();
+
+            // Draw line
+            ctx.beginPath();
+            data.forEach((val, i) => {
+                const x = i * stepX;
+                const y = height - ((val - min) / range) * height;
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            });
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+        // Initial draw
+        charts.forEach(chart => {
+            drawChart(chart.id, chart.data, chart.color);
+        });
+
+        // Update charts every 2 seconds
+        setInterval(() => {
+            charts.forEach(chart => {
+                chart.data.shift();
+                chart.data.push(Math.random() * 30 + 40);
+                drawChart(chart.id, chart.data, chart.color);
+            });
+        }, 2000);
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            charts.forEach(chart => {
+                drawChart(chart.id, chart.data, chart.color);
+            });
+        });
+    </script>
+</body>
+</html>

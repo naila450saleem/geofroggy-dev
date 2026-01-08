@@ -634,7 +634,7 @@ a:focus {
     margin-bottom: 12px; /* spacing neeche */
     font-style: italic;
     transform: translateY(-30px);
-
+white-space: nowrap;
 }
 
 
