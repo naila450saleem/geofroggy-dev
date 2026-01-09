@@ -57,7 +57,7 @@
         /* Switcher */
         .mode-switcher {
     background: #e9ecef;
-    padding: 5px;
+    padding: 0;
     border-radius: 25px;
     display: flex;
 }
@@ -65,15 +65,16 @@
 .mode-btn {
     border: none;
     padding: 8px 20px;
-    border-radius: 20px;
+    border-radius: 0 20px 20px 0; /* TL TR BR BL */
     cursor: pointer;
     background: transparent;
     font-weight: 500;
     transition: 0.3s;
 }
 
+
 .mode-btn.active {
-    background: #004d40; /* Dark Teal color from image */
+    background: #175883; /* Dark Teal color from image */
     color: white;
 }
 
@@ -154,6 +155,7 @@
 }
 
         .hero h1 {
+             font-family: 'Poppins', sans-serif;
             color: white;
             font-size: 48px;
             font-weight: bold;
@@ -165,7 +167,7 @@
         .hero p {
     color: rgba(255,255,255,0.8);
             font-size: 20px;
-            font-weight: bold;
+            font-weight: 400;
             margin: 20px 0;
             line-height: 1.2;
 }
@@ -179,7 +181,7 @@
             border-radius: 25px;
             cursor: pointer;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 400;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
         }
 
@@ -289,18 +291,20 @@
 }
 
         .card h3 {
-            font-size: 30px;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+            color: #2C2C2C;
             margin: 50px 0 10px 0;
-            font-weight: 600;
+            font-weight: 500;
 
         }
 
         .card-value {
-            font-size: 36px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
             font-weight: bold;
             margin: 10px 0;
-            color: #000;
+            color: #000000;
         }
 
         /* .card.cyan .card-value { color: #00838f; }
@@ -886,7 +890,7 @@
         <h1>Global Data Clearly Explained By<br>Geofroggy</h1>
         <p>Analyze population, economy, and environment across countries.Built for the<br>
 researchers and leaders of tomorrow.</p>
-        <button class="explore-btn">Start Exploring</button>
+        <button class="explore-btn">Start Free Exploring</button>
     </div>
 
 </section>

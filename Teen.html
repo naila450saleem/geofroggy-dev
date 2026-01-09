@@ -54,7 +54,7 @@
       /* Switcher */
         .mode-switcher {
     background: #e9ecef;
-    padding: 5px;
+    padding: 0;
     border-radius: 25px;
     display: flex;
 }
@@ -62,15 +62,17 @@
 .mode-btn {
     border: none;
     padding: 8px 20px;
-    border-radius: 20px;
+    margin: 0;              /* top-bottom margin remove */
+    line-height: normal;    /* extra vertical space fix */
     cursor: pointer;
     background: transparent;
     font-weight: 500;
     transition: 0.3s;
 }
 
+
 .mode-btn.active {
-    background: #004d40; /* Dark Teal color from image */
+    background: #175883; /* Dark Teal color from image */
     color: white;
 }
 
