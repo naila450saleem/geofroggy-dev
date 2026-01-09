@@ -325,9 +325,9 @@
             font-family: 'Poppins', sans-serif;
             font-size: 25px;
             color: #2C2C2C;
-            margin: 50px 0 10px 0;
+            margin: 35px 0 10px 0;
             font-weight: 500;
-
+padding-top: -60px;
         }
 
         .card-value {
@@ -355,33 +355,36 @@
     height: 100%;
     object-fit: contain;
     transform: translateY(0);
-    animation: riseUp 2s ease forwards;
+    animation: riseUp 5s ease-in-out infinite;
     margin-left: 90%; /* if you still want horizontal shift */
-    margin-top: -25%;
+     transform: translateY(-18px);
 }
 
 /* Animate from bottom to top */
 @keyframes riseUp {
     0% {
-        clip-path: inset(100% 0 0 0);  /* hide bottom */
+        clip-path: inset(100% 0 0 0);  /* completely hidden from bottom */
+    }
+    50% {
+        clip-path: inset(0 0 0 0);      /* fully visible */
     }
     100% {
-        clip-path: inset(0 0 0 0);      /* show full image */
+        clip-path: inset(100% 0 0 0);   /* hides again, ready to loop */
     }
 }
 
 
         .card-btn {
     position: absolute;
-    bottom: 50px;   /* distance from bottom of card */
+    bottom: 25px;   /* distance from bottom of card */
     left: 20px;     /* distance from left edge of card */
     color: white;
     border: none;
     padding: 8px 18px;
     border-radius: 15px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 400;
 }
 
 
