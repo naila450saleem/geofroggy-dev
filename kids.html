@@ -668,6 +668,16 @@
     .nav-btn span {
         font-size: 10px;
     }
+
+     .logo-img img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 5px;
+    z-index: 1;
+}
 }
         
 
@@ -1250,7 +1260,10 @@ font-size: 12px;
         <header>
             <div class="logo">
                 <div class="logo-img">
-    <img src="images/logo.png" alt="Geo Froggy Logo">
+    <!-- <img src="images/logo.png" alt="Geo Froggy Logo"> -->
+    <a href="index.html"> <!-- link to your homepage -->
+        <img src="images/logo.png" loading="eager" fetchpriority="high" alt="GeoFroggy Logo" width="200" height="auto">
+    </a>
 </div>
             </div>
             <button class="nav-btn" onclick="switchPage(2)">Back to Grown Up View</button>
