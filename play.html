@@ -289,7 +289,7 @@
             transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 2px solid transparent;
             transform-style: preserve-3d;
-            animation: hologramFloat 6s ease-in-out infinite;
+           will-change: transform;
             box-shadow: 
                 0 20px 60px rgba(0, 0, 0, 0.4),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -303,7 +303,7 @@
 
         .game-hologram:hover {
             transform: translateY(-30px) rotateX(10deg) rotateY(10deg) scale(1.08);
-            animation: none;
+            animation: hologramFloat 6s ease-in-out infinite;
             border-image: linear-gradient(45deg,
                 var(--neon-pink),
                 var(--neon-blue),
@@ -334,8 +334,8 @@
         }
 
         .game-icon-3d {
-            width: 140px;
-            height: 140px;
+            width: 120px;
+            height: 120px;
             margin: 0 auto 30px;
             background: radial-gradient(circle at 30% 30%,
                 rgba(255, 255, 255, 0.9),
@@ -344,7 +344,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 90px;
+            font-size: 60px;
             position: relative;
             animation: iconOrbit 6s linear infinite;
             box-shadow: 
@@ -551,7 +551,7 @@
                 rgba(255, 0, 255, 0.1),
                 rgba(0, 255, 255, 0.1),
                 rgba(0, 255, 0, 0.1));
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(6px);
             border-radius: 50px;
             position: relative;
             overflow: hidden;
@@ -896,6 +896,10 @@
 
         /* 📱 MOBILE RESPONSIVE */
         @media (max-width: 768px) {
+            * {
+        backdrop-filter: none !important;
+    }
+
             .galaxy-header {
         padding: 12px 15px;
         position: relative;
@@ -952,8 +956,8 @@
             }
             
             .game-icon-3d {
-                width: 100px;
-                height: 100px;
+                width: 70px;
+                height: 70px;
                 font-size: 60px;
             }
             
@@ -1684,6 +1688,13 @@ body {
     min-width: 0 !important;
     flex-shrink: 1 !important;
 }
+
+/* Disable heavy animations while scrolling */
+body.scrolling * {
+    animation: none !important;
+    transition: none !important;
+}
+
     </style>
 </head>
 <body>
@@ -1846,14 +1857,12 @@ body {
             </button>
 
             <!-- Play Button - White Background -->
-            <a href="play.html" class="nav-link">
-    <button class="nav-btn inactive">
-        <div class="icon-wrapper">
-            <img src="images/Layer 2 2.png" alt="Icon" class="icon">
-        </div>
-        <span>Play</span>
-    </button>
-</a>
+            <button class="nav-btn inactive" onclick="window.location.href='play.html'">
+  <div class="icon-wrapper">
+    <img src="images/Layer 2 2.png" alt="Icon" class="icon">
+  </div>
+  <span>Play</span>
+</button>
 
 
             <!-- Stories Button - White Background -->
