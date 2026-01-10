@@ -1,0 +1,2423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 GeoFroggy Game Galaxy - Ultimate Fun!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* 🌌 ULTRA MODERN VARIABLES */
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-blue: #00ffff;
+            --neon-green: #00ff00;
+            --neon-yellow: #ffff00;
+            --neon-purple: #9d00ff;
+            --dark-bg: #0a0a1a;
+            --space-blue: #001233;
+            --particle-glow: rgba(255, 255, 255, 0.8);
+            --card-bg: rgba(20, 20, 40, 0.85);
+        }
+
+        /* 🎯 BASE RESET WITH SPECIAL EFFECTS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* body {
+            font-family: 'Fredoka', sans-serif;
+            background: var(--dark-bg);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(255, 0, 255, 0.15) 0%, transparent 40%);
+            position: relative;
+        } */
+
+
+        body {
+    font-family: 'Fredoka', sans-serif;
+    background: white;   /* plain white background */
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+        /* 🌟 NEON GLOW EFFECTS */
+        .neon-text {
+            text-shadow: 
+                0 0 10px currentColor,
+                0 0 20px currentColor,
+                0 0 30px currentColor,
+                0 0 40px currentColor;
+            animation: neonPulse 2s infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            from { text-shadow: 0 0 10px currentColor; }
+            to { text-shadow: 
+                0 0 20px currentColor,
+                0 0 30px currentColor,
+                0 0 40px currentColor,
+                0 0 50px currentColor;
+            }
+        }
+
+        /* 🎪 ULTRA ATTRACTIVE HEADER */
+        .galaxy-header {
+            background: linear-gradient(135deg,
+                rgba(255, 0, 255, 0.2),
+                rgba(0, 255, 255, 0.2),
+                rgba(0, 255, 0, 0.2));
+            backdrop-filter: blur(20px);
+            padding: 30px 50px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid;
+            border-image: linear-gradient(45deg,
+                var(--neon-pink),
+                var(--neon-blue),
+                var(--neon-green),
+                var(--neon-yellow)) 1;
+            box-shadow: 
+                0 0 50px rgba(255, 0, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            max-width: 1800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .game-logo {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .frog-king-3d {
+            width: 80px;
+            height: 80px;
+            /* background: radial-gradient(circle at 30% 30%,
+                #00ff00,
+                #009900); */
+                background: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            position: relative;
+            animation: frogSpin 8s linear infinite;
+            box-shadow: 
+                0 0 40px #00ff00,
+                0 0 80px #00ff00,
+                inset 0 0 20px rgba(255, 255, 255, 0.5);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        
+
+.frog-king-3d .frog-img {
+    width: 60px !important;    /* image width */
+    height: auto !important;   /* height proportional */
+    object-fit: contain;       /* aspect ratio maintain */
+    display: block;            /* inline-block issues fix */
+
+    
+}
+
+
+
+        @keyframes frogSpin {
+            0% { transform: rotateY(0deg) rotateX(0deg); }
+            25% { transform: rotateY(90deg) rotateX(10deg); }
+            50% { transform: rotateY(180deg) rotateX(0deg); }
+            75% { transform: rotateY(270deg) rotateX(-10deg); }
+            100% { transform: rotateY(360deg) rotateX(0deg); }
+        }
+
+        .frog-king-3d::after {
+            content: '👑';
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            font-size: 35px;
+            animation: crownFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px gold);
+        }
+
+        @keyframes crownFloat {
+            0%, 100% { transform: translateY(0) rotate(-15deg); }
+            50% { transform: translateY(-20px) rotate(15deg); }
+        }
+
+        .logo-text h1 {
+            font-size: 45px !important;
+            font-weight: 900;
+            background: linear-gradient(45deg,
+                var(--neon-pink),
+                var(--neon-blue),
+                var(--neon-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbowText 3s linear infinite;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes rainbowText {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .logo-text p {
+            color: #000;
+            font-size: 16px;
+            margin-top: 10px;
+            opacity: 0.9;
+            animation: glowText 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowText {
+            from { opacity: 0.7; }
+            to { opacity: 1; }
+        }
+
+        /* 🚀 MAGICAL BUTTONS */
+        .magic-portal-btn {
+            background: linear-gradient(135deg,
+                var(--neon-purple),
+                var(--neon-pink),
+                var(--neon-blue));
+            color: white;
+            border: none;
+            padding: 25px 50px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: 800;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 0 40px rgba(157, 0, 255, 0.6),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+            animation: portalGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes portalGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 40px rgba(157, 0, 255, 0.6),
+                    inset 0 0 20px rgba(255, 255, 255, 0.2);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 60px rgba(255, 0, 255, 0.8),
+                    0 0 90px rgba(0, 255, 255, 0.5),
+                    inset 0 0 30px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .magic-portal-btn:hover {
+            transform: scale(1.15) rotate(5deg);
+            animation: portalSpin 0.5s linear infinite;
+        }
+
+        @keyframes portalSpin {
+            from { transform: scale(1.15) rotate(5deg); }
+            to { transform: scale(1.15) rotate(365deg); }
+        }
+
+        .magic-portal-btn::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle,
+                rgba(255, 255, 255, 0.3) 0%,
+                transparent 70%);
+            animation: portalShine 3s linear infinite;
+        }
+
+        @keyframes portalShine {
+            0% { transform: translate(-100%, -100%) rotate(0deg); }
+            100% { transform: translate(100%, 100%) rotate(360deg); }
+        }
+
+        /* 🎮 GAMES GALLERY - HOLOGRAPHIC CARDS */
+        .games-universe {
+            max-width: 1800px;
+            margin: 80px auto;
+            padding: 40px;
+            position: relative;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            perspective: 2000px;
+        }
+
+        .game-hologram {
+            background: linear-gradient(145deg,
+                rgba(255, 0, 255, 0.15),
+                rgba(0, 255, 255, 0.15),
+                rgba(0, 255, 0, 0.15));
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            transform-style: preserve-3d;
+            animation: hologramFloat 6s ease-in-out infinite;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes hologramFloat {
+            0%, 100% { transform: translateY(0) rotateX(0deg); }
+            33% { transform: translateY(-20px) rotateX(5deg); }
+            66% { transform: translateY(-10px) rotateX(-5deg); }
+        }
+
+        .game-hologram:hover {
+            transform: translateY(-30px) rotateX(10deg) rotateY(10deg) scale(1.08);
+            animation: none;
+            border-image: linear-gradient(45deg,
+                var(--neon-pink),
+                var(--neon-blue),
+                var(--neon-green)) 1;
+            box-shadow: 
+                0 40px 100px rgba(255, 0, 255, 0.4),
+                0 0 0 5px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .game-hologram::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent);
+            animation: hologramScan 3s linear infinite;
+        }
+
+        @keyframes hologramScan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+        }
+
+        .game-icon-3d {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 30px;
+            background: radial-gradient(circle at 30% 30%,
+                rgba(255, 255, 255, 0.9),
+                rgba(255, 255, 255, 0.4));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+            position: relative;
+            animation: iconOrbit 6s linear infinite;
+            box-shadow: 
+                0 0 50px rgba(255, 255, 255, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.8);
+            filter: drop-shadow(0 0 20px currentColor);
+        }
+
+        @keyframes iconOrbit {
+            from { transform: rotateY(0deg) scale(1); }
+            50% { transform: rotateY(180deg) scale(1.2); }
+            to { transform: rotateY(360deg) scale(1); }
+        }
+
+        .game-icon-3d::after {
+            content: '';
+            position: absolute;
+            width: 180%;
+            height: 180%;
+            border-radius: 50%;
+            border: 3px dashed currentColor;
+            opacity: 0.3;
+            animation: ringSpin 10s linear infinite;
+        }
+
+        @keyframes ringSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .game-title {
+            font-size: 42px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg,
+                var(--neon-yellow),
+                var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.5); }
+        }
+
+        .game-description {
+            text-align: center;
+            color: #000;
+            font-size: 20px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+            animation: statPulse 3s infinite;
+        }
+
+        @keyframes statPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .play-neon-btn {
+            background: #065f46;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 25px;
+            font-size: 22px;
+            font-weight: 800;
+            cursor: pointer;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .play-neon-btn:hover {
+            background: linear-gradient(135deg,
+                var(--neon-purple),
+                var(--neon-pink));
+            transform: translateY(-5px);
+            box-shadow: 
+                0 0 50px rgba(255, 0, 255, 0.6),
+                0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-neon-btn::after {
+            content: '⚡';
+            position: absolute;
+            right: 20px;
+            animation: sparkFlash 0.8s infinite;
+        }
+
+        @keyframes sparkFlash {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* 🌌 COSMIC BACKGROUND ELEMENTS */
+        .cosmic-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle-beam {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom,
+                transparent,
+                var(--neon-blue),
+                transparent);
+            animation: beamFall 5s linear infinite;
+            filter: blur(1px);
+        }
+
+        @keyframes beamFall {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        .nebula {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.2;
+            animation: nebulaDrift 60s linear infinite;
+        }
+
+        @keyframes nebulaDrift {
+            0% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, 50px) scale(1.2); }
+            50% { transform: translate(50px, 100px) scale(0.8); }
+            75% { transform: translate(-50px, 50px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        /* 🎮 GAME ARENA - FLOATING ISLAND */
+        .game-arena-island {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(30px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: islandRise 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes islandRise {
+            from { 
+                opacity: 0;
+                transform: scale(0.5) rotateX(-30deg);
+                backdrop-filter: blur(0);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1) rotateX(0);
+                backdrop-filter: blur(30px);
+            }
+        }
+
+        .island-content {
+            width: 95%;
+            max-width: 1400px;
+            height: 90vh;
+            background: linear-gradient(145deg,
+                rgba(255, 0, 255, 0.1),
+                rgba(0, 255, 255, 0.1),
+                rgba(0, 255, 0, 0.1));
+            backdrop-filter: blur(20px);
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid;
+            border-image: linear-gradient(45deg,
+                var(--neon-pink),
+                var(--neon-blue),
+                var(--neon-green)) 1;
+            box-shadow: 
+                0 0 100px rgba(255, 0, 255, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transform-style: preserve-3d;
+            animation: islandFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes islandFloat {
+            0%, 100% { transform: translateY(0) rotateX(0deg); }
+            50% { transform: translateY(-20px) rotateX(5deg); }
+        }
+
+        .island-header {
+            padding: 40px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg,
+                transparent,
+                var(--neon-blue),
+                transparent) 1;
+        }
+
+        .close-portal {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,
+                #ff3333,
+                #ff6666);
+            border: none;
+            color: white;
+            font-size: 36px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            animation: portalCloseSpin 10s linear infinite;
+            box-shadow: 0 0 30px rgba(255, 51, 51, 0.6);
+        }
+
+        @keyframes portalCloseSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .close-portal:hover {
+            transform: scale(1.3) rotate(180deg);
+            animation: none;
+            box-shadow: 0 0 50px rgba(255, 51, 51, 0.9);
+        }
+
+        /* 🎯 GAME CONTENT STYLES */
+        .game-content-area {
+            padding: 50px;
+            height: calc(100% - 130px);
+            overflow-y: auto;
+        }
+
+        .score-display-neon {
+            position: absolute;
+            top: 25%;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 25px 35px;
+            border-radius: 30px;
+            color: var(--neon-green);
+            font-size: 30px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+           box-shadow: 
+    0 0 40px rgba(0, 255, 0, 0.4),        /* original glow */
+    0 0 20px #065f46,                      /* new dark green shadow */
+    inset 0 0 20px rgba(0, 255, 0, 0.1);   /* inset highlight */
+
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            animation: scoreNeonPulse 2s infinite alternate;
+            border: 3px solid var(--neon-green);
+        }
+
+        @keyframes scoreNeonPulse {
+            from { 
+                box-shadow: 
+                    0 0 40px rgba(0, 255, 0, 0.4),
+                    inset 0 0 20px rgba(0, 255, 0, 0.1);
+            }
+            to { 
+                box-shadow: 
+                    0 0 60px rgba(0, 255, 0, 0.6),
+                    0 0 90px rgba(0, 255, 0, 0.3),
+                    inset 0 0 30px rgba(0, 255, 0, 0.2);
+            }
+        }
+
+        /* 🎪 SPECIAL EFFECTS CONTAINERS */
+        .special-effects {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .laser-beam {
+            position: absolute;
+            height: 3px;
+            background: linear-gradient(90deg,
+                transparent,
+                var(--neon-pink),
+                var(--neon-blue),
+                transparent);
+            animation: laserScan 4s linear infinite;
+            filter: blur(1px);
+        }
+
+        @keyframes laserScan {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100vw) rotate(45deg); }
+        }
+
+        .floating-shapes {
+            position: absolute;
+            border: 2px solid;
+            border-image: linear-gradient(45deg,
+                var(--neon-pink),
+                var(--neon-blue)) 1;
+            animation: shapeFloat 20s linear infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes shapeFloat {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(100vw, 100vh) rotate(360deg); }
+        }
+
+        /* 🎪 BOTTOM DASHBOARD - FLOATING BAR */
+      
+
+
+        /* Navigation Wrapper */
+ .container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            padding: 24px;
+            width: 100%;
+            max-width: 600px;
+            margin-left: 30%;
+            margin-top: -35px;
+            margin-bottom: 30px;
+            z-index: 1;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .nav-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 18px;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Remove white background from icon wrapper in active button */
+/* Complete reset for active button's icon wrapper */
+.nav-btn.active .icon-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Also check if the image itself has white background */
+.nav-btn.active .icon-wrapper img {
+    background: transparent !important;
+}
+
+/* Remove any possible white from the button itself */
+.nav-btn.active {
+    background: url("images/Rectangle 3970.png") center/cover no-repeat !important;
+    background-color: transparent !important;
+}
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-btn.active {
+            background: url("images/Rectangle\ 3974.png") center/cover no-repeat;
+        }
+
+        .nav-btn.inactive {
+            background: white;
+        }
+
+        .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            background: transparent !important;
+        }
+
+       
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            fill: none;
+            stroke: #0d9488;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .nav-btn span {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .span {
+            color:#065f46;
+        }
+
+        .inactive span {
+            color: #6b7280;
+        }
+
+        /* 🎉 ULTRA CELEBRATION EFFECTS */
+        .celebration-overdrive {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2000;
+            display: none;
+        }
+
+        .firework-overkill {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: fireworkOverdrive 2s ease-out forwards;
+            filter: blur(2px);
+        }
+
+        @keyframes fireworkOverdrive {
+            0% {
+                transform: translate(var(--x), 100vh) scale(0);
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+                transform: translate(var(--x), var(--y)) scale(3);
+            }
+            100% {
+                transform: translate(var(--x), var(--y)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .confetti-storm {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: var(--color);
+            animation: confettiStormFall 4s linear forwards;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        @keyframes confettiStormFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(1440deg) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* 📱 RESPONSIVE DESIGN */
+        @media (max-width: 1600px) {
+            .games-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 30px;
+            }
+            
+            .logo-text h1 {
+                font-size: 56px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .games-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+            
+            .game-hologram {
+                padding: 30px;
+            }
+            
+            .game-icon-3d {
+                width: 120px;
+                height: 120px;
+                font-size: 70px;
+            }
+            
+            .logo-text h1 {
+                font-size: 48px;
+            }
+        }
+
+        /* 📱 MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .galaxy-header {
+        padding: 12px 15px;
+        position: relative;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        align-items: center;
+        width: 100%;
+    }
+            
+            .game-logo {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .frog-king-3d {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .frog-king-3d .frog-img {
+                width: 45px !important;
+            }
+            
+            .frog-king-3d::after {
+                font-size: 25px;
+                top: -15px;
+                right: -15px;
+            }
+            
+            .logo-text h1 {
+                font-size: 32px !important;
+            }
+            
+            .logo-text p {
+                font-size: 14px;
+            }
+            
+            .games-universe {
+                margin: 40px auto;
+                padding: 20px;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .game-hologram {
+                padding: 25px;
+            }
+            
+            .game-icon-3d {
+                width: 100px;
+                height: 100px;
+                font-size: 60px;
+            }
+            
+            .game-title {
+                font-size: 28px;
+            }
+            
+            .game-description {
+                font-size: 16px;
+            }
+            
+            .game-stats {
+    flex-direction: row;           /* badges ek row me */
+    justify-content: space-between; /* ek left, ek right */
+    gap: 10px;                     /* optional spacing */
+    width: 100%;                   /* pura width le, taake dono sides me fit ho jaye */
+}
+
+            
+            .stat-badge {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            
+            .play-neon-btn {
+                font-size: 18px;
+                padding: 15px 30px;
+            }
+            
+            /* Navigation Container */
+            .container {
+                max-width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                padding: 16px;
+                margin-top: -25px;
+            }
+            
+            .nav-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+            }
+            
+            .nav-btn {
+                padding: 12px 8px;
+            }
+            
+            .icon-wrapper {
+                width: 36px;
+                height: 36px;
+                margin-bottom: 6px;
+            }
+            
+            .icon {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .nav-btn span {
+                font-size: 10px;
+            }
+            
+            /* Score Display */
+            .score-display-neon {
+                padding: 12px 20px;
+                font-size: 20px;
+                top: 15px;
+                right: 15px;
+                gap: 10px;
+            }
+            
+            /* Game Arena */
+            .island-content {
+                width: 100%;
+                height: 100vh;
+                border-radius: 0;
+            }
+            
+            .island-header {
+                padding: 20px;
+            }
+            
+            .island-header h2 {
+                font-size: 24px !important;
+            }
+            
+            .close-portal {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            
+            .game-content-area {
+                padding: 20px;
+            }
+            
+            .game-grid-interactive {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .game-cell-neon {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text h1 {
+                font-size: 24px !important;
+            }
+            
+            .logo-text p {
+                font-size: 12px;
+            }
+            
+            .frog-king-3d {
+                width: 60px;
+                height: 60px;
+                
+            }
+            
+            .frog-king-3d .frog-img {
+                width: 40px !important;
+            }
+            
+            .game-title {
+                font-size: 24px;
+            }
+            
+            .game-description {
+                font-size: 14px;
+            }
+            
+            .container {
+                padding: 12px;
+            }
+            
+            .nav-grid {
+                gap: 6px;
+            }
+            
+            .nav-btn {
+                padding: 10px 6px;
+            }
+            
+            .icon-wrapper {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .icon {
+                width: 26px;
+                height: 26px;
+            }
+            
+            .nav-btn span {
+                font-size: 9px;
+            }
+            
+            .score-display-neon {
+                padding: 8px 10px;
+                font-size: 18px;
+                margin-top: 20%;
+            }
+        }
+
+        /* 🎮 GAME-SPECIFIC ENHANCEMENTS */
+        .game-grid-interactive {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .game-cell-neon {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+            animation: cellGlow 3s infinite alternate;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes cellGlow {
+            from { box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
+            to { box-shadow: 0 0 40px rgba(255, 0, 255, 0.4); }
+        }
+
+        .game-cell-neon:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--neon-blue);
+            animation: cellHoverGlow 0.5s infinite alternate;
+        }
+
+        @keyframes cellHoverGlow {
+            from { 
+                box-shadow: 
+                    0 0 30px var(--neon-blue),
+                    0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+            to { 
+                box-shadow: 
+                    0 0 50px var(--neon-pink),
+                    0 20px 50px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        .game-cell-neon.correct {
+            animation: correctFlash 1s;
+            background: linear-gradient(135deg, rgba(0, 255, 0, 0.2), rgba(0, 200, 0, 0.3));
+            border-color: var(--neon-green);
+        }
+
+        @keyframes correctFlash {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .game-cell-neon.wrong {
+            animation: wrongShake 0.5s;
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(200, 0, 0, 0.3));
+            border-color: #ff3333;
+        }
+
+        @keyframes wrongShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* 🌟 SCROLLBAR STYLING */
+        .game-content-area::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .game-content-area::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .game-content-area::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg,
+                var(--neon-pink),
+                var(--neon-blue));
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .game-content-area::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg,
+                var(--neon-blue),
+                var(--neon-pink));
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        /* 🎬 LOADING ANIMATION */
+        .loading-universe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spiral {
+            width: 200px;
+            height: 200px;
+            border: 5px solid transparent;
+            border-top: 5px solid var(--neon-pink);
+            border-right: 5px solid var(--neon-blue);
+            border-bottom: 5px solid var(--neon-green);
+            border-left: 5px solid var(--neon-yellow);
+            border-radius: 50%;
+            animation: loadingSpin 2s linear infinite;
+            position: relative;
+        }
+
+        @keyframes loadingSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .loading-spiral::after {
+            content: '🎮';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            animation: loadingEmoji 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes loadingEmoji {
+            from { transform: translate(-50%, -50%) scale(1); }
+            to { transform: translate(-50%, -50%) scale(1.5); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 🌟 LOADING SCREEN -->
+    <div class="loading-universe" id="loadingScreen">
+        <div class="loading-spiral"></div>
+    </div>
+
+    <!-- 🌌 COSMIC BACKGROUND -->
+    <div class="cosmic-particles" id="cosmicParticles"></div>
+    
+    <!-- 🎪 SPECIAL EFFECTS -->
+    <div class="special-effects" id="specialEffects"></div>
+
+
+    
+    <!-- 🎪 ULTRA HEADER -->
+    <header class="galaxy-header">
+        <div class="header-content">
+            <div class="game-logo">
+                <div class="frog-king-3d">
+    <img src="images/image 2.png" alt="Frog King" class="frog-img">
+</div>
+
+                <div class="logo-text">
+                    <h1 class="neon-text">GAME GALAXY</h1>
+                    <p>Where Every Game is an Adventure!</p>
+                </div>
+            </div>
+            <!-- <button class="magic-portal-btn" onclick="startGameUniverse()">
+                🚀 LAUNCH ADVENTURE!
+            </button> -->
+        </div>
+    </header>
+
+    <!-- 🎮 GAMES UNIVERSE -->
+    <div class="games-universe">
+        <div class="games-grid">
+            <!-- Game 1: Flag Match -->
+            <div class="game-hologram" onclick="openGameArena('flag-match')">
+                <div class="game-icon-3d" style="color: var(--neon-yellow);">🚩</div>
+                <h2 class="game-title">FLAG FRENZY</h2>
+                <p class="game-description">
+                    Match flags with countries in this high-speed challenge!
+                    Test your visual memory and geography skills!
+                </p>
+                <div class="game-stats">
+                    <div class="stat-badge">⭐ 4.9</div>
+                    <div class="stat-badge">👥 2.5K+ Players</div>
+                </div>
+                <button class="play-neon-btn">PLAY NOW</button>
+            </div>
+
+            <!-- Game 2: Capital Quiz -->
+            <div class="game-hologram" onclick="openGameArena('capital-quiz')">
+                <div class="game-icon-3d" style="color: var(--neon-pink);">🏛️</div>
+                <h2 class="game-title">CAPITAL QUEST</h2>
+                <p class="game-description">
+                    Journey through world capitals in this epic quiz!
+                    Can you become the ultimate geography master?
+                </p>
+                <div class="game-stats">
+                    <div class="stat-badge">⭐ 4.8</div>
+                    <div class="stat-badge">👥 3.2K+ Players</div>
+                </div>
+                <button class="play-neon-btn">PLAY NOW</button>
+            </div>
+
+            <!-- Game 3: Memory Match -->
+            <div class="game-hologram" onclick="openGameArena('memory-match')">
+                <div class="game-icon-3d" style="color: var(--neon-blue);">🧠</div>
+                <h2 class="game-title">MEMORY MATRIX</h2>
+                <p class="game-description">
+                    Match pairs of countries in this brain-teasing challenge!
+                    Boost your memory power to the max!
+                </p>
+                <div class="game-stats">
+                    <div class="stat-badge">⭐ 5.0</div>
+                    <div class="stat-badge">👥 4.1K+ Players</div>
+                </div>
+                <button class="play-neon-btn">PLAY NOW</button>
+            </div>
+
+            <!-- Game 4: Drag & Drop -->
+            <div class="game-hologram" onclick="openGameArena('drag-drop')">
+                <div class="game-icon-3d" style="color: var(--neon-green);">🎯</div>
+                <h2 class="game-title">WORLD BUILDER</h2>
+                <p class="game-description">
+                    Drag countries to their continents and build your world!
+                    Perfect for hands-on geography learning!
+                </p>
+                <div class="game-stats">
+                    <div class="stat-badge">⭐ 4.7</div>
+                    <div class="stat-badge">👥 2.8K+ Players</div>
+                </div>
+                <button class="play-neon-btn">PLAY NOW</button>
+            </div>
+
+            <!-- Game 5: Geography Spin -->
+            <div class="game-hologram" onclick="openGameArena('geo-spin')">
+                <div class="game-icon-3d" style="color: var(--neon-purple);">🎡</div>
+                <h2 class="game-title">GLOBE SPINNER</h2>
+                <p class="game-description">
+                    Spin the wheel and discover amazing geography facts!
+                    Every spin is a new adventure!
+                </p>
+                <div class="game-stats">
+                    <div class="stat-badge">⭐ 4.9</div>
+                    <div class="stat-badge">👥 3.5K+ Players</div>
+                </div>
+                <button class="play-neon-btn">PLAY NOW</button>
+            </div>
+
+            <!-- Game 6: Map Puzzle -->
+            <div class="game-hologram" onclick="openGameArena('map-puzzle')">
+                <div class="game-icon-3d" style="color: var(--neon-yellow);">🗺️</div>
+                <h2 class="game-title">PLANET PUZZLER</h2>
+                <p class="game-description">
+                    Piece together the world map in this challenging puzzle!
+                    Complete continents and unlock achievements!
+                </p>
+                <div class="game-stats">
+                    <div class="stat-badge">⭐ 5.0</div>
+                    <div class="stat-badge">👥 4.3K+ Players</div>
+                </div>
+                <button class="play-neon-btn">PLAY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🎮 GAME ARENA -->
+    <div class="game-arena-island" id="gameArena">
+        <div class="island-content">
+            <div class="island-header">
+                <h2 id="arenaTitle" style="font-size: 42px; color: var(--neon-yellow);">🎮 GAME ARENA</h2>
+                <button class="close-portal" onclick="closeGameArena()">✕</button>
+            </div>
+            <div class="game-content-area" id="gameContent">
+                <!-- Game content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 🎯 SCORE DISPLAY -->
+    <div class="score-display-neon" id="scoreDisplay">
+        <span>🏆 SCORE:</span>
+        <span id="scoreValue">0</span>
+    </div>
+
+    <!-- 🎪 FLOATING DASHBOARD -->
+    <div class="container">
+        <div class="nav-grid">
+            <!-- Explore Button - Green Background -->
+            <button class="nav-btn active">
+                <div class="icon-wrapper">
+    <img src="images/Layer 2 1.png" alt="Icon" class="icon">
+</div>
+
+                <span>Explore</span>
+            </button>
+
+            <!-- Play Button - White Background -->
+            <a href="play.html" class="nav-link">
+    <button class="nav-btn inactive">
+        <div class="icon-wrapper">
+            <img src="images/Layer 2 2.png" alt="Icon" class="icon">
+        </div>
+        <span>Play</span>
+    </button>
+</a>
+
+
+            <!-- Stories Button - White Background -->
+            <button class="nav-btn inactive">
+                <div class="icon-wrapper">
+    <img src="images/Layer 2 3.png" alt="Icon" class="icon">
+</div>
+                <span>Stories</span>
+            </button>
+
+            <!-- My Passport Button - White Background -->
+            <button class="nav-btn inactive">
+                <div class="icon-wrapper">
+    <img src="images/Layer 2 4.png" alt="Icon" class="icon">
+</div>
+                <span>My Passport</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 🎉 CELEBRATION OVERLAY -->
+    <div class="celebration-overdrive" id="celebration"></div>
+
+    <script>
+        // 🌟 GLOBAL VARIABLES
+        let gameScore = 0;
+        let currentGame = null;
+        let isGameActive = false;
+
+        // 🎬 LOADING ANIMATION
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.display = 'none';
+                createCosmicEffects();
+                createSpecialEffects();
+                createInitialCelebration();
+            }, 2000);
+        });
+
+        // 🌌 CREATE COSMIC BACKGROUND EFFECTS
+        function createCosmicEffects() {
+            const particles = document.getElementById('cosmicParticles');
+            const colors = [
+                'var(--neon-pink)',
+                'var(--neon-blue)',
+                'var(--neon-green)',
+                'var(--neon-yellow)',
+                'var(--neon-purple)'
+            ];
+
+            // Create particle beams
+            for (let i = 0; i < 50; i++) {
+                const beam = document.createElement('div');
+                beam.className = 'particle-beam';
+                beam.style.left = `${Math.random() * 100}%`;
+                beam.style.width = `${Math.random() * 3 + 1}px`;
+                beam.style.background = `linear-gradient(to bottom,
+                    transparent,
+                    ${colors[Math.floor(Math.random() * colors.length)]},
+                    transparent)`;
+                beam.style.animationDelay = `${Math.random() * 5}s`;
+                beam.style.animationDuration = `${Math.random() * 4 + 3}s`;
+                particles.appendChild(beam);
+            }
+
+            // Create nebulas
+            for (let i = 0; i < 5; i++) {
+                const nebula = document.createElement('div');
+                nebula.className = 'nebula';
+                nebula.style.width = nebula.style.height = `${Math.random() * 400 + 200}px`;
+                nebula.style.left = `${Math.random() * 100}%`;
+                nebula.style.top = `${Math.random() * 100}%`;
+                nebula.style.background = `radial-gradient(circle,
+                    ${colors[Math.floor(Math.random() * colors.length)]} 0%,
+                    transparent 70%)`;
+                nebula.style.animationDelay = `${Math.random() * 60}s`;
+                particles.appendChild(nebula);
+            }
+        }
+
+        // 🎪 CREATE SPECIAL EFFECTS
+        function createSpecialEffects() {
+            const effects = document.getElementById('specialEffects');
+
+            // Create laser beams
+            for (let i = 0; i < 8; i++) {
+                const laser = document.createElement('div');
+                laser.className = 'laser-beam';
+                laser.style.top = `${Math.random() * 100}%`;
+                laser.style.opacity = Math.random() * 0.5 + 0.1;
+                laser.style.animationDelay = `${Math.random() * 4}s`;
+                laser.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                effects.appendChild(laser);
+            }
+
+            // Create floating shapes
+            for (let i = 0; i < 15; i++) {
+                const shape = document.createElement('div');
+                shape.className = 'floating-shapes';
+                const size = Math.random() * 100 + 50;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+                shape.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                shape.style.borderWidth = `${Math.random() * 3 + 1}px`;
+                shape.style.animationDelay = `${Math.random() * 20}s`;
+                shape.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                effects.appendChild(shape);
+            }
+        }
+
+        // 🎉 CREATE INITIAL CELEBRATION
+        function createInitialCelebration() {
+            setTimeout(() => {
+                createFireworks(25);
+            }, 500);
+        }
+
+        // 🎮 START GAME UNIVERSE
+        function startGameUniverse() {
+            createFireworks(50);
+            gameScore = 1000; // Starting bonus
+            updateScoreDisplay();
+            
+            // Show score display
+            document.getElementById('scoreDisplay').style.display = 'flex';
+            
+            // Animate all game cards
+            const cards = document.querySelectorAll('.game-hologram');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.animation = 'none';
+                    card.style.transform = 'translateY(-30px) scale(1.1)';
+                    card.style.boxShadow = '0 0 60px var(--neon-pink)';
+                    
+                    setTimeout(() => {
+                        card.style.transform = '';
+                        card.style.boxShadow = '';
+                        card.style.animation = 'hologramFloat 6s ease-in-out infinite';
+                    }, 500);
+                }, index * 100);
+            });
+        }
+
+        // 🎪 OPEN GAME ARENA
+        function openGameArena(gameType) {
+            createFireworks(30);
+            
+            const arena = document.getElementById('gameArena');
+            const title = document.getElementById('arenaTitle');
+            const content = document.getElementById('gameContent');
+            
+            // Set game title
+            const gameTitles = {
+                'flag-match': '🚩 FLAG FRENZY ARENA',
+                'capital-quiz': '🏛️ CAPITAL QUEST ARENA',
+                'memory-match': '🧠 MEMORY MATRIX ARENA',
+                'drag-drop': '🎯 WORLD BUILDER ARENA',
+                'geo-spin': '🎡 GLOBE SPINNER ARENA',
+                'map-puzzle': '🗺️ PLANET PUZZLER ARENA'
+            };
+            
+            title.textContent = gameTitles[gameType];
+            
+            // Show arena
+            arena.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            isGameActive = true;
+            
+            // Load game content
+            content.innerHTML = createGameContent(gameType);
+            currentGame = gameType;
+        }
+
+        // 🚪 CLOSE GAME ARENA
+        function closeGameArena() {
+            const arena = document.getElementById('gameArena');
+            arena.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            isGameActive = false;
+            currentGame = null;
+        }
+
+        // 🎮 CREATE GAME CONTENT
+        function createGameContent(gameType) {
+            const games = {
+                'flag-match': createFlagGameContent,
+                'capital-quiz': createQuizGameContent,
+                'memory-match': createMemoryGameContent,
+                'drag-drop': createDragDropGameContent,
+                'geo-spin': createSpinGameContent,
+                'map-puzzle': createPuzzleGameContent
+            };
+            
+            return games[gameType] ? games[gameType]() : createDefaultGameContent();
+        }
+
+        // 🚩 FLAG GAME CONTENT
+        function createFlagGameContent() {
+            const countries = [
+                { name: 'UNITED STATES', flag: '🇺🇸', color: '#B31942' },
+                { name: 'JAPAN', flag: '🇯🇵', color: '#BC002D' },
+                { name: 'FRANCE', flag: '🇫🇷', color: '#002654' },
+                { name: 'BRAZIL', flag: '🇧🇷', color: '#009739' },
+                { name: 'INDIA', flag: '🇮🇳', color: '#FF9933' },
+                { name: 'CANADA', flag: '🇨🇦', color: '#D80621' },
+                { name: 'GERMANY', flag: '🇩🇪', color: '#000000' },
+                { name: 'AUSTRALIA', flag: '🇦🇺', color: '#012169' },
+                { name: 'ITALY', flag: '🇮🇹', color: '#009246' },
+                { name: 'SPAIN', flag: '🇪🇸', color: '#AA151B' },
+                { name: 'CHINA', flag: '🇨🇳', color: '#DE2910' },
+                { name: 'RUSSIA', flag: '🇷🇺', color: '#D52B1E' }
+            ];
+            
+            const shuffled = [...countries].sort(() => Math.random() - 0.5);
+            const target = shuffled[0];
+            
+            return `
+                <div style="color: white; text-align: center; padding: 40px;">
+                    <div style="font-size: 60px; margin-bottom: 30px; animation: bounce 1s infinite;">🎯</div>
+                    <h2 style="font-size: 36px; margin-bottom: 20px; color: var(--neon-yellow);">
+                        FIND THE FLAG OF:
+                    </h2>
+                    <div style="font-size: 48px; margin-bottom: 50px; padding: 30px; 
+                        background: rgba(255, 255, 255, 0.1); 
+                        border-radius: 25px;
+                        border: 3px solid ${target.color};
+                        box-shadow: 0 0 40px ${target.color};
+                        animation: pulseGlow 2s infinite;">
+                        ${target.name}
+                    </div>
+                    <div class="game-grid-interactive">
+                        ${shuffled.map((country, index) => `
+                            <div class="game-cell-neon" 
+                                 onclick="checkFlagAnswer('${country.name}', '${target.name}', this)"
+                                 style="animation-delay: ${index * 0.1}s">
+                                <div style="font-size: 80px; margin-bottom: 20px;">${country.flag}</div>
+                                <div style="font-size: 22px; font-weight: 700; color: ${country.color}">
+                                    ${country.name}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div style="margin-top: 50px; font-size: 24px; color: var(--neon-blue);">
+                        🎯 Match the flag to win 200 points!
+                    </div>
+                </div>
+            `;
+        }
+
+        // 🏛️ QUIZ GAME CONTENT
+        function createQuizGameContent() {
+            const questions = [
+                {
+                    question: "WHICH COUNTRY IS KNOWN AS THE 'LAND OF THE RISING SUN'?",
+                    options: ["CHINA", "JAPAN", "KOREA", "THAILAND"],
+                    correct: "JAPAN",
+                    emoji: "🇯🇵",
+                    color: "#BC002D"
+                },
+                {
+                    question: "WHAT IS THE CAPITAL OF BRAZIL?",
+                    options: ["RIO DE JANEIRO", "SÃO PAULO", "BRASÍLIA", "SALVADOR"],
+                    correct: "BRASÍLIA",
+                    emoji: "🇧🇷",
+                    color: "#009739"
+                },
+                {
+                    question: "WHICH IS THE LARGEST COUNTRY BY AREA?",
+                    options: ["CANADA", "CHINA", "RUSSIA", "UNITED STATES"],
+                    correct: "RUSSIA",
+                    emoji: "🇷🇺",
+                    color: "#D52B1E"
+                },
+                {
+                    question: "IN WHICH CONTINENT IS EGYPT LOCATED?",
+                    options: ["ASIA", "AFRICA", "EUROPE", "SOUTH AMERICA"],
+                    correct: "AFRICA",
+                    emoji: "🌍",
+                    color: "#000000"
+                }
+            ];
+            
+            const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+            
+            return `
+                <div style="color: white; text-align: center; padding: 40px;">
+                    <div style="font-size: 80px; margin-bottom: 20px;">${randomQuestion.emoji}</div>
+                    <h2 style="font-size: 32px; margin-bottom: 50px; color: ${randomQuestion.color}; 
+                        padding: 30px; background: rgba(255, 255, 255, 0.05); 
+                        border-radius: 25px; border: 3px solid ${randomQuestion.color};
+                        box-shadow: 0 0 40px ${randomQuestion.color};">
+                        ${randomQuestion.question}
+                    </h2>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 800px; margin: 0 auto;">
+                        ${randomQuestion.options.map((option, index) => `
+                            <div class="game-cell-neon" 
+                                 onclick="checkQuizAnswer('${option}', '${randomQuestion.correct}', this)"
+                                 style="animation-delay: ${index * 0.1}s">
+                                <div style="font-size: 36px; margin-bottom: 20px;">${getQuizEmoji(option)}</div>
+                                <div style="font-size: 28px; font-weight: 800;">${option}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div style="margin-top: 50px; font-size: 24px; color: var(--neon-pink);">
+                        🧠 Correct answer wins 250 points!
+                    </div>
+                </div>
+            `;
+        }
+
+        // 🧠 MEMORY GAME CONTENT
+        function createMemoryGameContent() {
+            return `
+                <div style="color: white; text-align: center; padding: 40px;">
+                    <div style="font-size: 80px; margin-bottom: 30px;">🧠</div>
+                    <h2 style="font-size: 36px; margin-bottom: 20px; color: var(--neon-blue);">
+                        MEMORY MATRIX
+                    </h2>
+                    <p style="font-size: 24px; margin-bottom: 50px; color: rgba(255, 255, 255, 0.9);">
+                        Find matching pairs of country flags!
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 800px; margin: 0 auto;">
+                        ${Array.from({length: 16}).map((_, i) => {
+                            const flags = ['🇺🇸', '🇯🇵', '🇫🇷', '🇧🇷', '🇮🇳', '🇨🇦', '🇩🇪', '🇦🇺'];
+                            const flag = flags[i % 8];
+                            return `
+                                <div class="game-cell-neon" onclick="flipMemoryCard(this)" 
+                                     style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+                                            font-size: 60px; cursor: pointer;">
+                                    <div class="card-back">❓</div>
+                                    <div class="card-front" style="display: none;">${flag}</div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    <div style="margin-top: 50px; font-size: 24px; color: var(--neon-green);">
+                        💡 Each matched pair earns 150 points!
+                    </div>
+                </div>
+            `;
+        }
+
+        // 🎯 DRAG & DROP GAME CONTENT
+        function createDragDropGameContent() {
+            return `
+                <div style="color: white; text-align: center; padding: 40px;">
+                    <div style="font-size: 80px; margin-bottom: 30px;">🎯</div>
+                    <h2 style="font-size: 36px; margin-bottom: 20px; color: var(--neon-green);">
+                        WORLD BUILDER
+                    </h2>
+                    <p style="font-size: 24px; margin-bottom: 50px; color: rgba(255, 255, 255, 0.9);">
+                        Drag countries to their continents!
+                    </p>
+                    
+                    <div style="display: flex; gap: 50px; justify-content: center; align-items: start;">
+                        <!-- Countries Column -->
+                        <div style="flex: 1; max-width: 400px;">
+                            <h3 style="color: var(--neon-blue); font-size: 28px; margin-bottom: 30px;">
+                                🇺🇳 COUNTRIES
+                            </h3>
+                            <div id="countriesList" style="display: flex; flex-direction: column; gap: 15px;">
+                                <div class="draggable-item" 
+                                     draggable="true"
+                                     data-country="JAPAN"
+                                     data-continent="ASIA"
+                                     style="padding: 20px; background: rgba(255, 255, 255, 0.1); 
+                                            border-radius: 15px; cursor: move; font-size: 22px;">
+                                    🇯🇵 JAPAN
+                                </div>
+                                <div class="draggable-item" 
+                                     draggable="true"
+                                     data-country="FRANCE"
+                                     data-continent="EUROPE"
+                                     style="padding: 20px; background: rgba(255, 255, 255, 0.1); 
+                                            border-radius: 15px; cursor: move; font-size: 22px;">
+                                    🇫🇷 FRANCE
+                                </div>
+                                <div class="draggable-item" 
+                                     draggable="true"
+                                     data-country="BRAZIL"
+                                     data-continent="SOUTH AMERICA"
+                                     style="padding: 20px; background: rgba(255, 255, 255, 0.1); 
+                                            border-radius: 15px; cursor: move; font-size: 22px;">
+                                    🇧🇷 BRAZIL
+                                </div>
+                                <div class="draggable-item" 
+                                     draggable="true"
+                                     data-country="EGYPT"
+                                     data-continent="AFRICA"
+                                     style="padding: 20px; background: rgba(255, 255, 255, 0.1); 
+                                            border-radius: 15px; cursor: move; font-size: 22px;">
+                                    🇪🇬 EGYPT
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Continents Column -->
+                        <div style="flex: 1; max-width: 400px;">
+                            <h3 style="color: var(--neon-pink); font-size: 28px; margin-bottom: 30px;">
+                                🌍 CONTINENTS
+                            </h3>
+                            <div id="continentsList" style="display: flex; flex-direction: column; gap: 15px;">
+                                <div class="drop-zone" 
+                                     data-continent="ASIA"
+                                     style="padding: 30px; background: rgba(0, 255, 255, 0.1); 
+                                            border: 3px dashed var(--neon-blue); border-radius: 15px;">
+                                    🌏 ASIA
+                                </div>
+                                <div class="drop-zone" 
+                                     data-continent="EUROPE"
+                                     style="padding: 30px; background: rgba(255, 0, 255, 0.1); 
+                                            border: 3px dashed var(--neon-pink); border-radius: 15px;">
+                                    🇪🇺 EUROPE
+                                </div>
+                                <div class="drop-zone" 
+                                     data-continent="SOUTH AMERICA"
+                                     style="padding: 30px; background: rgba(0, 255, 0, 0.1); 
+                                            border: 3px dashed var(--neon-green); border-radius: 15px;">
+                                    🌎 SOUTH AMERICA
+                                </div>
+                                <div class="drop-zone" 
+                                     data-continent="AFRICA"
+                                     style="padding: 30px; background: rgba(255, 255, 0, 0.1); 
+                                            border: 3px dashed var(--neon-yellow); border-radius: 15px;">
+                                    🦁 AFRICA
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 50px; font-size: 24px; color: var(--neon-purple);">
+                        🎯 Correct match earns 300 points!
+                    </div>
+                </div>
+            `;
+        }
+
+        // 🎡 SPIN GAME CONTENT
+        function createSpinGameContent() {
+            return `
+                <div style="color: white; text-align: center; padding: 40px;">
+                    <div style="font-size: 80px; margin-bottom: 30px;">🎡</div>
+                    <h2 style="font-size: 36px; margin-bottom: 20px; color: var(--neon-purple);">
+                        GLOBE SPINNER
+                    </h2>
+                    <p style="font-size: 24px; margin-bottom: 50px; color: rgba(255, 255, 255, 0.9);">
+                        Spin the wheel and win geography prizes!
+                    </p>
+                    
+                    <div style="width: 400px; height: 400px; margin: 0 auto 50px; 
+                        background: conic-gradient(
+                            var(--neon-pink) 0deg 60deg,
+                            var(--neon-blue) 60deg 120deg,
+                            var(--neon-green) 120deg 180deg,
+                            var(--neon-yellow) 180deg 240deg,
+                            var(--neon-purple) 240deg 300deg,
+                            #FF6B6B 300deg 360deg
+                        );
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        animation: spinSlow 20s linear infinite;
+                        box-shadow: 
+                            0 0 80px rgba(255, 0, 255, 0.6),
+                            inset 0 0 50px rgba(255, 255, 255, 0.3);
+                        position: relative;"
+                        id="spinWheel">
+                        
+                        <div style="width: 150px; height: 150px; background: white; border-radius: 50%; 
+                            display: flex; align-items: center; justify-content: center; 
+                            font-size: 60px; z-index: 2;">
+                            🌍
+                        </div>
+                        
+                        <div style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+                            font-size: 80px; color: gold; filter: drop-shadow(0 0 20px gold);">
+                            🎯
+                        </div>
+                    </div>
+                    
+                    <button class="magic-portal-btn" onclick="spinTheWheel()" 
+                            style="font-size: 28px; padding: 25px 60px; margin-top: 30px;">
+                        🌀 SPIN TO WIN! 🎉
+                    </button>
+                    
+                    <div id="spinResult" style="margin-top: 40px; font-size: 32px; color: gold;
+                         min-height: 50px;"></div>
+                </div>
+            `;
+        }
+
+        // 🧩 PUZZLE GAME CONTENT
+        function createPuzzleGameContent() {
+            return `
+                <div style="color: white; text-align: center; padding: 40px;">
+                    <div style="font-size: 80px; margin-bottom: 30px;">🧩</div>
+                    <h2 style="font-size: 36px; margin-bottom: 20px; color: var(--neon-yellow);">
+                        PLANET PUZZLER
+                    </h2>
+                    <p style="font-size: 24px; margin-bottom: 50px; color: rgba(255, 255, 255, 0.9);">
+                        Piece together the world map!
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; 
+                        max-width: 500px; margin: 0 auto 50px;">
+                        ${['NORTH AMERICA', 'SOUTH AMERICA', 'EUROPE', 'AFRICA', 'ASIA', 'AUSTRALIA']
+                            .map((continent, index) => `
+                                <div class="game-cell-neon" 
+                                     onclick="placeContinent('${continent}', this)"
+                                     style="aspect-ratio: 1; display: flex; align-items: center; 
+                                            justify-content: center; font-size: 28px; font-weight: 700;">
+                                    ${continent}
+                                </div>
+                            `).join('')}
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; 
+                        padding: 30px; max-width: 600px; margin: 0 auto; border: 2px dashed var(--neon-blue);">
+                        <h3 style="color: var(--neon-green); font-size: 26px; margin-bottom: 20px;">
+                            🌍 WORLD MAP PROGRESS
+                        </h3>
+                        <div id="puzzleProgress" style="color: var(--neon-pink); font-size: 22px;">
+                            Click continents in order to complete the puzzle!
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ⚡ DEFAULT GAME CONTENT
+        function createDefaultGameContent() {
+            return `
+                <div style="color: white; text-align: center; padding: 100px;">
+                    <div style="font-size: 120px; margin-bottom: 40px; animation: bounce 1s infinite;">🎮</div>
+                    <h2 style="font-size: 48px; margin-bottom: 30px; color: var(--neon-blue);">
+                        GAME LOADING...
+                    </h2>
+                    <p style="font-size: 28px; color: rgba(255, 255, 255, 0.9);">
+                        Preparing ultimate gaming experience!
+                    </p>
+                </div>
+            `;
+        }
+
+        // 🎯 GAME LOGIC FUNCTIONS
+
+        // Flag Game Logic
+        function checkFlagAnswer(selected, target, element) {
+            if (selected === target) {
+                element.classList.add('correct');
+                gameScore += 200;
+                updateScoreDisplay();
+                createFireworks(20);
+                
+                setTimeout(() => {
+                    openGameArena('flag-match');
+                }, 1500);
+            } else {
+                element.classList.add('wrong');
+                gameScore = Math.max(0, gameScore - 50);
+                updateScoreDisplay();
+                
+                setTimeout(() => {
+                    element.classList.remove('wrong');
+                }, 800);
+            }
+        }
+
+        // Quiz Game Logic
+        function checkQuizAnswer(selected, correct, element) {
+            if (selected === correct) {
+                element.classList.add('correct');
+                gameScore += 250;
+                updateScoreDisplay();
+                createFireworks(25);
+                
+                setTimeout(() => {
+                    openGameArena('capital-quiz');
+                }, 1500);
+            } else {
+                element.classList.add('wrong');
+                gameScore = Math.max(0, gameScore - 30);
+                updateScoreDisplay();
+                
+                setTimeout(() => {
+                    element.classList.remove('wrong');
+                }, 800);
+            }
+        }
+
+        // Memory Game Logic
+        function flipMemoryCard(element) {
+            const front = element.querySelector('.card-front');
+            const back = element.querySelector('.card-back');
+            
+            if (front.style.display === 'none') {
+                front.style.display = 'flex';
+                back.style.display = 'none';
+                element.style.background = 'rgba(255, 255, 255, 0.15)';
+                element.style.borderColor = 'var(--neon-blue)';
+            } else {
+                front.style.display = 'none';
+                back.style.display = 'flex';
+                element.style.background = '';
+                element.style.borderColor = '';
+            }
+        }
+
+        // Spin Wheel Logic
+        function spinTheWheel() {
+            const wheel = document.getElementById('spinWheel');
+            const result = document.getElementById('spinResult');
+            
+            // Stop current animation
+            wheel.style.animation = 'none';
+            
+            // Calculate random spin
+            const spins = Math.floor(Math.random() * 5 + 3);
+            const degrees = spins * 360 + Math.floor(Math.random() * 360);
+            
+            // Apply new spin
+            setTimeout(() => {
+                wheel.style.transition = 'transform 3s cubic-bezier(0.1, 0.8, 0.2, 1)';
+                wheel.style.transform = `rotate(${degrees}deg)`;
+            }, 10);
+            
+            // Show result
+            const prizes = [
+                '🎉 YOU WON 500 POINTS!',
+                '🏆 BONUS: 750 POINTS!',
+                '⭐ JACKPOT: 1000 POINTS!',
+                '🎁 SPECIAL PRIZE: DOUBLE SCORE!',
+                '✨ LUCKY SPIN: 300 POINTS!'
+            ];
+            
+            setTimeout(() => {
+                const prize = prizes[Math.floor(Math.random() * prizes.length)];
+                result.textContent = prize;
+                
+                if (prize.includes('500')) gameScore += 500;
+                else if (prize.includes('750')) gameScore += 750;
+                else if (prize.includes('1000')) gameScore += 1000;
+                else if (prize.includes('DOUBLE')) gameScore *= 2;
+                else if (prize.includes('300')) gameScore += 300;
+                
+                updateScoreDisplay();
+                createFireworks(40);
+                
+                // Reset wheel
+                setTimeout(() => {
+                    wheel.style.transition = 'none';
+                    wheel.style.transform = 'rotate(0deg)';
+                    wheel.style.animation = 'spinSlow 20s linear infinite';
+                    result.textContent = '';
+                }, 3000);
+            }, 3000);
+        }
+
+        // Puzzle Game Logic
+        let puzzleSequence = ['NORTH AMERICA', 'SOUTH AMERICA', 'EUROPE', 'AFRICA', 'ASIA', 'AUSTRALIA'];
+        let currentPuzzleIndex = 0;
+
+        function placeContinent(continent, element) {
+            const progress = document.getElementById('puzzleProgress');
+            
+            if (continent === puzzleSequence[currentPuzzleIndex]) {
+                element.classList.add('correct');
+                element.style.background = 'linear-gradient(135deg, rgba(0, 255, 0, 0.3), rgba(0, 200, 0, 0.4))';
+                element.style.borderColor = 'var(--neon-green)';
+                element.style.pointerEvents = 'none';
+                
+                gameScore += 400;
+                updateScoreDisplay();
+                currentPuzzleIndex++;
+                
+                if (currentPuzzleIndex < puzzleSequence.length) {
+                    progress.innerHTML = `
+                        <div style="color: var(--neon-green); font-size: 26px;">
+                            ✅ ${continent} PLACED! NEXT: <span style="color: gold;">${puzzleSequence[currentPuzzleIndex]}</span>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 20px; color: var(--neon-blue);">
+                            Progress: ${currentPuzzleIndex}/6
+                        </div>
+                    `;
+                    createFireworks(15);
+                } else {
+                    progress.innerHTML = `
+                        <div style="color: gold; font-size: 32px; margin: 20px 0;">
+                            🎉 WORLD MAP COMPLETE! 🏆
+                        </div>
+                        <div style="font-size: 24px; color: var(--neon-pink);">
+                            You earned ${gameScore} points!
+                        </div>
+                    `;
+                    createFireworks(50);
+                    gameScore += 2000;
+                    updateScoreDisplay();
+                    
+                    setTimeout(() => {
+                        currentPuzzleIndex = 0;
+                        openGameArena('map-puzzle');
+                    }, 3000);
+                }
+            } else {
+                element.classList.add('wrong');
+                gameScore = Math.max(0, gameScore - 100);
+                updateScoreDisplay();
+                
+                setTimeout(() => {
+                    element.classList.remove('wrong');
+                }, 800);
+            }
+        }
+
+        // 🎯 UPDATE SCORE DISPLAY
+        function updateScoreDisplay() {
+            const scoreElement = document.getElementById('scoreValue');
+            scoreElement.textContent = gameScore.toLocaleString();
+            
+            // Animation
+            scoreElement.style.transform = 'scale(1.5)';
+            scoreElement.style.color = 'gold';
+            
+            setTimeout(() => {
+                scoreElement.style.transform = 'scale(1)';
+                scoreElement.style.color = 'var(--neon-green)';
+            }, 300);
+        }
+
+        // 🎉 FIREWORKS EFFECT
+        function createFireworks(count = 20) {
+            const celebration = document.getElementById('celebration');
+            celebration.style.display = 'block';
+            
+            const colors = [
+                'var(--neon-pink)',
+                'var(--neon-blue)',
+                'var(--neon-green)',
+                'var(--neon-yellow)',
+                'var(--neon-purple)',
+                '#FFFFFF'
+            ];
+            
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const x = Math.random() * window.innerWidth;
+                    const y = Math.random() * window.innerHeight;
+                    
+                    // Create firework explosion
+                    for (let j = 0; j < 30; j++) {
+                        const firework = document.createElement('div');
+                        firework.className = 'firework-overkill';
+                        firework.style.setProperty('--x', `${x}px`);
+                        firework.style.setProperty('--y', `${y}px`);
+                        firework.style.left = `${x}px`;
+                        firework.style.top = `${y}px`;
+                        firework.style.background = colors[Math.floor(Math.random() * colors.length)];
+                        firework.style.width = firework.style.height = `${Math.random() * 15 + 5}px`;
+                        celebration.appendChild(firework);
+                        
+                        setTimeout(() => firework.remove(), 2000);
+                    }
+                    
+                    // Create confetti
+                    for (let k = 0; k < 20; k++) {
+                        const confetti = document.createElement('div');
+                        confetti.className = 'confetti-storm';
+                        confetti.style.setProperty('--color', colors[Math.floor(Math.random() * colors.length)]);
+                        confetti.style.left = `${x}px`;
+                        confetti.style.top = `${y}px`;
+                        confetti.style.width = `${Math.random() * 20 + 10}px`;
+                        confetti.style.height = `${Math.random() * 20 + 10}px`;
+                        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                        celebration.appendChild(confetti);
+                        
+                        setTimeout(() => confetti.remove(), 4000);
+                    }
+                }, i * 100);
+            }
+            
+            setTimeout(() => {
+                celebration.style.display = 'none';
+                celebration.innerHTML = '';
+            }, count * 100 + 2000);
+        }
+
+        // 🧭 NAVIGATION
+        function navigateToPage(page) {
+            createFireworks(10);
+            // In real implementation, this would navigate to different pages
+            console.log(`Navigating to ${page} page`);
+        }
+
+        // 🎵 QUIZ EMOJI HELPER
+        function getQuizEmoji(option) {
+            const emojis = {
+                'CHINA': '🐲',
+                'JAPAN': '🌸',
+                'KOREA': '🇰🇷',
+                'THAILAND': '🇹🇭',
+                'RIO DE JANEIRO': '🏖️',
+                'SÃO PAULO': '🏙️',
+                'BRASÍLIA': '🏛️',
+                'SALVADOR': '🌴',
+                'CANADA': '🍁',
+                'RUSSIA': '❄️',
+                'UNITED STATES': '🇺🇸',
+                'ASIA': '🌏',
+                'AFRICA': '🦁',
+                'EUROPE': '🏰',
+                'SOUTH AMERICA': '🌎'
+            };
+            return emojis[option] || '❓';
+        }
+
+        // 🎨 ADDITIONAL CSS ANIMATIONS
+        const additionalStyles = `
+            @keyframes pulseGlow {
+                0%, 100% { box-shadow: 0 0 40px currentColor; }
+                50% { box-shadow: 0 0 80px currentColor, 0 0 120px currentColor; }
+            }
+            
+            @keyframes spinSlow {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            
+            @keyframes bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-30px); }
+            }
+        `;
+
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = additionalStyles;
+        document.head.appendChild(styleSheet);
+
+        // 🎮 INITIALIZE DRAG & DROP
+        function initializeDragDrop() {
+            const draggables = document.querySelectorAll('.draggable-item');
+            const dropzones = document.querySelectorAll('.drop-zone');
+            
+            draggables.forEach(draggable => {
+                draggable.addEventListener('dragstart', e => {
+                    e.dataTransfer.setData('text/plain', JSON.stringify({
+                        country: draggable.dataset.country,
+                        continent: draggable.dataset.continent
+                    }));
+                    draggable.style.opacity = '0.5';
+                });
+                
+                draggable.addEventListener('dragend', () => {
+                    draggable.style.opacity = '1';
+                });
+            });
+            
+            dropzones.forEach(zone => {
+                zone.addEventListener('dragover', e => {
+                    e.preventDefault();
+                    zone.style.background = 'rgba(255, 255, 255, 0.2)';
+                    zone.style.borderStyle = 'solid';
+                });
+                
+                zone.addEventListener('dragleave', () => {
+                    zone.style.background = '';
+                    zone.style.borderStyle = 'dashed';
+                });
+                
+                zone.addEventListener('drop', e => {
+                    e.preventDefault();
+                    zone.style.background = '';
+                    zone.style.borderStyle = 'dashed';
+                    
+                    const data = JSON.parse(e.dataTransfer.getData('text/plain'));
+                    
+                    if (data.continent === zone.dataset.continent) {
+                        zone.innerHTML = `
+                            <div style="color: var(--neon-green); font-size: 24px; font-weight: 700;">
+                                ✅ ${data.country} ✓
+                            </div>
+                        `;
+                        zone.style.border = `3px solid var(--neon-green)`;
+                        zone.style.background = 'rgba(0, 255, 0, 0.2)';
+                        
+                        gameScore += 300;
+                        updateScoreDisplay();
+                        createFireworks(15);
+                        
+                        // Remove draggable item
+                        const draggable = document.querySelector(`[data-country="${data.country}"]`);
+                        draggable.style.display = 'none';
+                        
+                        // Check if all placed
+                        setTimeout(() => {
+                            const remaining = document.querySelectorAll('.draggable-item[style*="display: none"]');
+                            if (remaining.length === 4) {
+                                createFireworks(40);
+                                gameScore += 1000;
+                                updateScoreDisplay();
+                                
+                                setTimeout(() => {
+                                    openGameArena('drag-drop');
+                                }, 2000);
+                            }
+                        }, 500);
+                    } else {
+                        zone.innerHTML = `
+                            <div style="color: #ff3333; font-size: 20px;">
+                                ❌ Try again!
+                            </div>
+                        `;
+                        zone.style.border = `3px dashed #ff3333`;
+                        
+                        setTimeout(() => {
+                            zone.innerHTML = zone.dataset.continent === 'ASIA' ? '🌏 ASIA' :
+                                           zone.dataset.continent === 'EUROPE' ? '🇪🇺 EUROPE' :
+                                           zone.dataset.continent === 'SOUTH AMERICA' ? '🌎 SOUTH AMERICA' :
+                                           '🦁 AFRICA';
+                            zone.style.border = `3px dashed currentColor`;
+                        }, 1000);
+                    }
+                });
+            });
+        }
+
+        // 🚀 INITIALIZE GAME
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize drag & drop when game loads
+            setTimeout(initializeDragDrop, 1000);
+            
+            // Add click sound effects
+            document.querySelectorAll('button, .game-hologram, .game-cell-neon').forEach(element => {
+                element.addEventListener('click', () => {
+                    // In real implementation, play click sound
+                });
+            });
+            
+            // Auto-hide loading screen after 2 seconds
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.display = 'none';
+            }, 2000);
+        });
+
+        // 🎯 SHOW INSTRUCTIONS
+        function showInstructions() {
+            alert(`
+                🎮 GAME INSTRUCTIONS 🎮
+                
+                🚩 FLAG FRENZY:
+                • Match the flag with the country name
+                • Win 200 points per correct answer
+                
+                🏛️ CAPITAL QUEST:
+                • Choose the correct capital city
+                • Win 250 points per correct answer
+                
+                🧠 MEMORY MATRIX:
+                • Find matching flag pairs
+                • Win 150 points per matched pair
+                
+                🎯 WORLD BUILDER:
+                • Drag countries to correct continents
+                • Win 300 points per correct placement
+                
+                🎡 GLOBE SPINNER:
+                • Spin the wheel for random prizes
+                • Win up to 1000 points!
+                
+                🧩 PLANET PUZZLER:
+                • Place continents in correct order
+                • Win 400 points per correct placement
+                
+                🏆 GOOD LUCK AND HAVE FUN! 🎉
+            `);
+        }
+
+        // 📱 MOBILE OPTIMIZATION
+        function checkMobile() {
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                // Add touch-specific optimizations
+                document.body.classList.add('mobile-mode');
+            }
+        }
+
+        // Check on load
+        checkMobile();
+    </script>
+</body>
+</html>

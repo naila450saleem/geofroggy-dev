@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Japan - GeoFroggy Kids</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #FFE5E5 0%, #FFF0F0 50%, #FFE5F5 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-bottom: 100px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+            padding: 20px 30px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .country-flag {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .flag-box {
+            width: 80px;
+            height: 60px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .country-info h1 {
+            font-size: 42px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .country-info p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .back-btn {
+            background: white;
+            color: #FF6B9D;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Fun Tabs */
+        .tabs-container {
+            background: white;
+            border-radius: 30px;
+            padding: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #FF6B9D, #C44569);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Overview Cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+
+        .info-card:hover::before {
+            animation: shine 1.5s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .info-card:nth-child(1) { border-color: #FF6B9D; }
+        .info-card:nth-child(2) { border-color: #4ECDC4; }
+        .info-card:nth-child(3) { border-color: #FFD93D; }
+        .info-card:nth-child(4) { border-color: #95E1D3; }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #FF6B9D, #C44569);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .info-card h3 {
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Culture Section */
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .culture-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .culture-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .culture-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .culture-img::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: slideShine 3s infinite;
+        }
+
+        @keyframes slideShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .culture-content {
+            padding: 25px;
+        }
+
+        .culture-content h3 {
+            font-size: 26px;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .culture-content p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Food Section */
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .food-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .food-emoji {
+            font-size: 80px;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: wiggle 2s infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        .food-card h3 {
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .food-card p {
+            font-size: 15px;
+            color: #666;
+        }
+
+        /* Fun Facts Section */
+        .facts-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 30px;
+            padding: 40px;
+            color: white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .facts-container h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .facts-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .fact-item {
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .fact-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateX(10px);
+        }
+
+        .fact-item::before {
+            content: '✨';
+            font-size: 28px;
+            margin-right: 10px;
+        }
+
+        .fact-item p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            background: white;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .nav-btn-bottom {
+            background: #f5f5f5;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 100px;
+        }
+
+        .nav-btn-bottom.active {
+            background: linear-gradient(135deg, #8BC34A, #7CB342);
+            color: white;
+            border-color: #7CB342;
+        }
+
+        .nav-btn-bottom:hover {
+            transform: translateY(-5px);
+        }
+
+        .nav-icon {
+            font-size: 28px;
+        }
+
+        .nav-label {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .country-info h1 {
+                font-size: 32px;
+            }
+
+            .tabs-container {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .overview-grid,
+            .culture-grid,
+            .food-grid,
+            .facts-list {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-nav {
+                gap: 8px;
+                padding: 15px 10px;
+            }
+
+            .nav-btn-bottom {
+                min-width: 70px;
+                padding: 10px 15px;
+            }
+
+            .nav-icon {
+                font-size: 20px;
+            }
+
+            .nav-label {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="country-flag">
+                <div class="flag-box">🇯🇵</div>
+                <div class="country-info">
+                    <h1>Japan</h1>
+                    <p>Land of the Rising Sun</p>
+                </div>
+            </div>
+            <button class="back-btn" onclick="window.history.back()">← Back to Map</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Tabs -->
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="showTab('overview')">
+                <span>📊</span> Overview
+            </button>
+            <button class="tab-btn" onclick="showTab('culture')">
+                <span>🎎</span> Culture
+            </button>
+            <button class="tab-btn" onclick="showTab('food')">
+                <span>🍱</span> Food
+            </button>
+            <button class="tab-btn" onclick="showTab('facts')">
+                <span>💡</span> Fun Facts
+            </button>
+        </div>
+
+        <!-- Overview Tab -->
+        <div class="tab-content active" id="overview">
+            <div class="overview-grid">
+                <div class="info-card">
+                    <div class="card-icon">👥</div>
+                    <h3>Population</h3>
+                    <p>125 million people live in Japan! That's a lot of friends!</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon">🗣️</div>
+                    <h3>Language</h3>
+                    <p>People speak Japanese! "Konnichiwa" means Hello! 🙋‍♂️</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon">🏙️</div>
+                    <h3>Capital City</h3>
+                    <p>Tokyo is the capital! It has the world's busiest train station! 🚄</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon">💴</div>
+                    <h3>Currency</h3>
+                    <p>They use Yen! 1000 yen = about $7 dollars! 💰</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Culture Tab -->
+        <div class="tab-content" id="culture">
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <div class="culture-img">🌸</div>
+                    <div class="culture-content">
+                        <h3>Cherry Blossoms</h3>
+                        <p>Every spring, beautiful pink cherry blossoms bloom! People have picnics under the trees. It's called "Hanami"!</p>
+                    </div>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🥋</div>
+                    <div class="culture-content">
+                        <h3>Martial Arts</h3>
+                        <p>Karate, Judo, and Sumo wrestling come from Japan! Sumo wrestlers can weigh over 400 pounds!</p>
+                    </div>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🏯</div>
+                    <div class="culture-content">
+                        <h3>Amazing Castles</h3>
+                        <p>Japan has beautiful old castles! Some are over 400 years old and still standing strong!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Food Tab -->
+        <div class="tab-content" id="food">
+            <div class="food-grid">
+                <div class="food-card">
+                    <div class="food-emoji">🍣</div>
+                    <h3>Sushi</h3>
+                    <p>Rice with fresh fish on top! Super yummy and healthy!</p>
+                </div>
+                <div class="food-card">
+                    <div class="food-emoji">🍜</div>
+                    <h3>Ramen</h3>
+                    <p>Hot noodle soup! Perfect for cold days!</p>
+                </div>
+                <div class="food-card">
+                    <div class="food-emoji">🍡</div>
+                    <h3>Dango</h3>
+                    <p>Sweet rice dumplings on a stick! Like colorful lollipops!</p>
+                </div>
+                <div class="food-card">
+                    <div class="food-emoji">🍙</div>
+                    <h3>Onigiri</h3>
+                    <p>Rice balls wrapped in seaweed! A popular snack!</p>
+                </div>
+                <div class="food-card">
+                    <div class="food-emoji">🍱</div>
+                    <h3>Bento Box</h3>
+                    <p>Lunch box with rice, fish, and veggies! So colorful!</p>
+                </div>
+                <div class="food-card">
+                    <div class="food-emoji">🍢</div>
+                    <h3>Yakitori</h3>
+                    <p>Grilled chicken on skewers! Tasty street food!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fun Facts Tab -->
+        <div class="tab-content" id="facts">
+            <div class="facts-container">
+                <h2>🎉 Amazing Facts About Japan!</h2>
+                <div class="facts-list">
+                    <div class="fact-item">
+                        <p>Japan has over 6,800 islands! Only 430 of them have people living on them!</p>
+                    </div>
+                    <div class="fact-item">
+                        <p>Tokyo has a population of 14 million - that's more than the entire country of Belgium!</p>
+                    </div>
+                    <div class="fact-item">
+                        <p>Japan's bullet trains can go 200 mph! That's faster than a race car! 🚄</p>
+                    </div>
+                    <div class="fact-item">
+                        <p>Mount Fuji is Japan's tallest mountain at 12,388 feet! It's actually a volcano! 🗻</p>
+                    </div>
+                    <div class="fact-item">
+                        <p>There are more than 1,500 earthquakes in Japan every year! But most are very small!</p>
+                    </div>
+                    <div class="fact-item">
+                        <p>Japan invented emoji! The word comes from "e" (picture) + "moji" (character)! 😊</p>
+                    </div>
+                    <div class="fact-item">
+                        <p>Vending machines are everywhere! You can buy hot soup, toys, and even umbrellas!</p>
+                    </div>
+                    <div class="fact-item">
+                        <p>Japanese schools don't have janitors! Students clean their own schools! 🧹</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <button class="nav-btn-bottom active">
+            <span class="nav-icon">🌍</span>
+            <span class="nav-label">Explore</span>
+        </button>
+        <button class="nav-btn-bottom">
+            <span class="nav-icon">🎮</span>
+            <span class="nav-label">Play</span>
+        </button>
+        <button class="nav-btn-bottom">
+            <span class="nav-icon">📖</span>
+            <span class="nav-label">Stories</span>
+        </button>
+        <button class="nav-btn-bottom">
+            <span class="nav-icon">✈️</span>
+            <span class="nav-label">Passport</span>
+        </button>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active to clicked button
+            event.target.closest('.tab-btn').classList.add('active');
+        }
+    </script>
+</body>
+</html>
