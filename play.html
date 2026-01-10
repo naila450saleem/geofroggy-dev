@@ -1060,6 +1060,8 @@
             }
         }
 
+        
+
         @media (max-width: 480px) {
             .logo-text h1 {
                 font-size: 24px !important;
@@ -1260,6 +1262,428 @@
             from { transform: translate(-50%, -50%) scale(1); }
             to { transform: translate(-50%, -50%) scale(1.5); }
         }
+
+        /* ================================
+   MOBILE RESPONSIVE STYLES
+   For All 6 Games
+================================ */
+
+/* 📱 MOBILE GAME CONTENT STYLES */
+@media (max-width: 768px) {
+    /* 🎮 GAME ARENA CONTENT */
+    .game-content-area {
+        padding: 20px 15px !important;
+        height: calc(100% - 100px) !important;
+    }
+    
+    /* 🚩 FLAG GAME - MOBILE */
+    .game-grid-interactive {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        margin-top: 20px !important;
+    }
+    
+    .game-cell-neon {
+        padding: 20px 15px !important;
+        min-height: 160px !important;
+        margin: 0 !important;
+    }
+    
+    .game-cell-neon div:first-child {
+        font-size: 50px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .game-cell-neon div:nth-child(2) {
+        font-size: 16px !important;
+        font-weight: 600 !important;
+    }
+    
+    /* 🏛️ QUIZ GAME - MOBILE */
+    .game-content-area h2 {
+        font-size: 24px !important;
+        margin-bottom: 30px !important;
+        padding: 20px !important;
+        line-height: 1.4 !important;
+    }
+    
+    .game-content-area > div:first-child {
+        font-size: 60px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Quiz Options Grid */
+    .game-content-area > div:nth-child(3) {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        max-width: 100% !important;
+    }
+    
+    /* 🧠 MEMORY GAME - MOBILE */
+    .game-content-area > div:nth-child(4) {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 12px !important;
+        max-width: 100% !important;
+    }
+    
+    .memory-card {
+        font-size: 40px !important;
+        aspect-ratio: 1 !important;
+        min-height: 80px !important;
+    }
+    
+    /* 🎯 DRAG & DROP GAME - MOBILE */
+    .game-content-area > div:nth-child(3) {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    
+    .draggable-item {
+        padding: 15px !important;
+        font-size: 18px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .drop-zone {
+        padding: 20px !important;
+        font-size: 20px !important;
+        min-height: 70px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* 🎡 SPIN WHEEL - MOBILE */
+    #spinWheel {
+        width: 280px !important;
+        height: 280px !important;
+        margin: 20px auto 30px !important;
+    }
+    
+    #spinWheel > div {
+        width: 100px !important;
+        height: 100px !important;
+        font-size: 40px !important;
+    }
+    
+    #spinWheel > div:last-child {
+        font-size: 60px !important;
+        top: -30px !important;
+    }
+    
+    .magic-portal-btn {
+        font-size: 20px !important;
+        padding: 18px 40px !important;
+        margin-top: 20px !important;
+        width: 100% !important;
+        max-width: 300px !important;
+    }
+    
+    #spinResult {
+        font-size: 24px !important;
+        margin-top: 20px !important;
+        min-height: 40px !important;
+    }
+    
+    /* 🧩 PUZZLE GAME - MOBILE */
+    .game-content-area > div:nth-child(4) {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        max-width: 100% !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .puzzle-piece {
+        font-size: 16px !important;
+        padding: 15px 10px !important;
+        aspect-ratio: 1 !important;
+    }
+    
+    #puzzleProgress {
+        font-size: 18px !important;
+        line-height: 1.4 !important;
+        padding: 15px !important;
+    }
+    
+    /* 🎮 GENERAL GAME CONTENT FIXES */
+    .game-content-area > div {
+        padding: 20px 10px !important;
+    }
+    
+    .game-content-area p {
+        font-size: 18px !important;
+        margin-bottom: 30px !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* 🎯 TARGET TEXT IN FLAG GAME */
+    .game-content-area > div:nth-child(3) {
+        font-size: 32px !important;
+        padding: 20px !important;
+        margin-bottom: 30px !important;
+    }
+}
+
+/* 📱 SMALL PHONES */
+@media (max-width: 480px) {
+    /* 🚩 FLAG GAME - SMALL PHONES */
+    .game-grid-interactive {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+    
+    .game-cell-neon {
+        min-height: 140px !important;
+        padding: 15px !important;
+    }
+    
+    .game-cell-neon div:first-child {
+        font-size: 45px !important;
+    }
+    
+    /* 🏛️ QUIZ GAME - SMALL PHONES */
+    .game-content-area h2 {
+        font-size: 20px !important;
+        padding: 15px !important;
+    }
+    
+    /* 🧠 MEMORY GAME - SMALL PHONES */
+    .game-content-area > div:nth-child(4) {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+    
+    .memory-card {
+        font-size: 35px !important;
+        min-height: 70px !important;
+    }
+    
+    /* 🎡 SPIN WHEEL - SMALL PHONES */
+    #spinWheel {
+        width: 250px !important;
+        height: 250px !important;
+    }
+    
+    #spinWheel > div {
+        width: 80px !important;
+        height: 80px !important;
+        font-size: 35px !important;
+    }
+    
+    .magic-portal-btn {
+        font-size: 18px !important;
+        padding: 15px 30px !important;
+    }
+    
+    /* 🧩 PUZZLE GAME - SMALL PHONES */
+    .puzzle-piece {
+        font-size: 14px !important;
+        padding: 12px 8px !important;
+    }
+    
+    /* 🎯 TARGET TEXT IN FLAG GAME - SMALL PHONES */
+    .game-content-area > div:nth-child(3) {
+        font-size: 24px !important;
+        padding: 15px !important;
+    }
+}
+
+/* 📱 TABLET OPTIMIZATION */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .game-grid-interactive {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+    }
+    
+    .game-content-area > div:nth-child(4) {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 15px !important;
+    }
+    
+    #spinWheel {
+        width: 350px !important;
+        height: 350px !important;
+    }
+}
+
+/* 🔄 LANDSCAPE ORIENTATION */
+@media (orientation: landscape) and (max-height: 600px) {
+    .game-content-area {
+        padding: 15px 10px !important;
+        height: calc(100% - 80px) !important;
+    }
+    
+    .game-grid-interactive {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px !important;
+    }
+    
+    .game-cell-neon {
+        min-height: 120px !important;
+        padding: 10px !important;
+    }
+    
+    .game-cell-neon div:first-child {
+        font-size: 40px !important;
+    }
+    
+    .game-content-area > div:nth-child(4) {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+    }
+}
+
+/* 🎮 TOUCH-FRIENDLY GAME ELEMENTS */
+@media (hover: none) and (pointer: coarse) {
+    .game-cell-neon,
+    .draggable-item,
+    .memory-card,
+    .puzzle-piece {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        user-select: none;
+    }
+    
+    .game-cell-neon:active,
+    .draggable-item:active {
+        transform: scale(0.95) !important;
+        transition: transform 0.1s !important;
+    }
+}
+
+/* 📱 FIX FOR GAME CONTENT SCROLLING */
+.game-content-area {
+    -webkit-overflow-scrolling: touch !important;
+    overflow-y: auto !important;
+}
+
+/* 🎮 GAME BUTTONS MOBILE FIX */
+.play-neon-btn {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 📱 MOBILE SPECIFIC GAME STYLES */
+@media (max-width: 768px) {
+    /* Hide some effects on mobile for performance */
+    .particle-beam,
+    .nebula,
+    .laser-beam,
+    .floating-shapes {
+        display: none !important;
+    }
+    
+    /* Adjust game cards for mobile */
+    .game-hologram {
+        height: 450px !important;
+        margin-top: 40px !important;
+    }
+    
+    .game-stats {
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .stat-badge {
+        font-size: 14px !important;
+        padding: 8px 16px !important;
+        margin: 5px !important;
+    }
+}
+
+/* 🎮 FIX FOR 3RD GAME (MEMORY MATCH) SCROLL */
+@media (max-width: 768px) {
+    /* Fix memory game grid to prevent horizontal scroll */
+    .game-content-area > div:nth-child(4) {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 5px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+    
+    /* Ensure memory cards don't overflow */
+    .memory-card {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Fix container to prevent overflow */
+    .game-content-area {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+    
+    /* Specific fix for memory game content */
+    .game-content-area > div:has(> .game-cell-neon[onclick*="flipMemoryCard"]) {
+        max-width: 100% !important;
+        padding: 10px !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+/* 📱 SPECIFIC FIX FOR SMALL PHONES */
+@media (max-width: 480px) {
+    .game-content-area > div:nth-child(4) {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+    
+    .memory-card {
+        aspect-ratio: 1 !important;
+        min-height: 70px !important;
+        font-size: 30px !important;
+    }
+}
+
+/* 📱 LANDSCAPE FIX */
+@media (orientation: landscape) and (max-height: 600px) {
+    .game-content-area > div:nth-child(4) {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 6px !important;
+    }
+    
+    .memory-card {
+        min-height: 60px !important;
+        font-size: 25px !important;
+    }
+}
+
+/* 🎮 IMMEDIATE FIX FOR MEMORY GAME SCROLL */
+.memory-game-container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Force no horizontal scroll */
+body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+}
+
+/* Fix game arena width */
+.island-content {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+}
+
+/* Ensure memory cards fit */
+.game-cell-neon[onclick*="flipMemoryCard"] {
+    min-width: 0 !important;
+    flex-shrink: 1 !important;
+}
     </style>
 </head>
 <body>
@@ -1743,37 +2167,92 @@
         }
 
         // 🧠 MEMORY GAME CONTENT
-        function createMemoryGameContent() {
-            return `
-                <div style="color: white; text-align: center; padding: 40px;">
-                    <div style="font-size: 80px; margin-bottom: 30px;">🧠</div>
-                    <h2 style="font-size: 36px; margin-bottom: 20px; color: var(--neon-blue);">
-                        MEMORY MATRIX
-                    </h2>
-                    <p style="font-size: 24px; margin-bottom: 50px; color: rgba(255, 255, 255, 0.9);">
-                        Find matching pairs of country flags!
-                    </p>
-                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 800px; margin: 0 auto;">
-                        ${Array.from({length: 16}).map((_, i) => {
-                            const flags = ['🇺🇸', '🇯🇵', '🇫🇷', '🇧🇷', '🇮🇳', '🇨🇦', '🇩🇪', '🇦🇺'];
-                            const flag = flags[i % 8];
-                            return `
-                                <div class="game-cell-neon" onclick="flipMemoryCard(this)" 
-                                     style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
-                                            font-size: 60px; cursor: pointer;">
-                                    <div class="card-back">❓</div>
-                                    <div class="card-front" style="display: none;">${flag}</div>
-                                </div>
-                            `;
-                        }).join('')}
-                    </div>
-                    <div style="margin-top: 50px; font-size: 24px; color: var(--neon-green);">
-                        💡 Each matched pair earns 150 points!
-                    </div>
-                </div>
-            `;
-        }
+       // 🧠 ENHANCED MEMORY GAME FOR MOBILE
+function createMobileMemoryGameContent() {
+    const isMobile = window.innerWidth <= 768;
+    
+    // Use fewer cards on mobile
+    const cardCount = isMobile ? 12 : 16;
+    const flagCount = isMobile ? 6 : 8;
+    
+    const flags = ['🇺🇸', '🇯🇵', '🇫🇷', '🇧🇷', '🇮🇳', '🇨🇦', '🇩🇪', '🇦🇺'].slice(0, flagCount);
+    
+    return `
+        <div style="color: white; text-align: center; padding: 15px; width: 100%; overflow-x: hidden;">
+            <div style="font-size: ${isMobile ? '50px' : '80px'}; margin-bottom: ${isMobile ? '15px' : '30px'};">🧠</div>
+            <h2 style="font-size: ${isMobile ? '24px' : '36px'}; 
+                       margin-bottom: ${isMobile ? '15px' : '20px'}; 
+                       color: var(--neon-blue);">
+                MEMORY MATRIX
+            </h2>
+            <p style="font-size: ${isMobile ? '16px' : '24px'}; 
+                     margin-bottom: ${isMobile ? '20px' : '50px'}; 
+                     color: rgba(255, 255, 255, 0.9);">
+                Find matching pairs of country flags!
+            </p>
+            <div style="display: grid; 
+                       grid-template-columns: repeat(${isMobile ? '3' : '4'}, 1fr); 
+                       gap: ${isMobile ? '10px' : '20px'}; 
+                       max-width: ${isMobile ? '100%' : '800px'}; 
+                       margin: 0 auto;
+                       padding: ${isMobile ? '5px' : '0'};
+                       box-sizing: border-box;">
+                ${Array.from({length: cardCount}).map((_, i) => {
+                    const flag = flags[i % flags.length];
+                    return `
+                        <div class="game-cell-neon memory-card" 
+                             onclick="flipMemoryCard(this)"
+                             style="aspect-ratio: 1; 
+                                    display: flex; 
+                                    align-items: center; 
+                                    justify-content: center;
+                                    font-size: ${isMobile ? '30px' : '60px'}; 
+                                    cursor: pointer;
+                                    width: 100%;
+                                    max-width: 100%;
+                                    margin: 0;
+                                    padding: 0;
+                                    overflow: hidden;">
+                            <div class="card-back" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">❓</div>
+                            <div class="card-front" style="display: none; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">${flag}</div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+            <div style="margin-top: ${isMobile ? '20px' : '50px'}; 
+                       font-size: ${isMobile ? '16px' : '24px'}; 
+                       color: var(--neon-green);">
+                💡 Each matched pair earns 150 points!
+            </div>
+        </div>
+    `;
+}
 
+// 🧠 UPDATE THE FLIP MEMORY CARD FUNCTION FOR MOBILE
+function flipMemoryCard(element) {
+    const front = element.querySelector('.card-front');
+    const back = element.querySelector('.card-back');
+    
+    if (front.style.display === 'none' || !front.style.display) {
+        front.style.display = 'flex';
+        back.style.display = 'none';
+        element.style.background = 'rgba(255, 255, 255, 0.15)';
+        element.style.borderColor = 'var(--neon-blue)';
+    } else {
+        front.style.display = 'none';
+        back.style.display = 'flex';
+        element.style.background = '';
+        element.style.borderColor = '';
+    }
+    
+    // Prevent multiple flips on mobile touch
+    if (window.innerWidth <= 768) {
+        element.style.pointerEvents = 'none';
+        setTimeout(() => {
+            element.style.pointerEvents = 'auto';
+        }, 500);
+    }
+}
         // 🎯 DRAG & DROP GAME CONTENT
         function createDragDropGameContent() {
             return `
@@ -2419,6 +2898,535 @@
 
         // Check on load
         checkMobile();
+
+        // 📱 ENHANCED MOBILE OPTIMIZATION FOR GAMES
+function optimizeForMobile() {
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // Reduce effects for better performance
+        const effects = document.querySelectorAll('.particle-beam, .nebula, .laser-beam, .floating-shapes');
+        effects.forEach(effect => {
+            effect.style.display = 'none';
+        });
+        
+        // Optimize game cards for touch
+        const gameCards = document.querySelectorAll('.game-hologram');
+        gameCards.forEach(card => {
+            card.style.cursor = 'pointer';
+            card.style.webkitTapHighlightColor = 'transparent';
+        });
+        
+        // Make game cells more touch-friendly
+        document.querySelectorAll('.game-cell-neon').forEach(cell => {
+            cell.style.minHeight = '120px';
+            cell.style.padding = '15px';
+        });
+        
+        console.log('📱 Mobile optimization applied');
+    }
+}
+
+// 🎮 MOBILE-FRIENDLY GAME FUNCTIONS
+function createMobileFriendlyGameContent(gameType) {
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (!isMobile) {
+        return createGameContent(gameType);
+    }
+    
+    // Mobile-optimized game content
+    switch(gameType) {
+        case 'flag-match':
+            return createMobileFlagGame();
+        case 'capital-quiz':
+            return createMobileQuizGame();
+        case 'memory-match':
+            return createMobileMemoryGame();
+        case 'drag-drop':
+            return createMobileDragDropGame();
+        case 'geo-spin':
+            return createMobileSpinGame();
+        case 'map-puzzle':
+            return createMobilePuzzleGame();
+        default:
+            return createGameContent(gameType);
+    }
+}
+
+// 🚩 MOBILE FLAG GAME
+function createMobileFlagGame() {
+    const countries = [
+        { name: 'USA', flag: '🇺🇸', color: '#B31942' },
+        { name: 'JAPAN', flag: '🇯🇵', color: '#BC002D' },
+        { name: 'FRANCE', flag: '🇫🇷', color: '#002654' },
+        { name: 'BRAZIL', flag: '🇧🇷', color: '#009739' },
+        { name: 'INDIA', flag: '🇮🇳', color: '#FF9933' },
+        { name: 'CANADA', flag: '🇨🇦', color: '#D80621' }
+    ];
+    
+    const shuffled = [...countries].sort(() => Math.random() - 0.5);
+    const target = shuffled[0];
+    
+    return `
+        <div style="color: white; text-align: center; padding: 20px;">
+            <div style="font-size: 50px; margin-bottom: 20px;">🎯</div>
+            <h2 style="font-size: 28px; margin-bottom: 15px; color: var(--neon-yellow);">
+                FIND THE FLAG:
+            </h2>
+            <div style="font-size: 32px; margin-bottom: 30px; padding: 20px; 
+                background: rgba(255, 255, 255, 0.1); 
+                border-radius: 20px;
+                border: 2px solid ${target.color};
+                box-shadow: 0 0 30px ${target.color};
+                animation: pulseGlow 2s infinite;">
+                ${target.name}
+            </div>
+            <div class="game-grid-interactive" style="grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                ${shuffled.map((country, index) => `
+                    <div class="game-cell-neon" 
+                         onclick="checkFlagAnswer('${country.name}', '${target.name}', this)"
+                         style="animation-delay: ${index * 0.1}s; padding: 15px;">
+                        <div style="font-size: 60px; margin-bottom: 10px;">${country.flag}</div>
+                        <div style="font-size: 18px; font-weight: 700; color: ${country.color}">
+                            ${country.name}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <div style="margin-top: 30px; font-size: 18px; color: var(--neon-blue);">
+                🎯 Match to win 200 points!
+            </div>
+        </div>
+    `;
+}
+
+// 🏛️ MOBILE QUIZ GAME
+function createMobileQuizGame() {
+    const questions = [
+        {
+            question: "Which country is known as 'Land of Rising Sun'?",
+            options: ["CHINA", "JAPAN", "KOREA"],
+            correct: "JAPAN",
+            emoji: "🇯🇵",
+            color: "#BC002D"
+        },
+        {
+            question: "Capital of Brazil?",
+            options: ["RIO", "SÃO PAULO", "BRASÍLIA"],
+            correct: "BRASÍLIA",
+            emoji: "🇧🇷",
+            color: "#009739"
+        }
+    ];
+    
+    const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+    
+    return `
+        <div style="color: white; text-align: center; padding: 20px;">
+            <div style="font-size: 60px; margin-bottom: 15px;">${randomQuestion.emoji}</div>
+            <h2 style="font-size: 24px; margin-bottom: 30px; color: ${randomQuestion.color}; 
+                padding: 15px; background: rgba(255, 255, 255, 0.05); 
+                border-radius: 20px; border: 2px solid ${randomQuestion.color};">
+                ${randomQuestion.question}
+            </h2>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin: 0 auto;">
+                ${randomQuestion.options.map((option, index) => `
+                    <div class="game-cell-neon" 
+                         onclick="checkQuizAnswer('${option}', '${randomQuestion.correct}', this)"
+                         style="animation-delay: ${index * 0.1}s; padding: 20px;">
+                        <div style="font-size: 30px; margin-bottom: 15px;">${getQuizEmoji(option)}</div>
+                        <div style="font-size: 22px; font-weight: 800;">${option}</div>
+                    </div>
+                `).join('')}
+            </div>
+            <div style="margin-top: 30px; font-size: 18px; color: var(--neon-pink);">
+                🧠 Correct = 250 points!
+            </div>
+        </div>
+    `;
+}
+
+// 🧠 MOBILE MEMORY GAME
+function createMobileMemoryGame() {
+    return `
+        <div style="color: white; text-align: center; padding: 20px;">
+            <div style="font-size: 60px; margin-bottom: 20px;">🧠</div>
+            <h2 style="font-size: 28px; margin-bottom: 15px; color: var(--neon-blue);">
+                MEMORY MATRIX
+            </h2>
+            <p style="font-size: 18px; margin-bottom: 30px; color: rgba(255, 255, 255, 0.9);">
+                Find matching flag pairs!
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 auto;">
+                ${Array.from({length: 12}).map((_, i) => {
+                    const flags = ['🇺🇸', '🇯🇵', '🇫🇷', '🇧🇷', '🇮🇳', '🇨🇦'];
+                    const flag = flags[i % 6];
+                    return `
+                        <div class="game-cell-neon" onclick="flipMemoryCard(this)" 
+                             style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+                                    font-size: 40px; cursor: pointer; padding: 0;">
+                            <div class="card-back">❓</div>
+                            <div class="card-front" style="display: none;">${flag}</div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+            <div style="margin-top: 30px; font-size: 18px; color: var(--neon-green);">
+                💡 Each pair = 150 points!
+            </div>
+        </div>
+    `;
+}
+
+// 🎯 MOBILE DRAG & DROP (Touch-friendly version)
+function createMobileDragDropGame() {
+    return `
+        <div style="color: white; text-align: center; padding: 20px;">
+            <div style="font-size: 60px; margin-bottom: 20px;">🎯</div>
+            <h2 style="font-size: 28px; margin-bottom: 15px; color: var(--neon-green);">
+                WORLD BUILDER
+            </h2>
+            <p style="font-size: 18px; margin-bottom: 30px; color: rgba(255, 255, 255, 0.9);">
+                Tap countries and continents to match!
+            </p>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: var(--neon-blue); font-size: 22px; margin-bottom: 15px;">
+                    🇺🇳 COUNTRIES
+                </h3>
+                <div id="countriesList" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                    ${['JAPAN', 'FRANCE', 'BRAZIL', 'EGYPT'].map(country => `
+                        <div class="game-cell-neon" 
+                             onclick="mobileDragItem('${country}')"
+                             style="padding: 15px; font-size: 18px;">
+                            ${country === 'JAPAN' ? '🇯🇵' : 
+                              country === 'FRANCE' ? '🇫🇷' : 
+                              country === 'BRAZIL' ? '🇧🇷' : '🇪🇬'} ${country}
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <div>
+                <h3 style="color: var(--neon-pink); font-size: 22px; margin-bottom: 15px;">
+                    🌍 CONTINENTS
+                </h3>
+                <div id="continentsList" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                    ${['ASIA', 'EUROPE', 'SOUTH AMERICA', 'AFRICA'].map(continent => `
+                        <div class="game-cell-neon drop-zone-mobile" 
+                             data-continent="${continent}"
+                             onclick="mobileDropItem('${continent}')"
+                             style="padding: 20px; font-size: 20px; min-height: 80px;">
+                            ${continent === 'ASIA' ? '🌏 ASIA' :
+                              continent === 'EUROPE' ? '🇪🇺 EUROPE' :
+                              continent === 'SOUTH AMERICA' ? '🌎 S. AMERICA' : '🦁 AFRICA'}
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; font-size: 18px; color: var(--neon-purple);">
+                🎯 Match = 300 points!
+            </div>
+        </div>
+    `;
+}
+
+// 🎡 MOBILE SPIN GAME
+function createMobileSpinGame() {
+    return `
+        <div style="color: white; text-align: center; padding: 20px;">
+            <div style="font-size: 60px; margin-bottom: 20px;">🎡</div>
+            <h2 style="font-size: 28px; margin-bottom: 15px; color: var(--neon-purple);">
+                GLOBE SPINNER
+            </h2>
+            <p style="font-size: 18px; margin-bottom: 30px; color: rgba(255, 255, 255, 0.9);">
+                Spin to win prizes!
+            </p>
+            
+            <div style="width: 250px; height: 250px; margin: 0 auto 30px; 
+                background: conic-gradient(
+                    var(--neon-pink) 0deg 60deg,
+                    var(--neon-blue) 60deg 120deg,
+                    var(--neon-green) 120deg 180deg,
+                    var(--neon-yellow) 180deg 240deg,
+                    var(--neon-purple) 240deg 300deg,
+                    #FF6B6B 300deg 360deg
+                );
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: spinSlow 20s linear infinite;
+                box-shadow: 0 0 50px rgba(255, 0, 255, 0.6);
+                position: relative;"
+                id="spinWheelMobile">
+                
+                <div style="width: 100px; height: 100px; background: white; border-radius: 50%; 
+                    display: flex; align-items: center; justify-content: center; 
+                    font-size: 40px; z-index: 2;">
+                    🌍
+                </div>
+            </div>
+            
+            <button class="play-neon-btn" onclick="mobileSpinWheel()" 
+                    style="font-size: 20px; padding: 15px 40px; margin-top: 20px; width: 100%; max-width: 300px;">
+                🌀 SPIN NOW! 🎉
+            </button>
+            
+            <div id="spinResultMobile" style="margin-top: 25px; font-size: 22px; color: gold;
+                 min-height: 40px;"></div>
+        </div>
+    `;
+}
+
+// 🧩 MOBILE PUZZLE GAME
+function createMobilePuzzleGame() {
+    return `
+        <div style="color: white; text-align: center; padding: 20px;">
+            <div style="font-size: 60px; margin-bottom: 20px;">🧩</div>
+            <h2 style="font-size: 28px; margin-bottom: 15px; color: var(--neon-yellow);">
+                PLANET PUZZLER
+            </h2>
+            <p style="font-size: 18px; margin-bottom: 30px; color: rgba(255, 255, 255, 0.9);">
+                Tap continents in correct order!
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; 
+                margin: 0 auto 30px;">
+                ${['N. AMERICA', 'S. AMERICA', 'EUROPE', 'AFRICA', 'ASIA', 'AUSTRALIA']
+                    .map((continent, index) => `
+                        <div class="game-cell-neon" 
+                             onclick="placeContinent('${continent}', this)"
+                             style="aspect-ratio: 1; display: flex; align-items: center; 
+                                    justify-content: center; font-size: 18px; padding: 15px;">
+                            ${continent}
+                        </div>
+                    `).join('')}
+            </div>
+            
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 15px; 
+                padding: 20px; border: 2px dashed var(--neon-blue);">
+                <h3 style="color: var(--neon-green); font-size: 20px; margin-bottom: 15px;">
+                    🌍 PROGRESS
+                </h3>
+                <div id="puzzleProgressMobile" style="color: var(--neon-pink); font-size: 18px;">
+                    Tap continents in order!
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// 📱 MOBILE-SPECIFIC GAME FUNCTIONS
+function mobileDragItem(country) {
+    const selectedCountry = country;
+    // Store in global variable for mobile
+    window.mobileSelectedCountry = selectedCountry;
+    
+    // Visual feedback
+    const items = document.querySelectorAll('.game-cell-neon');
+    items.forEach(item => {
+        if (item.textContent.includes(country)) {
+            item.style.background = 'rgba(0, 255, 255, 0.3)';
+            item.style.borderColor = 'var(--neon-blue)';
+        }
+    });
+    
+    alert(`Selected ${country}. Now tap a continent to match!`);
+}
+
+function mobileDropItem(continent) {
+    if (!window.mobileSelectedCountry) {
+        alert('First select a country!');
+        return;
+    }
+    
+    const correctPairs = {
+        'JAPAN': 'ASIA',
+        'FRANCE': 'EUROPE',
+        'BRAZIL': 'SOUTH AMERICA',
+        'EGYPT': 'AFRICA'
+    };
+    
+    const country = window.mobileSelectedCountry;
+    
+    if (correctPairs[country] === continent) {
+        // Correct match
+        const continentElement = document.querySelector(`[data-continent="${continent}"]`);
+        continentElement.innerHTML = `
+            <div style="color: var(--neon-green); font-size: 18px;">
+                ✅ ${country} ✓
+            </div>
+        `;
+        continentElement.style.background = 'rgba(0, 255, 0, 0.2)';
+        continentElement.style.borderColor = 'var(--neon-green)';
+        
+        // Hide the country
+        const countryElements = document.querySelectorAll('.game-cell-neon');
+        countryElements.forEach(el => {
+            if (el.textContent.includes(country)) {
+                el.style.display = 'none';
+            }
+        });
+        
+        gameScore += 300;
+        updateScoreDisplay();
+        createFireworks(10);
+        
+        // Check if all matched
+        const hiddenCountries = document.querySelectorAll('.game-cell-neon[style*="display: none"]');
+        if (hiddenCountries.length === 4) {
+            createFireworks(30);
+            gameScore += 1000;
+            updateScoreDisplay();
+            
+            setTimeout(() => {
+                openGameArena('drag-drop');
+            }, 2000);
+        }
+    } else {
+        // Wrong match
+        alert(`❌ ${country} is not in ${continent}! Try again.`);
+        gameScore = Math.max(0, gameScore - 50);
+        updateScoreDisplay();
+    }
+    
+    // Reset selection
+    window.mobileSelectedCountry = null;
+    
+    // Reset visual feedback
+    const items = document.querySelectorAll('.game-cell-neon');
+    items.forEach(item => {
+        item.style.background = '';
+        item.style.borderColor = '';
+    });
+}
+
+function mobileSpinWheel() {
+    const wheel = document.getElementById('spinWheelMobile');
+    const result = document.getElementById('spinResultMobile');
+    
+    wheel.style.animation = 'none';
+    
+    const spins = Math.floor(Math.random() * 3 + 2);
+    const degrees = spins * 360 + Math.floor(Math.random() * 360);
+    
+    setTimeout(() => {
+        wheel.style.transition = 'transform 2s cubic-bezier(0.1, 0.8, 0.2, 1)';
+        wheel.style.transform = `rotate(${degrees}deg)`;
+    }, 10);
+    
+    const prizes = [
+        '🎉 500 POINTS!',
+        '🏆 750 POINTS!',
+        '⭐ 1000 POINTS!',
+        '🎁 DOUBLE SCORE!',
+        '✨ 300 POINTS!'
+    ];
+    
+    setTimeout(() => {
+        const prize = prizes[Math.floor(Math.random() * prizes.length)];
+        result.textContent = prize;
+        
+        if (prize.includes('500')) gameScore += 500;
+        else if (prize.includes('750')) gameScore += 750;
+        else if (prize.includes('1000')) gameScore += 1000;
+        else if (prize.includes('DOUBLE')) gameScore *= 2;
+        else if (prize.includes('300')) gameScore += 300;
+        
+        updateScoreDisplay();
+        createFireworks(20);
+        
+        setTimeout(() => {
+            wheel.style.transition = 'none';
+            wheel.style.transform = 'rotate(0deg)';
+            wheel.style.animation = 'spinSlow 20s linear infinite';
+            result.textContent = '';
+        }, 2000);
+    }, 2000);
+}
+
+// 📱 UPDATE OPEN GAME ARENA FUNCTION FOR MOBILE
+function openGameArena(gameType) {
+    createFireworks(30);
+    
+    const arena = document.getElementById('gameArena');
+    const title = document.getElementById('arenaTitle');
+    const content = document.getElementById('gameContent');
+    
+    const gameTitles = {
+        'flag-match': '🚩 FLAG FRENZY',
+        'capital-quiz': '🏛️ CAPITAL QUEST',
+        'memory-match': '🧠 MEMORY MATRIX',
+        'drag-drop': '🎯 WORLD BUILDER',
+        'geo-spin': '🎡 GLOBE SPINNER',
+        'map-puzzle': '🧩 PLANET PUZZLER'
+    };
+    
+    title.textContent = gameTitles[gameType];
+    
+    // Mobile optimization
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    
+    if (isMobile && window.innerWidth <= 768) {
+        // Use mobile-optimized content
+        content.innerHTML = createMobileFriendlyGameContent(gameType);
+        
+        // Adjust arena for mobile
+        arena.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Force portrait mode on mobile
+        if (window.innerHeight > window.innerWidth) {
+            arena.style.flexDirection = 'column';
+        }
+    } else {
+        // Use regular content
+        content.innerHTML = createGameContent(gameType);
+    }
+    
+    arena.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    isGameActive = true;
+    currentGame = gameType;
+}
+
+// 📱 INITIALIZE MOBILE OPTIMIZATION
+document.addEventListener('DOMContentLoaded', function() {
+    optimizeForMobile();
+    
+    // Check orientation
+    window.addEventListener('orientationchange', function() {
+        setTimeout(() => {
+            if (currentGame && isGameActive) {
+                openGameArena(currentGame);
+            }
+        }, 100);
+    });
+    
+    // Prevent zoom on double tap
+    document.addEventListener('touchend', function(e) {
+        if (e.touches.length > 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    // Touch feedback for game cells
+    document.addEventListener('touchstart', function(e) {
+        if (e.target.classList.contains('game-cell-neon')) {
+            e.target.style.transform = 'scale(0.95)';
+        }
+    });
+    
+    document.addEventListener('touchend', function(e) {
+        if (e.target.classList.contains('game-cell-neon')) {
+            e.target.style.transform = 'scale(1)';
+        }
+    });
+});
+
     </script>
 </body>
 </html>
